@@ -169,13 +169,13 @@ export function Nav() {
               onClick={() => setLang("en")}
               className={`inline-flex items-center gap-2 rounded-full border border-sand-light/15 px-3 py-1.5 ${lang === "en" ? "bg-sun/10 text-sun" : "opacity-70"}`}
             >
-              <span aria-hidden>🇬🇧</span> EN
+              <FlagUK className="h-3 w-6 rounded-sm" /> EN
             </button>
             <button
               onClick={() => setLang("fi")}
               className={`inline-flex items-center gap-2 rounded-full border border-sand-light/15 px-3 py-1.5 ${lang === "fi" ? "bg-sun/10 text-sun" : "opacity-70"}`}
             >
-              <span aria-hidden>🇫🇮</span> FI
+              <FlagFI className="h-3 w-6 rounded-sm" /> FI
             </button>
           </div>
 
