@@ -180,6 +180,53 @@ export const content = {
       fi: "Polku, joka rakentuu vapauden, varmuuden ja jatkuvuuden ympärille.",
     },
   },
+  audience: {
+    eyebrow: { en: "Who it's for", fi: "Kenelle" },
+    title: { en: "Is Taurisol for you?", fi: "Onko Taurisol sinua varten?" },
+    sub: {
+      en: "Taurisol is designed for people who want a different way to spend part of their life in Spain.",
+      fi: "Taurisol on suunniteltu ihmisille, jotka haluavat toisenlaisen tavan viettää osa elämästään Espanjassa.",
+    },
+    cards: [
+      {
+        t: { en: "Entrepreneurs", fi: "Yrittäjät" },
+        b: {
+          en: "Build your business while enjoying more freedom and sunshine.",
+          fi: "Rakenna liiketoimintaasi ja nauti samalla vapaudesta ja auringosta.",
+        },
+      },
+      {
+        t: { en: "Remote Workers", fi: "Etätyöntekijät" },
+        b: {
+          en: "Work from Andalusia without giving up continuity.",
+          fi: "Työskentele Andalusiasta käsin luopumatta jatkuvuudesta.",
+        },
+      },
+      {
+        t: { en: "Active Couples", fi: "Aktiiviset parit" },
+        b: {
+          en: "Enjoy lifestyle, health, sports and community.",
+          fi: "Nauti elämäntavasta, terveydestä, urheilusta ja yhteisöstä.",
+        },
+      },
+      {
+        t: { en: "Future Retirees", fi: "Tulevat eläkeläiset" },
+        b: {
+          en: "Create your Spain chapter before retirement becomes your only option.",
+          fi: "Luo Espanja-lukusi ennen kuin eläke on ainoa vaihtoehtosi.",
+        },
+      },
+    ],
+    footer1: {
+      en: "If you recognize yourself in one of these groups,",
+      fi: "Jos tunnistat itsesi jostakin näistä ryhmistä,",
+    },
+    footer2: {
+      en: "Taurisol One can help you evaluate whether this lifestyle fits your future plans.",
+      fi: "Taurisol One auttaa sinua arvioimaan, sopiiko tämä elämäntapa tulevaisuuden suunnitelmiisi.",
+    },
+    cta: { en: "Start Taurisol One", fi: "Aloita Taurisol One" },
+  },
   footer: {
     cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
     rights: { en: "All rights reserved.", fi: "Kaikki oikeudet pidätetään." },
