@@ -46,7 +46,7 @@ export function Hero() {
           <div className="mt-12 flex flex-wrap items-center gap-4">
             <a
               href="#philosophy"
-              className="group inline-flex items-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun-deep hover:shadow-[0_10px_40px_-12px_rgba(0,0,0,0.5)]"
+              className="group inline-flex items-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)]"
             >
               {t(content.hero.cta, lang)}
               <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -55,7 +55,7 @@ export function Hero() {
               href="https://one.taurisol.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs uppercase tracking-[0.25em] text-sun transition-all duration-300 hover:border-sun hover:bg-sun/10 hover:shadow-[0_0_24px_-8px_var(--sun)]"
+              className="group inline-flex items-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-sand-light transition-all duration-300 hover:border-sun hover:bg-sun/[0.08] hover:shadow-[0_0_28px_-10px_var(--sun)]"
             >
               {t(content.audience.cta, lang)}
               <span className="transition-transform group-hover:translate-x-1">→</span>
