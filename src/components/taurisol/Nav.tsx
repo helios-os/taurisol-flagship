@@ -3,6 +3,28 @@ import { useLang } from "@/components/LangContext";
 import { content, t } from "@/lib/i18n";
 import { useScrolled } from "@/components/taurisol/Reveal";
 
+function FlagUK({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 60 30" className={className} aria-hidden="true">
+      <rect width="60" height="30" fill="#012169" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" strokeWidth="4" />
+      <path d="M30,0 V30 M0,15 H60" stroke="#fff" strokeWidth="10" />
+      <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" strokeWidth="6" />
+    </svg>
+  );
+}
+
+function FlagFI({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 60 30" className={className} aria-hidden="true">
+      <rect width="60" height="30" fill="#fff" />
+      <rect x="0" y="9" width="60" height="12" fill="#003580" />
+      <rect x="15" y="0" width="12" height="30" fill="#003580" />
+    </svg>
+  );
+}
+
 const links = [
   { key: "philosophy", href: "#philosophy" },
   { key: "how", href: "#how" },
