@@ -26,7 +26,7 @@ export function Winters() {
         </p>
         <a
           href="#audience"
-          className="group mt-12 inline-flex items-center gap-3 rounded-full border border-sand-light/40 px-8 py-4 text-xs uppercase tracking-[0.25em] text-sand-light transition-all duration-300 hover:border-sun hover:bg-sun hover:text-shadow hover:shadow-[0_0_28px_-6px_var(--sun)]"
+          className="group mt-12 inline-flex items-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs uppercase tracking-[0.25em] text-sun transition-all duration-300 hover:border-sun hover:bg-sun hover:text-shadow hover:shadow-[0_0_28px_-8px_var(--sun)]"
         >
           {t(content.winters.cta, lang)}
           <span className="transition-transform group-hover:translate-x-1">→</span>

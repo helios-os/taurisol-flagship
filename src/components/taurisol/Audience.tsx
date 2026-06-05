@@ -51,7 +51,7 @@ export function Audience() {
               href="https://one.taurisol.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-10 inline-flex items-center gap-3 bg-shadow px-8 py-4 text-xs uppercase tracking-[0.25em] text-sand-light transition-all hover:bg-olive-deep hover:shadow-[0_8px_30px_-12px_rgba(0,0,0,0.4)]"
+              className="group mt-10 inline-flex items-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-all hover:bg-sun hover:shadow-[0_8px_30px_-12px_var(--sun)]"
             >
               {t(content.audience.cta, lang)}
               <span className="transition-transform group-hover:translate-x-1">→</span>

@@ -47,7 +47,7 @@ export function Nav() {
   }, [open]);
 
   const navBg = scrolled
-    ? "bg-shadow/40 backdrop-blur-xl border-b border-sand-light/10 shadow-[0_1px_30px_-12px_rgba(0,0,0,0.35)]"
+    ? "bg-shadow/25 backdrop-blur-2xl border-b border-sand-light/10 shadow-[0_1px_30px_-12px_rgba(0,0,0,0.25)]"
     : "bg-transparent border-b border-transparent";
 
   const linkLabel = (key: string) =>
@@ -76,16 +76,16 @@ export function Nav() {
               <a
                 key={l.key}
                 href={l.href}
-                className="rounded-full border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/40 hover:bg-sun/5 hover:text-sun hover:shadow-[0_0_18px_-6px_var(--sun)]"
+                className="rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/50 hover:bg-sun/[0.06] hover:text-sun hover:shadow-[0_0_22px_-8px_var(--sun)]"
               >
                 {linkLabel(l.key)}
               </a>
             ))}
-            <div className="ml-3 flex items-center gap-1 rounded-full border border-sand-light/15 px-1.5 py-1 text-[11px] uppercase tracking-[0.22em] text-sand-light/80">
+            <div className="ml-3 flex items-center gap-1 rounded-[10px] border border-sand-light/15 px-1.5 py-1 text-[11px] uppercase tracking-[0.22em] text-sand-light/80">
               <button
                 onClick={() => setLang("en")}
                 aria-label="English"
-                className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-all duration-300 ${
+                className={`flex items-center gap-1.5 rounded-[7px] px-2.5 py-1 transition-all duration-300 ${
                   lang === "en"
                     ? "bg-sun/10 text-sun"
                     : "opacity-60 hover:opacity-100 hover:text-sand-light"
@@ -97,7 +97,7 @@ export function Nav() {
               <button
                 onClick={() => setLang("fi")}
                 aria-label="Suomi"
-                className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-all duration-300 ${
+                className={`flex items-center gap-1.5 rounded-[7px] px-2.5 py-1 transition-all duration-300 ${
                   lang === "fi"
                     ? "bg-sun/10 text-sun"
                     : "opacity-60 hover:opacity-100 hover:text-sand-light"
@@ -109,7 +109,7 @@ export function Nav() {
             </div>
             <a
               href="#philosophy"
-              className="ml-2 inline-flex items-center gap-2 rounded-full border border-sand-light/40 px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-sand-light transition-all duration-300 hover:border-sun hover:bg-sun hover:text-shadow hover:shadow-[0_0_24px_-6px_var(--sun)]"
+              className="ml-2 inline-flex items-center gap-2 rounded-[10px] bg-sun px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-shadow transition-all duration-300 hover:bg-sun-deep hover:shadow-[0_8px_24px_-10px_var(--sun)]"
             >
               {t(content.nav.cta, lang)}
             </a>
@@ -167,13 +167,13 @@ export function Nav() {
           <div className="mt-12 flex items-center gap-3 text-xs uppercase tracking-[0.25em]">
             <button
               onClick={() => setLang("en")}
-              className={`inline-flex items-center gap-2 rounded-full border border-sand-light/15 px-3 py-1.5 ${lang === "en" ? "bg-sun/10 text-sun" : "opacity-70"}`}
+              className={`inline-flex items-center gap-2 rounded-[10px] border border-sand-light/15 px-3 py-1.5 ${lang === "en" ? "bg-sun/10 text-sun" : "opacity-70"}`}
             >
               <FlagUK className="h-3 w-6 rounded-sm" /> EN
             </button>
             <button
               onClick={() => setLang("fi")}
-              className={`inline-flex items-center gap-2 rounded-full border border-sand-light/15 px-3 py-1.5 ${lang === "fi" ? "bg-sun/10 text-sun" : "opacity-70"}`}
+              className={`inline-flex items-center gap-2 rounded-[10px] border border-sand-light/15 px-3 py-1.5 ${lang === "fi" ? "bg-sun/10 text-sun" : "opacity-70"}`}
             >
               <FlagFI className="h-3 w-6 rounded-sm" /> FI
             </button>
@@ -184,7 +184,7 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-8 inline-flex items-center justify-center gap-2 bg-sand-light px-6 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-deep"
           >
             {t(content.audience.cta, lang)} →
           </a>
