@@ -329,6 +329,10 @@ export const content = {
       fi: "Taurisol on lippulaivakonsepti, jonka on kehittänyt ja jota operoi Helios Digitech Oy. Alustana toimii Helios OS — tekoälykäyttöjärjestelmä näkyvyydelle, luottamukselle ja liikevaihdon hallinnalle.",
     },
     startCta: { en: "Start Taurisol One", fi: "Aloita Taurisol One" },
+    ownership: {
+      en: "Taurisol is a flagship concept developed and operated by Helios Digitech Oy. Powered by Helios OS.",
+      fi: "Taurisol on lippulaivakonsepti, jonka on kehittänyt ja jota operoi Helios Digitech Oy. Alustana toimii Helios OS.",
+    },
   },
 } as const;
 
