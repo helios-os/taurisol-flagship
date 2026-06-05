@@ -2,8 +2,15 @@ export type Lang = "en" | "fi";
 
 export const content = {
   nav: {
-    discover: { en: "Discover", fi: "Tutustu" },
-    forMe: { en: "Is this for me?", fi: "Onko tämä minulle?" },
+    philosophy: { en: "Philosophy", fi: "Filosofia" },
+    how: { en: "How It Works", fi: "Miten se toimii" },
+    homes: { en: "Homes", fi: "Kodit" },
+    location: { en: "Location", fi: "Sijainti" },
+    one: { en: "Taurisol One", fi: "Taurisol One" },
+    faq: { en: "FAQ", fi: "UKK" },
+    cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
+    menu: { en: "Menu", fi: "Valikko" },
+    close: { en: "Close", fi: "Sulje" },
   },
   hero: {
     eyebrow: { en: "A new way to live in Spain", fi: "Uusi tapa elää Espanjassa" },
@@ -74,7 +81,10 @@ export const content = {
       { en: "Leave the worries behind.", fi: "Jätä huolet taakse." },
     ],
     closer1: { en: "Taurisol is not about owning more.", fi: "Taurisol ei ole omistamisesta enempää." },
-    closer2: { en: "It is about living better.", fi: "Se on paremmin elämisestä." },
+    closer2: {
+      en: "It is about making the most of your best years.",
+      fi: "Se on parhaiden vuosiesi täyteen elämisestä.",
+    },
   },
   pillars: {
     cards: [
@@ -102,12 +112,15 @@ export const content = {
     ],
   },
   why: {
+    intro1: { en: "Freedom is the outcome.", fi: "Vapaus on lopputulos." },
+    intro2: { en: "Technology makes it possible.", fi: "Teknologia tekee sen mahdolliseksi." },
     title: {
       en: "Technology makes the promise possible.",
       fi: "Teknologia tekee lupauksen mahdolliseksi.",
     },
     cards: [
       {
+        icon: { en: "☀", fi: "☀" },
         t: { en: "Off-grid energy independence", fi: "Verkosta riippumaton energia" },
         b: {
           en: "Designed to reduce dependency on energy companies and traditional utility costs.",
@@ -115,6 +128,7 @@ export const content = {
         },
       },
       {
+        icon: { en: "🏛", fi: "🏛" },
         t: { en: "Smart governance", fi: "Älykäs hallinto" },
         b: {
           en: "Transparent rules and cost structure designed to prevent hidden fees, overcharging and unfair control.",
@@ -122,6 +136,7 @@ export const content = {
         },
       },
       {
+        icon: { en: "🏡", fi: "🏡" },
         t: { en: "Ready-to-live homes", fi: "Valmiit kodit" },
         b: {
           en: "Fully furnished factory-built homes, delivered with controlled quality, fixed pricing logic and less construction risk.",
@@ -146,6 +161,24 @@ export const content = {
       fi: "Taurisol One on lyhyt kartoitus niille, jotka haluavat ymmärtää, sopiiko tämä uusi malli heidän elämäänsä, työhönsä ja tulevaisuuteensa.",
     },
     cta: { en: "Start Taurisol One", fi: "Aloita Taurisol One" },
+  },
+  trust: {
+    title: {
+      en: "A different way to live part of your life in Spain.",
+      fi: "Toisenlainen tapa elää osa elämästäsi Espanjassa.",
+    },
+    body1: {
+      en: "Most people choose between ownership, renting or hotels.",
+      fi: "Useimmat valitsevat omistamisen, vuokraamisen tai hotellin väliltä.",
+    },
+    body2: {
+      en: "Taurisol was designed to offer another path.",
+      fi: "Taurisol on suunniteltu tarjoamaan toinen polku.",
+    },
+    body3: {
+      en: "One built around freedom, certainty and continuity.",
+      fi: "Polku, joka rakentuu vapauden, varmuuden ja jatkuvuuden ympärille.",
+    },
   },
   footer: {
     cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
