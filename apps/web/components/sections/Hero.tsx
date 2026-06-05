@@ -1,24 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useLang } from "@/components/lang-context";
 import { content, t } from "@/lib/i18n";
 
 export function Hero() {
   const { lang } = useLang();
-  const [y, setY] = useState(0);
+  const bgRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const onScroll = () => setY(Math.min(window.scrollY, 800));
-    onScroll();
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = bgRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      el.style.transform = `translate3d(0, ${Math.min(window.scrollY, 800) * 0.25}px, 0)`;
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden">
       <div
+        ref={bgRef}
         className="absolute inset-0"
-        style={{ transform: `translate3d(0, ${y * 0.25}px, 0)`, willChange: "transform" }}
+        style={{ willChange: "transform" }}
       >
         <Image
           src="/images/hero-andalusia.jpg"
