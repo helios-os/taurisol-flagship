@@ -4,7 +4,7 @@ import { content, t } from "@/lib/i18n";
 export function Footer() {
   const { lang } = useLang();
   return (
-    <footer className="bg-shadow py-24 text-sand-light md:py-32">
+    <footer id="faq" className="bg-shadow py-24 text-sand-light md:py-32">
       <div className="mx-auto max-w-5xl px-6 text-center md:px-12">
         <h2 className="font-serif text-5xl tracking-[0.2em] md:text-7xl">TAURISOL</h2>
         <p className="mt-8 font-serif text-2xl italic text-sand md:text-3xl">

@@ -5,7 +5,7 @@ import { content, t } from "@/lib/i18n";
 export function Outcome() {
   const { lang } = useLang();
   return (
-    <section className="relative bg-shadow py-28 text-sand-light md:py-40">
+    <section id="homes" className="relative bg-shadow py-28 text-sand-light md:py-40">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-12 md:gap-12 md:px-12">
         <div className="md:col-span-5">
           <div className="md:sticky md:top-32">
