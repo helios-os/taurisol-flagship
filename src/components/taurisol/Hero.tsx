@@ -1,12 +1,23 @@
+import { useEffect, useState } from "react";
 import heroImg from "@/assets/hero-andalusia.jpg";
 import { useLang } from "@/components/LangContext";
 import { content, t } from "@/lib/i18n";
 
 export function Hero() {
   const { lang } = useLang();
+  const [y, setY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setY(Math.min(window.scrollY, 800));
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
+      <div
+        className="absolute inset-0"
+        style={{ transform: `translate3d(0, ${y * 0.25}px, 0)`, willChange: "transform" }}
+      >
         <img
           src={heroImg}
           alt="Andalusian olive grove at golden hour"
