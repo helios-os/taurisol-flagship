@@ -81,7 +81,10 @@
   --stone-warm: oklch(0.835 0.034 75);
   --olive: oklch(0.55 0.055 115);
   --olive-deep: oklch(0.32 0.04 115);
-  --sun: oklch(0.78 0.13 75);
+  /* Taurisol Gold — #C8A15A (primary), aged brass / Mediterranean sunlight */
+  --sun: oklch(0.71 0.08 82);
+  --sun-deep: oklch(0.65 0.075 80);
+  --sun-soft: oklch(0.78 0.075 84);
   --shadow-deep: oklch(0.22 0.025 90);
 
   --background: var(--sand-light);
