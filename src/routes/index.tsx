@@ -1,29 +1,43 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LangProvider } from "@/components/LangContext";
+import { Nav } from "@/components/taurisol/Nav";
+import { Hero } from "@/components/taurisol/Hero";
+import { Problem } from "@/components/taurisol/Problem";
+import { Outcome } from "@/components/taurisol/Outcome";
+import { Pillars } from "@/components/taurisol/Pillars";
+import { Why } from "@/components/taurisol/Why";
+import { Winters } from "@/components/taurisol/Winters";
+import { TaurisolOne } from "@/components/taurisol/TaurisolOne";
+import { Footer } from "@/components/taurisol/Footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Taurisol — Make your Spain dream a reality" },
+      { name: "description", content: "A new way to spend part of your life in Andalusia — freedom, certainty and a place to return. Without ownership, rental or maintenance worries." },
+      { property: "og:title", content: "Taurisol — Make your Spain dream a reality" },
+      { property: "og:description", content: "Freedom, certainty and a place to return. A new way to live part of your year in Andalusia." },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <LangProvider>
+      <div className="min-h-screen scroll-smooth bg-background text-foreground">
+        <Nav />
+        <main>
+          <Hero />
+          <Problem />
+          <Outcome />
+          <Pillars />
+          <Why />
+          <Winters />
+          <TaurisolOne />
+        </main>
+        <Footer />
+      </div>
+    </LangProvider>
   );
 }
