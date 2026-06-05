@@ -4,7 +4,7 @@ import { content, t } from "@/lib/i18n";
 export function Pillars() {
   const { lang } = useLang();
   return (
-    <section className="bg-sand py-28 md:py-40">
+    <section id="philosophy" className="bg-sand py-28 md:py-40">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="grid gap-10 md:grid-cols-3 md:gap-px">
           {content.pillars.cards.map((c, i) => (
