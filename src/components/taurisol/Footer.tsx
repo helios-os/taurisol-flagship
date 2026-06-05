@@ -17,30 +17,30 @@ export function Footer() {
     <footer id="faq" className="bg-olive-night text-sand-light">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         {/* Brand block */}
-        <div className="border-b border-sand/10 py-20 text-center md:py-28">
+        <div className="border-b border-sand/10 py-16 text-center md:py-20">
           <h2 className="font-serif text-4xl tracking-[0.2em] md:text-5xl">
             TAURISOL
           </h2>
-          <p className="mt-6 font-serif text-2xl italic text-sand md:text-3xl">
+          <p className="mt-5 font-serif text-2xl italic text-sand md:text-3xl">
             {t(content.hero.title, lang)}
           </p>
           <p className="mt-2 text-sm font-light tracking-wide text-sand-light/60 md:text-base">
             {t(content.hero.sub, lang)}
           </p>
 
-          <p className="mx-auto mt-10 max-w-2xl text-sm font-light leading-relaxed text-sand-light/45">
+          <p className="mx-auto mt-8 max-w-2xl text-sm font-light leading-relaxed text-sand-light/45">
             {t(content.footer.heliosNote, lang)}
           </p>
         </div>
 
         {/* Columns */}
-        <div className="grid grid-cols-2 gap-10 py-16 md:grid-cols-4 md:gap-12">
+        <div className="grid grid-cols-2 gap-10 py-12 md:grid-cols-3 md:gap-12">
           {/* Explore */}
           <div>
-            <h3 className="mb-6 text-[11px] uppercase tracking-[0.25em] text-sand-light/35">
+            <h3 className="mb-5 text-[11px] uppercase tracking-[0.25em] text-sand-light/35">
               {t(content.footer.explore, lang)}
             </h3>
-            <ul className="space-y-3.5">
+            <ul className="space-y-3">
               {exploreLinks.map((item) => (
                 <li key={item.href}>
                   <a
@@ -56,51 +56,64 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="mb-6 text-[11px] uppercase tracking-[0.25em] text-sand-light/35">
+            <h3 className="mb-5 text-[11px] uppercase tracking-[0.25em] text-sand-light/35">
               {t(content.footer.company, lang)}
             </h3>
-            <ul className="space-y-3.5">
-              <li className="text-sm font-light text-sand-light/60">
-                {t(content.footer.heliosDigitech, lang)}
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://one.heliosdigitech.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-light text-sand-light/60 transition-colors duration-300 hover:text-sun"
+                >
+                  {t(content.footer.heliosDigitech, lang)}
+                </a>
               </li>
-              <li className="text-sm font-light text-sand-light/60">
-                {t(content.footer.heliosOS, lang)}
+              <li>
+                <a
+                  href="https://one.heliosdigitech.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-light text-sand-light/60 transition-colors duration-300 hover:text-sun"
+                >
+                  {t(content.footer.heliosOS, lang)}
+                </a>
               </li>
-              <li className="text-sm font-light text-sand-light/60">
-                {t(content.footer.contact, lang)}
+              <li>
+                <a
+                  href="https://one.taurisol.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-light text-sand-light/60 transition-colors duration-300 hover:text-sun"
+                >
+                  {t(content.footer.contact, lang)}
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="mb-6 text-[11px] uppercase tracking-[0.25em] text-sand-light/35">
+            <h3 className="mb-5 text-[11px] uppercase tracking-[0.25em] text-sand-light/35">
               {t(content.footer.legal, lang)}
             </h3>
-          </div>
-
-          {/* CTA */}
-          <div className="col-span-2 flex flex-col items-start md:col-span-1 md:items-end">
-            <a
-              href="https://one.taurisol.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)]"
-            >
-              {t(content.footer.startCta, lang)}
-              <span className="transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </a>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-3 border-t border-sand/10 py-8 text-xs uppercase tracking-[0.2em] text-sand-light/35 md:flex-row">
-          <span>
-            © {new Date().getFullYear()} Taurisol / Helios Digitech Oy
+        <div className="flex flex-col items-center gap-4 border-t border-sand/10 py-8 text-center md:flex-row md:justify-between md:gap-3 md:text-left">
+          <div className="flex flex-col gap-1.5">
+            <span className="text-xs uppercase tracking-[0.2em] text-sand-light/35">
+              © {new Date().getFullYear()} Taurisol / Helios Digitech Oy
+            </span>
+            <span className="text-[11px] font-light tracking-wide text-sand-light/25">
+              {t(content.footer.ownership, lang)}
+            </span>
+          </div>
+          <span className="text-xs uppercase tracking-[0.2em] text-sand-light/35">
+            Andalucía · España
           </span>
-          <span>Andalucía · España</span>
         </div>
       </div>
     </footer>
