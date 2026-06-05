@@ -35,11 +35,11 @@ export function Outcome() {
             ))}
           </ul>
 
-          <div className="mt-20 max-w-md">
-            <p className="font-serif text-2xl italic leading-snug text-sand md:text-3xl">
+          <div className="mt-28 max-w-xl border-l border-sun/40 pl-8">
+            <p className="font-serif text-3xl leading-[1.25] text-sand-light md:text-4xl">
               {t(content.outcome.closer1, lang)}
             </p>
-            <p className="mt-3 font-serif text-2xl italic leading-snug text-sun md:text-3xl">
+            <p className="mt-6 font-serif text-3xl italic leading-[1.25] text-sun md:text-4xl">
               {t(content.outcome.closer2, lang)}
             </p>
           </div>

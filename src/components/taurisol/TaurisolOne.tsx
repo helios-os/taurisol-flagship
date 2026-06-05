@@ -16,11 +16,13 @@ export function TaurisolOne() {
           {t(content.one.body, lang)}
         </p>
         <a
-          href="#"
-          className="mt-12 inline-flex items-center gap-3 bg-shadow px-8 py-4 text-xs uppercase tracking-[0.25em] text-sand-light transition-colors hover:bg-olive-deep"
+          href="https://one.taurisol.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-12 inline-flex items-center gap-3 bg-shadow px-8 py-4 text-xs uppercase tracking-[0.25em] text-sand-light transition-all duration-300 hover:bg-olive-deep hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.5)]"
         >
           {t(content.one.cta, lang)}
-          <span>→</span>
+          <span className="transition-transform group-hover:translate-x-1">→</span>
         </a>
       </div>
     </section>

@@ -25,7 +25,7 @@ export function Nav() {
   }, [open]);
 
   const navBg = scrolled
-    ? "bg-shadow/80 backdrop-blur-md border-b border-sand-light/10"
+    ? "bg-shadow/40 backdrop-blur-xl border-b border-sand-light/10 shadow-[0_1px_30px_-12px_rgba(0,0,0,0.35)]"
     : "bg-transparent border-b border-transparent";
 
   const linkLabel = (key: string) =>
@@ -49,34 +49,45 @@ export function Nav() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden items-center gap-9 lg:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {links.map((l) => (
               <a
                 key={l.key}
                 href={l.href}
-                className="text-[11px] uppercase tracking-[0.22em] text-sand-light/80 transition-colors hover:text-sun"
+                className="rounded-full border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/40 hover:bg-sun/5 hover:text-sun hover:shadow-[0_0_18px_-6px_var(--sun)]"
               >
                 {linkLabel(l.key)}
               </a>
             ))}
-            <div className="flex items-center gap-2 pl-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/80">
+            <div className="ml-3 flex items-center gap-1 rounded-full border border-sand-light/15 px-1.5 py-1 text-[11px] uppercase tracking-[0.22em] text-sand-light/80">
               <button
                 onClick={() => setLang("en")}
-                className={`transition-opacity ${lang === "en" ? "text-sun" : "opacity-60 hover:opacity-100"}`}
+                aria-label="English"
+                className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-all duration-300 ${
+                  lang === "en"
+                    ? "bg-sun/10 text-sun"
+                    : "opacity-60 hover:opacity-100 hover:text-sand-light"
+                }`}
               >
+                <span aria-hidden className="text-[13px] leading-none">🇬🇧</span>
                 EN
               </button>
-              <span className="opacity-30">|</span>
               <button
                 onClick={() => setLang("fi")}
-                className={`transition-opacity ${lang === "fi" ? "text-sun" : "opacity-60 hover:opacity-100"}`}
+                aria-label="Suomi"
+                className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-all duration-300 ${
+                  lang === "fi"
+                    ? "bg-sun/10 text-sun"
+                    : "opacity-60 hover:opacity-100 hover:text-sand-light"
+                }`}
               >
+                <span aria-hidden className="text-[13px] leading-none">🇫🇮</span>
                 FI
               </button>
             </div>
             <a
-              href="#one"
-              className="ml-2 inline-flex items-center gap-2 border border-sand-light/40 px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-sand-light transition-colors hover:border-sun hover:bg-sun hover:text-shadow"
+              href="#philosophy"
+              className="ml-2 inline-flex items-center gap-2 rounded-full border border-sand-light/40 px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-sand-light transition-all duration-300 hover:border-sun hover:bg-sun hover:text-shadow hover:shadow-[0_0_24px_-6px_var(--sun)]"
             >
               {t(content.nav.cta, lang)}
             </a>
@@ -131,28 +142,29 @@ export function Nav() {
             ))}
           </nav>
 
-          <div className="mt-12 flex items-center gap-4 text-xs uppercase tracking-[0.25em]">
+          <div className="mt-12 flex items-center gap-3 text-xs uppercase tracking-[0.25em]">
             <button
               onClick={() => setLang("en")}
-              className={lang === "en" ? "text-sun" : "opacity-60"}
+              className={`inline-flex items-center gap-2 rounded-full border border-sand-light/15 px-3 py-1.5 ${lang === "en" ? "bg-sun/10 text-sun" : "opacity-70"}`}
             >
-              EN
+              <span aria-hidden>🇬🇧</span> EN
             </button>
-            <span className="opacity-30">|</span>
             <button
               onClick={() => setLang("fi")}
-              className={lang === "fi" ? "text-sun" : "opacity-60"}
+              className={`inline-flex items-center gap-2 rounded-full border border-sand-light/15 px-3 py-1.5 ${lang === "fi" ? "bg-sun/10 text-sun" : "opacity-70"}`}
             >
-              FI
+              <span aria-hidden>🇫🇮</span> FI
             </button>
           </div>
 
           <a
-            href="#one"
+            href="https://one.taurisol.com/"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-8 inline-flex items-center justify-center gap-2 bg-sand-light px-6 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun"
           >
-            {t(content.nav.cta, lang)} →
+            {t(content.audience.cta, lang)} →
           </a>
         </div>
       </div>

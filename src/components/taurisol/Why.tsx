@@ -10,6 +10,7 @@ export function Why() {
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <Reveal>
           <div className="mx-auto mb-24 max-w-3xl text-center">
+            <span className="mx-auto mb-8 block h-px w-16 bg-olive/50" />
             <p className="mb-5 text-xs uppercase tracking-[0.35em] text-olive">
               — {lang === "en" ? "Why Taurisol is different" : "Miksi Taurisol on erilainen"}
             </p>
@@ -23,14 +24,16 @@ export function Why() {
           </div>
         </Reveal>
 
-        <div className="mb-24 grid gap-px bg-border md:grid-cols-3">
+        <div className="relative mb-24 grid gap-px bg-border md:grid-cols-3">
           {content.why.cards.map((c, i) => (
-            <Reveal key={i} delay={i * 100} className="bg-sand-light">
-              <div className="h-full p-10 md:p-12">
-                <div className="text-3xl">{c.icon ? t(c.icon, lang) : ""}</div>
-                <h3 className="mt-8 font-serif text-2xl text-shadow md:text-3xl">
+            <Reveal key={i} delay={i * 120} className="group bg-sand-light transition-colors hover:bg-sand">
+              <div className="relative h-full p-10 md:p-12">
+                <span className="font-serif text-xs uppercase tracking-[0.3em] text-olive">0{i + 1}</span>
+                <div className="mt-6 text-3xl">{c.icon ? t(c.icon, lang) : ""}</div>
+                <h3 className="mt-6 font-serif text-2xl text-shadow md:text-3xl">
                   {t(c.t, lang)}
                 </h3>
+                <span className="mt-5 block h-px w-10 bg-olive/40 transition-all duration-500 group-hover:w-20 group-hover:bg-sun" />
                 <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground md:text-base">
                   {t(c.b, lang)}
                 </p>

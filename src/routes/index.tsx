@@ -8,6 +8,7 @@ import { Pillars } from "@/components/taurisol/Pillars";
 import { Why } from "@/components/taurisol/Why";
 import { Winters } from "@/components/taurisol/Winters";
 import { Trust } from "@/components/taurisol/Trust";
+import { Audience } from "@/components/taurisol/Audience";
 import { TaurisolOne } from "@/components/taurisol/TaurisolOne";
 import { Footer } from "@/components/taurisol/Footer";
 import { ScrollToTop } from "@/components/taurisol/ScrollToTop";
@@ -37,6 +38,7 @@ function Index() {
           <Why />
           <Winters />
           <Trust />
+          <Audience />
           <TaurisolOne />
         </main>
         <Footer />
