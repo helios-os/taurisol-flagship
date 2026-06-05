@@ -200,8 +200,8 @@ export const content = {
       },
     ],
     credibility: {
-      en: "Montefrío has been recognized internationally as one of the most beautiful villages in Spain.",
-      fi: "Montefrío on tunnustettu kansainvälisesti yhdeksi Espanjan kauneimmista kylistä.",
+      en: "National Geographic recognized Montefrío as one of the world's most spectacular viewpoint \"pueblo blanco\" villages.",
+      fi: "National Geographic on nostanut Montefríon yhdeksi maailman vaikuttavimmista näköalapaikoista \"pueblo blanco\" -kylien joukossa.",
     },
     quote: {
       en: "A place where the mind can breathe.",
