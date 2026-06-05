@@ -1,4 +1,4 @@
-import montefrioImg from "@/assets/montefrio-landscape.jpg";
+import montefrioAsset from "@/assets/montefrio-countryside.webp.asset.json";
 import { useLang } from "@/components/LangContext";
 import { content, t } from "@/lib/i18n";
 import { Reveal } from "@/components/taurisol/Reveal";
@@ -7,6 +7,7 @@ export function Location() {
   const { lang } = useLang();
 
   const cards = content.location.cards;
+  const montefrioImg = montefrioAsset.url;
 
   return (
     <section id="location" className="bg-sand">
@@ -14,14 +15,16 @@ export function Location() {
       <div className="relative h-[60vh] min-h-[420px] w-full overflow-hidden md:h-[70vh]">
         <img
           src={montefrioImg}
-          alt="Andalusian mountain landscape with olive groves and open horizons"
+          alt="Olive groves and open hills of the Montefrío countryside in Andalusia"
           width={1600}
           height={900}
           loading="lazy"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-shadow/80 via-shadow/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-shadow/50 to-transparent" />
+        {/* Warm cinematic treatment: golden hue + readable shadow gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-shadow/85 via-shadow/35 to-shadow/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-shadow/55 via-shadow/15 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 mix-blend-soft-light bg-[radial-gradient(ellipse_at_70%_30%,var(--sun-soft),transparent_65%)] opacity-50" />
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-16 pt-32 md:px-12 md:pb-20">
           <div className="mx-auto max-w-7xl">
             <p className="mb-4 text-xs uppercase tracking-[0.4em] text-sand/80">
@@ -156,7 +159,7 @@ export function Location() {
               href="https://one.taurisol.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group mt-12 inline-flex items-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun hover:shadow-[0_8px_30px_-12px_var(--sun)]"
+              className="group mt-12 inline-flex items-center gap-3 rounded-[10px] border border-sun/70 bg-transparent px-8 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:border-sun hover:bg-sun/10 hover:shadow-[0_0_28px_-8px_var(--sun)]"
             >
               {t(content.location.ctaBtn, lang)}
               <span className="transition-transform group-hover:translate-x-1">→</span>
