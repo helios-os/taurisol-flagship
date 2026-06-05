@@ -153,12 +153,12 @@ export const content = {
       fi: "Jotkut paikat valitaan, koska ne ovat suosittuja. Toiset valitaan, koska ne parantavat elämänlaatua.",
     },
     story1: {
-      en: "Taurisol was never designed for the crowded coast.",
-      fi: "Taurisolia ei koskaan suunniteltu ruuhkaiselle rannikolle.",
+      en: "Montefrío was not a compromise. It was the reason.",
+      fi: "Montefrío ei ollut kompromissi. Se oli syy.",
     },
     story2: {
-      en: "The location was chosen deliberately.",
-      fi: "Sijainti valittiin tarkoituksella.",
+      en: "Inland — not despite it, but because of it. Cooler air, natural elevation, olive landscapes and the quiet rhythm of authentic Andalusia.",
+      fi: "Sisämaassa — ei siitä huolimatta, vaan juuri sen vuoksi. Viileämpää ilmaa, luonnollinen korkeus, oliivimaisemia ja aidon Andalusian hiljainen rytmi.",
     },
     bullets: [
       { en: "Cooler air", fi: "Viileämpää ilmaa" },
@@ -200,8 +200,8 @@ export const content = {
       },
     ],
     credibility: {
-      en: "Montefrío has been recognized internationally as one of the most beautiful villages in Spain.",
-      fi: "Montefrío on tunnustettu kansainvälisesti yhdeksi Espanjan kauneimmista kylistä.",
+      en: "National Geographic recognized Montefrío as one of the world's most spectacular viewpoint \"pueblo blanco\" villages.",
+      fi: "National Geographic on nostanut Montefríon yhdeksi maailman vaikuttavimmista näköalapaikoista \"pueblo blanco\" -kylien joukossa.",
     },
     quote: {
       en: "A place where the mind can breathe.",

@@ -53,6 +53,11 @@ export function Nav() {
   const linkLabel = (key: string) =>
     t((content.nav as Record<string, { en: string; fi: string }>)[key], lang);
 
+  const langPillBase =
+    "flex items-center gap-1.5 rounded-[8px] px-2.5 py-1 transition-all duration-300";
+  const langPillActive = "bg-sun/15 text-sand-light";
+  const langPillIdle = "text-sand-light/55 hover:text-sand-light";
+
   return (
     <>
       <header
@@ -76,54 +81,72 @@ export function Nav() {
               <a
                 key={l.key}
                 href={l.href}
-                className="rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/50 hover:bg-sun/[0.06] hover:text-sun hover:shadow-[0_0_22px_-8px_var(--sun)]"
+                className="rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/45 hover:bg-sun/[0.06] hover:text-sand-light hover:shadow-[0_0_22px_-10px_var(--sun)]"
               >
                 {linkLabel(l.key)}
               </a>
             ))}
-            <div className="ml-3 flex items-center gap-1 rounded-[10px] border border-sand-light/15 px-1.5 py-1 text-[11px] uppercase tracking-[0.22em] text-sand-light/80">
+            <span className="mx-3 block h-4 w-px bg-sand-light/15" aria-hidden="true" />
+            <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
               <button
                 onClick={() => setLang("en")}
                 aria-label="English"
-                className={`flex items-center gap-1.5 rounded-[7px] px-2.5 py-1 transition-all duration-300 ${
-                  lang === "en"
-                    ? "bg-sun/10 text-sun"
-                    : "opacity-60 hover:opacity-100 hover:text-sand-light"
-                }`}
+                className={`${langPillBase} ${lang === "en" ? langPillActive : langPillIdle}`}
               >
-                <FlagUK className="h-[13px] w-[26px] rounded-sm" />
+                <FlagUK className="h-[13px] w-[20px] rounded-[2px]" />
                 EN
               </button>
               <button
                 onClick={() => setLang("fi")}
                 aria-label="Suomi"
-                className={`flex items-center gap-1.5 rounded-[7px] px-2.5 py-1 transition-all duration-300 ${
-                  lang === "fi"
-                    ? "bg-sun/10 text-sun"
-                    : "opacity-60 hover:opacity-100 hover:text-sand-light"
-                }`}
+                className={`${langPillBase} ${lang === "fi" ? langPillActive : langPillIdle}`}
               >
-                <FlagFI className="h-[13px] w-[26px] rounded-sm" />
+                <FlagFI className="h-[13px] w-[20px] rounded-[2px]" />
                 FI
               </button>
             </div>
             <a
               href="#philosophy"
-              className="ml-2 inline-flex items-center gap-2 rounded-[10px] bg-sun px-5 py-2.5 text-[11px] uppercase tracking-[0.22em] text-shadow transition-all duration-300 hover:bg-sun-deep hover:shadow-[0_8px_24px_-10px_var(--sun)]"
+              className="ml-3 inline-flex items-center gap-2 rounded-[10px] bg-sun px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_10px_28px_-10px_var(--sun)]"
             >
               {t(content.nav.cta, lang)}
             </a>
           </nav>
 
-          {/* Mobile trigger */}
-          <button
-            onClick={() => setOpen(true)}
-            aria-label={t(content.nav.menu, lang)}
-            className="flex flex-col items-end gap-1.5 lg:hidden"
-          >
-            <span className="block h-px w-7 bg-sand-light" />
-            <span className="block h-px w-5 bg-sand-light" />
-          </button>
+          {/* Mobile: language switcher stays visible alongside hamburger */}
+          <div className="flex items-center gap-3 lg:hidden">
+            <div className="flex items-center gap-0.5 text-[10px] uppercase tracking-[0.22em]">
+              <button
+                onClick={() => setLang("en")}
+                aria-label="English"
+                className={`flex items-center gap-1 rounded-[8px] px-2 py-1 transition-all ${
+                  lang === "en" ? "bg-sun/15 text-sand-light" : "text-sand-light/55"
+                }`}
+              >
+                <FlagUK className="h-[11px] w-[18px] rounded-[2px]" />
+                EN
+              </button>
+              <button
+                onClick={() => setLang("fi")}
+                aria-label="Suomi"
+                className={`flex items-center gap-1 rounded-[8px] px-2 py-1 transition-all ${
+                  lang === "fi" ? "bg-sun/15 text-sand-light" : "text-sand-light/55"
+                }`}
+              >
+                <FlagFI className="h-[11px] w-[18px] rounded-[2px]" />
+                FI
+              </button>
+            </div>
+            <span className="block h-4 w-px bg-sand-light/15" aria-hidden="true" />
+            <button
+              onClick={() => setOpen(true)}
+              aria-label={t(content.nav.menu, lang)}
+              className="flex flex-col items-end gap-1.5"
+            >
+              <span className="block h-px w-7 bg-sand-light" />
+              <span className="block h-px w-5 bg-sand-light" />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -164,27 +187,12 @@ export function Nav() {
             ))}
           </nav>
 
-          <div className="mt-12 flex items-center gap-3 text-xs uppercase tracking-[0.25em]">
-            <button
-              onClick={() => setLang("en")}
-              className={`inline-flex items-center gap-2 rounded-[10px] border border-sand-light/15 px-3 py-1.5 ${lang === "en" ? "bg-sun/10 text-sun" : "opacity-70"}`}
-            >
-              <FlagUK className="h-3 w-6 rounded-sm" /> EN
-            </button>
-            <button
-              onClick={() => setLang("fi")}
-              className={`inline-flex items-center gap-2 rounded-[10px] border border-sand-light/15 px-3 py-1.5 ${lang === "fi" ? "bg-sun/10 text-sun" : "opacity-70"}`}
-            >
-              <FlagFI className="h-3 w-6 rounded-sm" /> FI
-            </button>
-          </div>
-
           <a
             href="https://one.taurisol.com/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-deep"
+            className="mt-12 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-soft"
           >
             {t(content.audience.cta, lang)} →
           </a>
