@@ -145,6 +145,94 @@ export const content = {
       },
     ],
   },
+  location: {
+    eyebrow: { en: "The Location", fi: "Sijainti" },
+    title: { en: "Why Here?", fi: "Miksi juuri täällä?" },
+    sub: {
+      en: "Some places are chosen because they are popular. Others are chosen because they improve the quality of life.",
+      fi: "Jotkut paikat valitaan, koska ne ovat suosittuja. Toiset valitaan, koska ne parantavat elämänlaatua.",
+    },
+    story1: {
+      en: "Taurisol was never designed for the crowded coast.",
+      fi: "Taurisolia ei koskaan suunniteltu ruuhkaiselle rannikolle.",
+    },
+    story2: {
+      en: "The location was chosen deliberately.",
+      fi: "Sijainti valittiin tarkoituksella.",
+    },
+    bullets: [
+      { en: "Cooler air", fi: "Viileämpää ilmaa" },
+      { en: "Natural wind flow", fi: "Luonnollinen ilmavirtaus" },
+      { en: "Open landscapes", fi: "Avoimet maisemat" },
+      { en: "Silence", fi: "Hiljaisuus" },
+      { en: "Authenticity", fi: "Aitous" },
+      { en: "Space", fi: "Tilaa" },
+      { en: "Long-term quality of life", fi: "Pitkäaikainen elämänlaatu" },
+    ],
+    cards: [
+      {
+        t: { en: "Cooler Climate", fi: "Viileämpi ilmasto" },
+        b: {
+          en: "Higher elevation helps create a more comfortable environment during the warmest months.",
+          fi: "Korkeampi sijainti auttaa luomaan mukavamman ympäristön lämpimimmillä kuukausilla.",
+        },
+      },
+      {
+        t: { en: "Natural Rhythm", fi: "Luonnollinen rytmi" },
+        b: {
+          en: "Wind, sunlight and seasonal change shape everyday life.",
+          fi: "Tuuli, auringonvalo ja vuodenaikojen vaihtelu muokkaavat arkea.",
+        },
+      },
+      {
+        t: { en: "Authentic Andalusia", fi: "Aito Andalusia" },
+        b: {
+          en: "A landscape that still feels connected to its roots.",
+          fi: "Maisema, joka tuntuu yhä juuriltaan kiinni.",
+        },
+      },
+      {
+        t: { en: "Connected Yet Separate", fi: "Yhteydessä ja erillään" },
+        b: {
+          en: "Approximately 100 km from Málaga Airport. Close enough to reach. Far enough to breathe.",
+          fi: "Noin 100 km Málagan lentoasemalta. Lähellä saavuttaa. Kaukana hengittää.",
+        },
+      },
+    ],
+    credibility: {
+      en: "Montefrío has been recognized internationally as one of the most beautiful villages in Spain.",
+      fi: "Montefrío on tunnustettu kansainvälisesti yhdeksi Espanjan kauneimmista kylistä.",
+    },
+    quote: {
+      en: "A place where the mind can breathe.",
+      fi: "Paikka, jossa mieli voi hengittää.",
+    },
+    quoteSupport: {
+      en: "Taurisol is not built around tourism. It is built around rhythm, familiarity and return.",
+      fi: "Taurisol ei rakennu turismin ympärille. Se rakentuu rytmin, tuttuuden ja paluun ympärille.",
+    },
+    microTitle: {
+      en: "Not all of Southern Spain feels the same.",
+      fi: "Etelä-Espanja ei tunnu samanlaiselta kaikkialla.",
+    },
+    coastLabel: { en: "Coast", fi: "Rannikko" },
+    coastPoints: [
+      { en: "More density.", fi: "Tiheämpää." },
+      { en: "More heat.", fi: "Kuumempaa." },
+      { en: "More tourism.", fi: "Enemmän turismia." },
+    ],
+    highlandsLabel: { en: "Highlands", fi: "Ylänkö" },
+    highlandsPoints: [
+      { en: "More airflow.", fi: "Enemmän ilmavirtausta." },
+      { en: "More openness.", fi: "Enemmän avoimuutta." },
+      { en: "More balance.", fi: "Enemmän tasapainoa." },
+    ],
+    ctaTitle: {
+      en: "Could this lifestyle fit your future?",
+      fi: "Voiko tämä elämäntapa sopia tulevaisuuteesi?",
+    },
+    ctaBtn: { en: "Start Taurisol One", fi: "Aloita Taurisol One" },
+  },
   winters: {
     title: { en: "How many good winters do you have left?", fi: "Kuinka monta hyvää talvea sinulla on jäljellä?" },
     body: {

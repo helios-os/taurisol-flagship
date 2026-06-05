@@ -6,6 +6,7 @@ import { Problem } from "@/components/taurisol/Problem";
 import { Outcome } from "@/components/taurisol/Outcome";
 import { Pillars } from "@/components/taurisol/Pillars";
 import { Why } from "@/components/taurisol/Why";
+import { Location } from "@/components/taurisol/Location";
 import { Winters } from "@/components/taurisol/Winters";
 import { Trust } from "@/components/taurisol/Trust";
 import { Audience } from "@/components/taurisol/Audience";
@@ -36,6 +37,7 @@ function Index() {
           <Outcome />
           <Pillars />
           <Why />
+          <Location />
           <Winters />
           <Trust />
           <Audience />
