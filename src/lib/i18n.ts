@@ -318,6 +318,17 @@ export const content = {
   footer: {
     cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
     rights: { en: "All rights reserved.", fi: "Kaikki oikeudet pidätetään." },
+    explore: { en: "Explore", fi: "Tutustu" },
+    company: { en: "Company", fi: "Yritys" },
+    legal: { en: "Legal", fi: "Oikeudellinen" },
+    contact: { en: "Contact", fi: "Yhteystiedot" },
+    heliosDigitech: { en: "Helios Digitech Oy", fi: "Helios Digitech Oy" },
+    heliosOS: { en: "Helios OS", fi: "Helios OS" },
+    heliosNote: {
+      en: "Taurisol is a flagship concept developed and operated by Helios Digitech Oy, powered by Helios OS — an AI-native operating system for visibility, trust and revenue operations.",
+      fi: "Taurisol on lippulaivakonsepti, jonka on kehittänyt ja jota operoi Helios Digitech Oy. Alustana toimii Helios OS — tekoälykäyttöjärjestelmä näkyvyydelle, luottamukselle ja liikevaihdon hallinnalle.",
+    },
+    startCta: { en: "Start Taurisol One", fi: "Aloita Taurisol One" },
   },
 } as const;
 
