@@ -33,7 +33,6 @@ export function Reveal({
   }, []);
 
   return (
-    // @ts-expect-error generic tag
     <Tag
       ref={ref}
       style={{
