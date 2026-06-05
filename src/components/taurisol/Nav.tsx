@@ -91,7 +91,7 @@ export function Nav() {
                     : "opacity-60 hover:opacity-100 hover:text-sand-light"
                 }`}
               >
-                <span aria-hidden className="text-[13px] leading-none">🇬🇧</span>
+                <FlagUK className="h-[13px] w-[26px] rounded-sm" />
                 EN
               </button>
               <button
@@ -103,7 +103,7 @@ export function Nav() {
                     : "opacity-60 hover:opacity-100 hover:text-sand-light"
                 }`}
               >
-                <span aria-hidden className="text-[13px] leading-none">🇫🇮</span>
+                <FlagFI className="h-[13px] w-[26px] rounded-sm" />
                 FI
               </button>
             </div>
