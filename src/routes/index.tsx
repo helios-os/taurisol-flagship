@@ -7,8 +7,10 @@ import { Outcome } from "@/components/taurisol/Outcome";
 import { Pillars } from "@/components/taurisol/Pillars";
 import { Why } from "@/components/taurisol/Why";
 import { Winters } from "@/components/taurisol/Winters";
+import { Trust } from "@/components/taurisol/Trust";
 import { TaurisolOne } from "@/components/taurisol/TaurisolOne";
 import { Footer } from "@/components/taurisol/Footer";
+import { ScrollToTop } from "@/components/taurisol/ScrollToTop";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -34,9 +36,11 @@ function Index() {
           <Pillars />
           <Why />
           <Winters />
+          <Trust />
           <TaurisolOne />
         </main>
         <Footer />
+        <ScrollToTop />
       </div>
     </LangProvider>
   );
