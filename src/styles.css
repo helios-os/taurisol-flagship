@@ -67,6 +67,8 @@
   --color-olive: var(--olive);
   --color-olive-deep: var(--olive-deep);
   --color-sun: var(--sun);
+  --color-sun-deep: var(--sun-deep);
+  --color-sun-soft: var(--sun-soft);
   --color-shadow: var(--shadow-deep);
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
