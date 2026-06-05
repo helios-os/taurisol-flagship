@@ -5,7 +5,7 @@ import { content, t } from "@/lib/i18n";
 export function Winters() {
   const { lang } = useLang();
   return (
-    <section id="location" className="relative overflow-hidden bg-shadow py-32 text-sand-light md:py-48">
+    <section className="relative overflow-hidden bg-shadow py-32 text-sand-light md:py-48">
       <div className="absolute inset-0 opacity-40">
         <img
           src={wintersImg}
