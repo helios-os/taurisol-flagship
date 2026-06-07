@@ -17,14 +17,35 @@ const inter = Inter({
   display: "swap",
 });
 
+const TITLE = "Taurisol — A place to return to yourself";
+const DESCRIPTION =
+  "Taurisol is a small regenerative living concept in Andalusia — a place designed for energy independence, quiet rhythm and returning to yourself.";
+
 export const metadata: Metadata = {
-  title: "Taurisol — Make your Spain dream a reality",
-  description:
-    "A new way to spend part of your life in Andalusia — freedom, certainty and a place to return. Without ownership, rental or maintenance worries.",
+  metadataBase: new URL("https://taurisol.com"),
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: "Taurisol — Make your Spain dream a reality",
-    description:
-      "Freedom, certainty and a place to return. A new way to live part of your year in Andalusia.",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "https://taurisol.com",
+    siteName: "Taurisol",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/images/hero-andalusia.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Taurisol — Andalusian olive grove at golden hour",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/images/hero-andalusia.jpg"],
   },
 };
 
