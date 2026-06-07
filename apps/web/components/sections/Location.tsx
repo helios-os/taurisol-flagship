@@ -43,24 +43,54 @@ export function Location() {
       {/* Editorial story */}
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <div className="mx-auto max-w-3xl">
-            <p className="font-serif text-3xl leading-[1.2] text-shadow text-balance md:text-4xl lg:text-5xl">
-              {t(content.location.story1, lang)}
-            </p>
-            <p className="mt-6 font-serif text-2xl italic leading-snug text-olive-deep md:text-3xl">
-              {t(content.location.story2, lang)}
-            </p>
+          <div className="grid items-start gap-12 md:grid-cols-[2fr_3fr] lg:gap-20">
 
-            <div className="mt-16 border-l border-olive/30 pl-8">
-              <ul className="space-y-3 text-base font-light leading-relaxed text-shadow/75 md:text-lg">
-                {content.location.bullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <span className="mt-2.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sun" />
-                    <span>{t(b, lang)}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Left: village image + video CTA */}
+            <div>
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <Image
+                  src="/images/pueblo-blanco-montefrio-village.webp"
+                  alt="Montefrío white village with moorish castle, Andalusia"
+                  fill
+                  loading="lazy"
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+              </div>
+              <a
+                href="https://youtu.be/zufYIIZVM7E"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-4 flex items-center gap-2 text-xs font-light tracking-wide text-shadow/50 transition-colors duration-300 hover:text-olive"
+              >
+                <span className="text-olive/60 transition-colors duration-300 group-hover:text-olive">▶</span>
+                <span className="font-serif italic">Watch video</span>
+                <span className="text-shadow/35">—</span>
+                <span>Montefrío · Fairytale White Village</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+              </a>
             </div>
+
+            {/* Right: editorial copy + bullets */}
+            <div>
+              <p className="font-serif text-3xl leading-[1.2] text-shadow text-balance md:text-4xl lg:text-5xl">
+                {t(content.location.story1, lang)}
+              </p>
+              <p className="mt-6 font-serif text-2xl italic leading-snug text-olive-deep md:text-3xl">
+                {t(content.location.story2, lang)}
+              </p>
+              <div className="mt-16 border-l border-olive/30 pl-8">
+                <ul className="space-y-3 text-base font-light leading-relaxed text-shadow/75 md:text-lg">
+                  {content.location.bullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <span className="mt-2.5 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-sun" />
+                      <span>{t(b, lang)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
           </div>
         </Reveal>
 
