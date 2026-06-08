@@ -1,0 +1,20 @@
+[33m31e636e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnext-wp[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m ci: retrigger Vercel deployment
+[33m44c5294[m docs: add deployment pipeline verification note
+[33m9ddea71[m fix: add social sharing metadata
+[33m922dbec[m fix: restore Montefrio image rendering
+[33m4e1e3bb[m feat: improve Montefrio section with visual storytelling
+[33m99adc10[m fix: stabilize hero scroll behavior
+[33m9d8922e[m fix: upgrade Next.js to patched 15.3.8
+[33m572248e[m Merge pull request #1 from helios-os/next-wp
+[33m354faf4[m[33m ([m[1;31morigin/next-wp[m[33m)[m feat: migrate Taurisol Lovable export to Next.js WP hybrid
+[33m238365f[m[33m ([m[1;31morigin/lovable-source[m[33m, [m[1;32mlovable-source[m[33m)[m Enhanced footer layout
+[33m31892dd[m Changes
+[33m1483906[m Changes
+[33madfca9b[m Changes
+[33m1e2f119[m Refined premium Taurisol footer
+[33m45c5901[m Changes
+[33m824ba41[m Changes
+[33m952b6f4[m Changes
+[33m05243e2[m Changes
+[33m409c336[m Changes
+[33mf1d4d6e[m Fixed CSS import order in theme.css
