@@ -27,11 +27,9 @@ const JOURNAL_FI_TO_EN: Record<string, string> = Object.fromEntries(
  * Article pages fall back to the translated category page.
  */
 function journalAltPath(pathname: string, targetLang: Lang): string | null {
-  // Index
   if (pathname === "/journal" && targetLang === "fi") return "/fi/journal";
   if (pathname === "/fi/journal" && targetLang === "en") return "/journal";
 
-  // Category: /journal/[slug] or /fi/journal/[slug]
   const enCat = pathname.match(/^\/journal\/([^/]+)$/);
   if (enCat && targetLang === "fi") {
     const fi = JOURNAL_EN_TO_FI[enCat[1]];
@@ -43,7 +41,6 @@ function journalAltPath(pathname: string, targetLang: Lang): string | null {
     return en ? `/journal/${en}` : "/journal";
   }
 
-  // Article: /journal/[cat]/[art] — fall back to translated category page
   const enArt = pathname.match(/^\/journal\/([^/]+)\//);
   if (enArt && targetLang === "fi") {
     const fi = JOURNAL_EN_TO_FI[enArt[1]];
@@ -104,11 +101,9 @@ export function Nav() {
     if (altPath) router.push(altPath);
   };
 
-  // On non-home pages, anchor links resolve to /#section on the homepage
   const resolveHref = (href: string) =>
     href.startsWith("#") && !isHome ? `/${href}` : href;
 
-  // Journal route is language-aware
   const journalHref = lang === "fi" ? "/fi/journal" : "/journal";
 
   useEffect(() => {
@@ -118,9 +113,10 @@ export function Nav() {
     };
   }, [open]);
 
-  const navBg = scrolled
-    ? "bg-shadow/25 backdrop-blur-2xl border-b border-sand-light/10 shadow-[0_1px_30px_-12px_rgba(0,0,0,0.25)]"
-    : "bg-transparent border-b border-transparent";
+  // Desktop nav background — scroll-aware, lg+ only
+  const desktopNavBg = scrolled
+    ? "lg:bg-shadow/25 lg:backdrop-blur-2xl lg:border-b lg:border-sand-light/10 lg:shadow-[0_1px_30px_-12px_rgba(0,0,0,0.25)]"
+    : "lg:bg-transparent lg:border-b lg:border-transparent";
 
   const linkLabel = (key: string) =>
     t((content.nav as Record<string, { en: string; fi: string }>)[key], lang);
@@ -136,11 +132,21 @@ export function Nav() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color,padding] duration-500 ease-out ${navBg}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,backdrop-filter,border-color,padding] duration-500 ease-out ${desktopNavBg}`}
       >
+        {/*
+         * Mobile background: always-on subtle tint so the header is readable
+         * over hero images. Hidden on desktop (lg:hidden) so the desktop
+         * scroll-aware desktopNavBg logic takes over without interference.
+         */}
         <div
-          className={`mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-12 transition-[padding] duration-500 ${
-            scrolled ? "py-4 md:py-5" : "py-6 md:py-8"
+          className="absolute inset-0 bg-[rgba(15,13,5,0.35)] backdrop-blur-[8px] lg:hidden"
+          aria-hidden="true"
+        />
+
+        <div
+          className={`relative mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-12 transition-[padding] duration-500 ${
+            scrolled ? "py-4 md:py-5" : "py-5 md:py-8"
           }`}
         >
           <a
@@ -150,7 +156,7 @@ export function Nav() {
             TAURISOL
           </a>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — unchanged */}
           <nav className="hidden items-center gap-1 lg:flex">
             {anchorLinks.map((l) => (
               <a
@@ -191,40 +197,20 @@ export function Nav() {
             </a>
           </nav>
 
-          {/* Mobile: language switcher + hamburger */}
-          <div className="flex items-center gap-3 lg:hidden">
-            <div className="flex items-center gap-0.5 text-[10px] uppercase tracking-[0.22em]">
-              <button
-                onClick={() => handleLangSwitch("en")}
-                aria-label="English"
-                className={`flex items-center gap-1 rounded-[8px] px-2 py-1 transition-all ${
-                  lang === "en" ? "bg-sun/15 text-sand-light" : "text-sand-light/55"
-                }`}
-              >
-                <FlagUK className="h-[11px] w-[18px] rounded-[2px]" />
-                EN
-              </button>
-              <button
-                onClick={() => handleLangSwitch("fi")}
-                aria-label="Suomi"
-                className={`flex items-center gap-1 rounded-[8px] px-2 py-1 transition-all ${
-                  lang === "fi" ? "bg-sun/15 text-sand-light" : "text-sand-light/55"
-                }`}
-              >
-                <FlagFI className="h-[11px] w-[18px] rounded-[2px]" />
-                FI
-              </button>
-            </div>
-            <span className="block h-4 w-px bg-sand-light/15" aria-hidden="true" />
-            <button
-              onClick={() => setOpen(true)}
-              aria-label={t(content.nav.menu, lang)}
-              className="flex flex-col items-end justify-center gap-[5px] p-2 -mr-2"
-            >
-              <span className="block h-[1.5px] w-6 rounded-full bg-sand-light" />
-              <span className="block h-[1.5px] w-[18px] rounded-full bg-sand-light" />
-            </button>
-          </div>
+          {/*
+           * Mobile: hamburger only — no language flags in the closed header.
+           * 3 lines, h-0.5 (2px), 44×44px touch target via p-3.
+           * Language switching lives inside the opened overlay instead.
+           */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+            className="flex flex-col items-center justify-center gap-[5px] p-3 -mr-3 lg:hidden min-w-[44px] min-h-[44px]"
+          >
+            <span className="block h-0.5 w-6 rounded-full bg-sand-light" />
+            <span className="block h-0.5 w-6 rounded-full bg-sand-light" />
+            <span className="block h-0.5 w-[14px] rounded-full bg-sand-light/70" />
+          </button>
         </div>
       </header>
 
@@ -234,31 +220,36 @@ export function Nav() {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="flex h-full flex-col px-6 pb-12 pt-6">
+        <div className="flex h-full flex-col px-6 pb-10 pt-6">
+
+          {/* Overlay top bar */}
           <div className="flex items-center justify-between">
             <span className="font-serif text-base tracking-[0.32em]">TAURISOL</span>
             <button
               onClick={() => setOpen(false)}
               aria-label={t(content.nav.close, lang)}
-              className="text-xs uppercase tracking-[0.25em] text-sand-light/80 hover:text-sun"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-sand-light/70 transition-colors hover:text-sun"
             >
-              {t(content.nav.close, lang)} ✕
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
             </button>
           </div>
 
-          <nav className="mt-16 flex flex-1 flex-col gap-7">
+          {/* Nav links */}
+          <nav className="mt-10 flex flex-1 flex-col gap-5 overflow-y-auto">
             {anchorLinks.map((l, i) => (
               <a
                 key={l.key}
                 href={resolveHref(l.href)}
                 onClick={() => setOpen(false)}
                 style={{
-                  transitionDelay: `${open ? 120 + i * 60 : 0}ms`,
+                  transitionDelay: `${open ? 80 + i * 45 : 0}ms`,
                   opacity: open ? 1 : 0,
-                  transform: open ? "translateY(0)" : "translateY(12px)",
-                  transition: "opacity 700ms ease, transform 700ms ease",
+                  transform: open ? "translateY(0)" : "translateY(10px)",
+                  transition: "opacity 600ms ease, transform 600ms ease",
                 }}
-                className="font-serif text-4xl text-sand-light hover:text-sun"
+                className="font-serif text-3xl text-sand-light hover:text-sun"
               >
                 {linkLabel(l.key)}
               </a>
@@ -267,26 +258,59 @@ export function Nav() {
               href={journalHref}
               onClick={() => setOpen(false)}
               style={{
-                transitionDelay: `${open ? 120 + anchorLinks.length * 60 : 0}ms`,
+                transitionDelay: `${open ? 80 + anchorLinks.length * 45 : 0}ms`,
                 opacity: open ? 1 : 0,
-                transform: open ? "translateY(0)" : "translateY(12px)",
-                transition: "opacity 700ms ease, transform 700ms ease",
+                transform: open ? "translateY(0)" : "translateY(10px)",
+                transition: "opacity 600ms ease, transform 600ms ease",
               }}
-              className="font-serif text-4xl text-sand-light hover:text-sun"
+              className="font-serif text-3xl text-sand-light hover:text-sun"
             >
               {t(content.nav.journal, lang)}
             </a>
           </nav>
 
+          {/* Language switcher — inside overlay, below nav links */}
+          <div className="mt-6 flex items-center gap-2 border-t border-sand-light/10 pt-5">
+            <span className="mr-1 text-[10px] uppercase tracking-[0.3em] text-sand-light/35">
+              {lang === "fi" ? "Kieli" : "Language"}
+            </span>
+            <button
+              onClick={() => { handleLangSwitch("en"); setOpen(false); }}
+              aria-label="English"
+              className={`flex items-center gap-1.5 rounded-[8px] px-3 py-2 text-[11px] uppercase tracking-[0.18em] transition-all duration-200 ${
+                lang === "en"
+                  ? "bg-sun/20 text-sand-light"
+                  : "text-sand-light/45 hover:text-sand-light"
+              }`}
+            >
+              <FlagUK className="h-[12px] w-[19px] rounded-[2px]" />
+              EN
+            </button>
+            <button
+              onClick={() => { handleLangSwitch("fi"); setOpen(false); }}
+              aria-label="Suomi"
+              className={`flex items-center gap-1.5 rounded-[8px] px-3 py-2 text-[11px] uppercase tracking-[0.18em] transition-all duration-200 ${
+                lang === "fi"
+                  ? "bg-sun/20 text-sand-light"
+                  : "text-sand-light/45 hover:text-sand-light"
+              }`}
+            >
+              <FlagFI className="h-[12px] w-[19px] rounded-[2px]" />
+              FI
+            </button>
+          </div>
+
+          {/* CTA */}
           <a
             href="https://one.taurisol.com/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-12 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-soft"
+            className="mt-4 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-soft"
           >
             {t(content.audience.cta, lang)} →
           </a>
+
         </div>
       </div>
     </>
