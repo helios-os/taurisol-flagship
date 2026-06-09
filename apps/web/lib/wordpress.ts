@@ -108,6 +108,12 @@ export async function fetchPosts(perPage = 10): Promise<WPPost[]> {
   return data ?? [];
 }
 
+/** Fetch a single post by slug. Returns null on failure or not found. */
+export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
+  const data = await wpFetch<WPPost[]>(`/posts?slug=${slug}&status=publish`);
+  return data?.[0] ?? null;
+}
+
 /** Fetch all published pages. Returns empty array on failure. */
 export async function fetchPages(perPage = 20): Promise<WPPage[]> {
   const data = await wpFetch<WPPage[]>(`/pages?per_page=${perPage}&status=publish`);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useLang } from "@/components/lang-context";
 import { content, t } from "@/lib/i18n";
 import { useScrolled } from "@/components/ui/Reveal";
@@ -27,7 +28,8 @@ function FlagFI({ className }: { className?: string }) {
   );
 }
 
-const links = [
+// Anchor links that belong to the homepage sections
+const anchorLinks = [
   { key: "philosophy", href: "#philosophy" },
   { key: "how", href: "#how" },
   { key: "homes", href: "#homes" },
@@ -40,6 +42,15 @@ export function Nav() {
   const { lang, setLang } = useLang();
   const scrolled = useScrolled(40);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  // On non-home pages, anchor links resolve to /#section on the homepage
+  const resolveHref = (href: string) =>
+    href.startsWith("#") && !isHome ? `/${href}` : href;
+
+  // Journal route is language-aware
+  const journalHref = lang === "fi" ? "/fi/journal" : "/journal";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -60,6 +71,9 @@ export function Nav() {
   const langPillActive = "bg-sun/15 text-sand-light";
   const langPillIdle = "text-sand-light/55 hover:text-sand-light";
 
+  const linkClass =
+    "rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/45 hover:bg-sun/[0.06] hover:text-sand-light hover:shadow-[0_0_22px_-10px_var(--sun)]";
+
   return (
     <>
       <header
@@ -71,7 +85,7 @@ export function Nav() {
           }`}
         >
           <a
-            href="#top"
+            href={isHome ? "#top" : "/"}
             className="font-serif text-base tracking-[0.32em] text-sand-light"
           >
             TAURISOL
@@ -79,15 +93,18 @@ export function Nav() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-1 lg:flex">
-            {links.map((l) => (
+            {anchorLinks.map((l) => (
               <a
                 key={l.key}
-                href={l.href}
-                className="rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/45 hover:bg-sun/[0.06] hover:text-sand-light hover:shadow-[0_0_22px_-10px_var(--sun)]"
+                href={resolveHref(l.href)}
+                className={linkClass}
               >
                 {linkLabel(l.key)}
               </a>
             ))}
+            <a href={journalHref} className={linkClass}>
+              {t(content.nav.journal, lang)}
+            </a>
             <span className="mx-3 block h-4 w-px bg-sand-light/15" aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
               <button
@@ -171,10 +188,10 @@ export function Nav() {
           </div>
 
           <nav className="mt-16 flex flex-1 flex-col gap-7">
-            {links.map((l, i) => (
+            {anchorLinks.map((l, i) => (
               <a
                 key={l.key}
-                href={l.href}
+                href={resolveHref(l.href)}
                 onClick={() => setOpen(false)}
                 style={{
                   transitionDelay: `${open ? 120 + i * 60 : 0}ms`,
@@ -187,6 +204,19 @@ export function Nav() {
                 {linkLabel(l.key)}
               </a>
             ))}
+            <a
+              href={journalHref}
+              onClick={() => setOpen(false)}
+              style={{
+                transitionDelay: `${open ? 120 + anchorLinks.length * 60 : 0}ms`,
+                opacity: open ? 1 : 0,
+                transform: open ? "translateY(0)" : "translateY(12px)",
+                transition: "opacity 700ms ease, transform 700ms ease",
+              }}
+              className="font-serif text-4xl text-sand-light hover:text-sun"
+            >
+              {t(content.nav.journal, lang)}
+            </a>
           </nav>
 
           <a

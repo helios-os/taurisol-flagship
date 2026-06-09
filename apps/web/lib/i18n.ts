@@ -8,6 +8,7 @@ export const content = {
     location: { en: "Location", fi: "Sijainti" },
     one: { en: "Taurisol One", fi: "Taurisol One" },
     faq: { en: "FAQ", fi: "UKK" },
+    journal: { en: "Journal", fi: "Journal" },
     cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
     menu: { en: "Menu", fi: "Valikko" },
     close: { en: "Close", fi: "Sulje" },

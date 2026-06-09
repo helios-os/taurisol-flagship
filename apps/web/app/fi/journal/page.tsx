@@ -3,19 +3,22 @@ import { LangProvider } from "@/components/lang-context";
 import { Nav } from "@/components/nav/Nav";
 import { Footer } from "@/components/footer/Footer";
 import { JournalGrid } from "@/components/journal/JournalGrid";
-import { getJournalPillars } from "@/lib/journal";
+import { getAllCategories } from "@/lib/journal";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Journal — Taurisol",
+  title: "Taurisol Journal — Kirjoituksia paikasta, johon palataan",
   description:
-    "Näkökulmia myynnin johtamiseen, arvonluontiin ja kaupalliseen kulttuuriin — 50 vuoden B2B-myyntikokemuksesta.",
+    "Pohdintoja filosofiasta, paikasta, designista, energiasta, rituaaleista ja Taurisoliin rakentamisesta. Kenttämuistiinpanoja Andalusiasta.",
   alternates: {
     canonical: "https://taurisol.com/fi/journal",
+    languages: { en: "https://taurisol.com/journal" },
   },
 };
 
-export default async function FiJournalPage() {
-  const { pillars } = await getJournalPillars("fi");
+export default function FiJournalIndexPage() {
+  const categories = getAllCategories();
 
   return (
     <LangProvider initialLang="fi">
@@ -28,25 +31,25 @@ export default async function FiJournalPage() {
                 className="mb-5 text-xs uppercase tracking-[0.35em] text-sun animate-fade-up"
                 style={{ animationDelay: "0ms" }}
               >
-                — Journal
+                — Taurisol Journal
               </p>
               <h1
                 className="font-serif text-5xl leading-[1.05] text-balance animate-fade-up md:text-7xl"
                 style={{ animationDelay: "80ms" }}
               >
-                Sales Mind
+                Kirjoituksia paikasta,<br />johon palataan
               </h1>
               <p
                 className="mt-8 max-w-2xl text-base font-light leading-relaxed text-sand-light/70 animate-fade-up"
                 style={{ animationDelay: "160ms" }}
               >
-                Näkökulmia myynnin johtamiseen, arvonluontiin ja kaupalliseen
-                kulttuuriin — 50 vuoden B2B-myyntikokemuksesta.
+                Pohdintoja filosofiasta, paikasta, designista, energiasta,
+                rituaaleista ja Taurisoliin rakentamisesta.
               </p>
             </div>
           </section>
 
-          <JournalGrid pillars={pillars} />
+          <JournalGrid categories={categories} lang="fi" basePath="/fi/journal" />
         </main>
         <Footer />
       </div>
