@@ -22,35 +22,44 @@ export default function FiJournalIndexPage() {
 
   return (
     <LangProvider initialLang="fi">
-      <div className="min-h-screen scroll-smooth bg-background text-foreground">
+      <div className="min-h-screen bg-shadow text-sand-light">
         <Nav />
+
         <main>
-          <section className="bg-shadow pb-24 pt-40 md:pb-32 md:pt-56 text-sand-light">
-            <div className="mx-auto max-w-7xl px-6 md:px-12">
-              <p
-                className="mb-5 text-xs uppercase tracking-[0.35em] text-sun animate-fade-up"
-                style={{ animationDelay: "0ms" }}
-              >
+          {/*
+           * Same layout as /journal — both use the English hero image.
+           * The image already contains all branding text; no HTML text is
+           * rendered on top of or alongside the image.
+           */}
+          <section className="flex flex-col lg:flex-row lg:min-h-screen">
+
+            {/* ── Hero image ─────────────────────────────────────────────── */}
+            <div className="w-full lg:relative lg:flex-1">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/taurisol-journal-hero.webp"
+                alt="Taurisol — Field Notes from a Place to Return"
+                fetchPriority="high"
+                decoding="async"
+                className="block h-auto w-full lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-contain"
+              />
+            </div>
+
+            {/* ── Category panel ─────────────────────────────────────────── */}
+            <div className="flex flex-col justify-center gap-8 bg-shadow px-6 py-12 lg:order-first lg:w-[340px] lg:shrink-0 lg:px-10 lg:pt-24 lg:pb-16">
+              <p className="text-[10px] uppercase tracking-[0.42em] text-sun/60">
                 — Taurisol Journal
               </p>
-              <h1
-                className="font-serif text-5xl leading-[1.05] text-balance animate-fade-up md:text-7xl"
-                style={{ animationDelay: "80ms" }}
-              >
-                Kirjoituksia paikasta,<br />johon palataan
-              </h1>
-              <p
-                className="mt-8 max-w-2xl text-base font-light leading-relaxed text-sand-light/70 animate-fade-up"
-                style={{ animationDelay: "160ms" }}
-              >
-                Pohdintoja filosofiasta, paikasta, designista, energiasta,
-                rituaaleista ja Taurisoliin rakentamisesta.
-              </p>
+              <JournalGrid
+                categories={categories}
+                lang="fi"
+                basePath="/fi/journal"
+              />
             </div>
-          </section>
 
-          <JournalGrid categories={categories} lang="fi" basePath="/fi/journal" />
+          </section>
         </main>
+
         <Footer />
       </div>
     </LangProvider>

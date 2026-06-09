@@ -22,35 +22,61 @@ export default function JournalIndexPage() {
 
   return (
     <LangProvider initialLang="en">
-      <div className="min-h-screen scroll-smooth bg-background text-foreground">
+      <div className="min-h-screen bg-shadow text-sand-light">
         <Nav />
+
         <main>
-          <section className="bg-shadow pb-24 pt-40 md:pb-32 md:pt-56 text-sand-light">
-            <div className="mx-auto max-w-7xl px-6 md:px-12">
-              <p
-                className="mb-5 text-xs uppercase tracking-[0.35em] text-sun animate-fade-up"
-                style={{ animationDelay: "0ms" }}
-              >
+          {/*
+           * Desktop: full-viewport flex row.
+           *   Left  — 340 px panel: "Taurisol Journal" label + 7 category buttons.
+           *   Right — remaining width: hero image, object-contain (no cropping).
+           *
+           * Mobile: stacked column.
+           *   Top  — hero image full-width at natural aspect ratio.
+           *   Below — label + 7 category buttons.
+           *
+           * The hero image already contains all branding text.
+           * No HTML title / subtitle is rendered on top of or near the image.
+           */}
+          <section className="flex flex-col lg:flex-row lg:min-h-screen">
+
+            {/* ── Hero image ─────────────────────────────────────────────── */}
+            {/*
+             * Mobile:  block, w-full h-auto — natural aspect ratio, never cropped.
+             * Desktop: flex-1 relative — image fills available space with
+             *          object-contain so all embedded text remains visible.
+             */}
+            <div className="w-full lg:relative lg:flex-1">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/taurisol-journal-hero.webp"
+                alt="Taurisol — Field Notes from a Place to Return"
+                fetchPriority="high"
+                decoding="async"
+                className="block h-auto w-full lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-contain"
+              />
+            </div>
+
+            {/* ── Category panel ─────────────────────────────────────────── */}
+            {/*
+             * Mobile:  below the image, full-width, comfortable padding.
+             * Desktop: fixed 340 px wide, full height, vertically centred.
+             *          order-first pushes it to the LEFT of the image.
+             */}
+            <div className="flex flex-col justify-center gap-8 bg-shadow px-6 py-12 lg:order-first lg:w-[340px] lg:shrink-0 lg:px-10 lg:pt-24 lg:pb-16">
+              <p className="text-[10px] uppercase tracking-[0.42em] text-sun/60">
                 — Taurisol Journal
               </p>
-              <h1
-                className="font-serif text-5xl leading-[1.05] text-balance animate-fade-up md:text-7xl"
-                style={{ animationDelay: "80ms" }}
-              >
-                Field Notes from a<br />Place to Return
-              </h1>
-              <p
-                className="mt-8 max-w-2xl text-base font-light leading-relaxed text-sand-light/70 animate-fade-up"
-                style={{ animationDelay: "160ms" }}
-              >
-                Reflections on philosophy, place, design, energy, rituals and
-                the making of Taurisol.
-              </p>
+              <JournalGrid
+                categories={categories}
+                lang="en"
+                basePath="/journal"
+              />
             </div>
-          </section>
 
-          <JournalGrid categories={categories} lang="en" basePath="/journal" />
+          </section>
         </main>
+
         <Footer />
       </div>
     </LangProvider>
