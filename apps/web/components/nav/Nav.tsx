@@ -220,7 +220,7 @@ export function Nav() {
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <div className="flex h-full flex-col px-6 pb-10 pt-6">
+        <div className="flex h-full flex-col px-6 pb-6 pt-6">
 
           {/* Overlay top bar */}
           <div className="flex items-center justify-between">
@@ -237,7 +237,7 @@ export function Nav() {
           </div>
 
           {/* Nav links */}
-          <nav className="mt-10 flex flex-1 flex-col gap-5 overflow-y-auto">
+          <nav className="mt-5 flex flex-1 flex-col gap-2">
             {anchorLinks.map((l, i) => (
               <a
                 key={l.key}
@@ -270,45 +270,41 @@ export function Nav() {
           </nav>
 
           {/* Language switcher — inside overlay, below nav links */}
-          <div className="mt-6 flex items-center gap-2 border-t border-sand-light/10 pt-5">
+          <div className="mt-4 flex items-center gap-2 border-t border-sand-light/10 pt-3">
             <span className="mr-1 text-[10px] uppercase tracking-[0.3em] text-sand-light/35">
               {lang === "fi" ? "Kieli" : "Language"}
             </span>
             <button
               onClick={() => { handleLangSwitch("en"); setOpen(false); }}
               aria-label="English"
-              className={`flex items-center gap-1.5 rounded-[8px] px-3 py-2 text-[11px] uppercase tracking-[0.18em] transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-[8px] px-3 py-2 text-[11px] tracking-[0.12em] transition-all duration-200 ${
                 lang === "en"
                   ? "bg-sun/20 text-sand-light"
                   : "text-sand-light/45 hover:text-sand-light"
               }`}
             >
-              <FlagUK className="h-[12px] w-[19px] rounded-[2px]" />
-              EN
+              {"🇬🇧"} English
             </button>
             <button
               onClick={() => { handleLangSwitch("fi"); setOpen(false); }}
               aria-label="Suomi"
-              className={`flex items-center gap-1.5 rounded-[8px] px-3 py-2 text-[11px] uppercase tracking-[0.18em] transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-[8px] px-3 py-2 text-[11px] tracking-[0.12em] transition-all duration-200 ${
                 lang === "fi"
                   ? "bg-sun/20 text-sand-light"
                   : "text-sand-light/45 hover:text-sand-light"
               }`}
             >
-              <FlagFI className="h-[12px] w-[19px] rounded-[2px]" />
-              FI
+              {"🇫🇮"} Suomi
             </button>
           </div>
 
           {/* CTA */}
           <a
-            href="https://one.taurisol.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={resolveHref("#philosophy")}
             onClick={() => setOpen(false)}
-            className="mt-4 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-soft"
+            className="mt-3 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-soft"
           >
-            {t(content.audience.cta, lang)} →
+            {t(content.nav.cta, lang)}
           </a>
 
         </div>

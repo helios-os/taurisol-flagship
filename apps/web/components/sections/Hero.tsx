@@ -21,7 +21,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen w-full overflow-hidden">
+    <section id="top" className="relative min-h-[85vh] md:min-h-screen w-full overflow-hidden">
       <div
         ref={bgRef}
         className="absolute inset-0"
@@ -39,7 +39,7 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-shadow/40 to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col justify-end px-6 pb-20 pt-40 md:px-12 md:pb-28">
+      <div className="relative z-10 mx-auto flex min-h-[85vh] md:min-h-screen max-w-7xl flex-col justify-end px-6 pb-12 pt-24 md:pt-40 md:px-12 md:pb-28">
         <div className="max-w-3xl text-sand-light animate-fade-up">
           <p className="mb-8 text-xs uppercase tracking-[0.4em] text-sand opacity-90">
             {t(content.hero.eyebrow, lang)}
