@@ -24,29 +24,27 @@ export default function FiJournalIndexPage() {
     <LangProvider initialLang="fi">
       <div className="min-h-screen bg-shadow text-sand-light">
         <Nav />
-
         <main>
           {/*
-           * Same layout as /journal — both use the English hero image.
-           * The image already contains all branding text; no HTML text is
-           * rendered on top of or alongside the image.
+           * Same layout as /journal — hero image full-width, button group
+           * overlaid on the left side of the image on desktop.
+           * Mobile: image first, buttons below.
            */}
-          <section className="flex flex-col lg:flex-row lg:min-h-screen">
+          <section className="relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/taurisol-journal-hero.webp"
+              alt="Taurisol — Field Notes from a Place to Return"
+              fetchPriority="high"
+              decoding="async"
+              className="block w-full h-auto"
+            />
 
-            {/* ── Hero image ─────────────────────────────────────────────── */}
-            <div className="w-full lg:relative lg:flex-1">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/taurisol-journal-hero.webp"
-                alt="Taurisol — Field Notes from a Place to Return"
-                fetchPriority="high"
-                decoding="async"
-                className="block h-auto w-full lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-contain"
-              />
-            </div>
-
-            {/* ── Category panel ─────────────────────────────────────────── */}
-            <div className="flex flex-col justify-center gap-8 bg-shadow px-6 py-12 lg:order-first lg:w-[340px] lg:shrink-0 lg:px-10 lg:pt-24 lg:pb-16">
+            {/* Desktop overlay — sits on top of the image, left side */}
+            <div
+              className="hidden lg:flex flex-col gap-5 absolute top-[30%] w-[270px]"
+              style={{ left: "clamp(24px, 5vw, 72px)" }}
+            >
               <p className="text-[10px] uppercase tracking-[0.42em] text-sun/60">
                 — Taurisol Journal
               </p>
@@ -56,10 +54,20 @@ export default function FiJournalIndexPage() {
                 basePath="/fi/journal"
               />
             </div>
-
           </section>
-        </main>
 
+          {/* Mobile — buttons below the image */}
+          <div className="lg:hidden flex flex-col gap-5 px-6 py-10">
+            <p className="text-[10px] uppercase tracking-[0.42em] text-sun/60">
+              — Taurisol Journal
+            </p>
+            <JournalGrid
+              categories={categories}
+              lang="fi"
+              basePath="/fi/journal"
+            />
+          </div>
+        </main>
         <Footer />
       </div>
     </LangProvider>
