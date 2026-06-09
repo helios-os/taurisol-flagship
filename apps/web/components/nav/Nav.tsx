@@ -1,10 +1,62 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useLang } from "@/components/lang-context";
 import { content, t } from "@/lib/i18n";
 import { useScrolled } from "@/components/ui/Reveal";
+import type { Lang } from "@/lib/i18n";
+
+// Slug pairs for all 7 Taurisol Journal categories (EN ↔ FI)
+const JOURNAL_EN_TO_FI: Record<string, string> = {
+  "philosophy": "filosofia",
+  "place": "paikka",
+  "design": "design",
+  "energy": "energia",
+  "rituals": "rituaalit",
+  "founder-notes": "perustajan-muistiot",
+  "development": "kehitys",
+};
+const JOURNAL_FI_TO_EN: Record<string, string> = Object.fromEntries(
+  Object.entries(JOURNAL_EN_TO_FI).map(([en, fi]) => [fi, en])
+);
+
+/**
+ * Returns the translated Journal path for the given target language,
+ * or null if the current pathname is not a Journal route.
+ * Article pages fall back to the translated category page.
+ */
+function journalAltPath(pathname: string, targetLang: Lang): string | null {
+  // Index
+  if (pathname === "/journal" && targetLang === "fi") return "/fi/journal";
+  if (pathname === "/fi/journal" && targetLang === "en") return "/journal";
+
+  // Category: /journal/[slug] or /fi/journal/[slug]
+  const enCat = pathname.match(/^\/journal\/([^/]+)$/);
+  if (enCat && targetLang === "fi") {
+    const fi = JOURNAL_EN_TO_FI[enCat[1]];
+    return fi ? `/fi/journal/${fi}` : "/fi/journal";
+  }
+  const fiCat = pathname.match(/^\/fi\/journal\/([^/]+)$/);
+  if (fiCat && targetLang === "en") {
+    const en = JOURNAL_FI_TO_EN[fiCat[1]];
+    return en ? `/journal/${en}` : "/journal";
+  }
+
+  // Article: /journal/[cat]/[art] — fall back to translated category page
+  const enArt = pathname.match(/^\/journal\/([^/]+)\//);
+  if (enArt && targetLang === "fi") {
+    const fi = JOURNAL_EN_TO_FI[enArt[1]];
+    return fi ? `/fi/journal/${fi}` : "/fi/journal";
+  }
+  const fiArt = pathname.match(/^\/fi\/journal\/([^/]+)\//);
+  if (fiArt && targetLang === "en") {
+    const en = JOURNAL_FI_TO_EN[fiArt[1]];
+    return en ? `/journal/${en}` : "/journal";
+  }
+
+  return null;
+}
 
 function FlagUK({ className }: { className?: string }) {
   return (
@@ -43,7 +95,14 @@ export function Nav() {
   const scrolled = useScrolled(40);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isHome = pathname === "/";
+
+  const handleLangSwitch = (newLang: Lang) => {
+    setLang(newLang);
+    const altPath = journalAltPath(pathname, newLang);
+    if (altPath) router.push(altPath);
+  };
 
   // On non-home pages, anchor links resolve to /#section on the homepage
   const resolveHref = (href: string) =>
@@ -108,7 +167,7 @@ export function Nav() {
             <span className="mx-3 block h-4 w-px bg-sand-light/15" aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
               <button
-                onClick={() => setLang("en")}
+                onClick={() => handleLangSwitch("en")}
                 aria-label="English"
                 className={`${langPillBase} ${lang === "en" ? langPillActive : langPillIdle}`}
               >
@@ -116,7 +175,7 @@ export function Nav() {
                 EN
               </button>
               <button
-                onClick={() => setLang("fi")}
+                onClick={() => handleLangSwitch("fi")}
                 aria-label="Suomi"
                 className={`${langPillBase} ${lang === "fi" ? langPillActive : langPillIdle}`}
               >
@@ -136,7 +195,7 @@ export function Nav() {
           <div className="flex items-center gap-3 lg:hidden">
             <div className="flex items-center gap-0.5 text-[10px] uppercase tracking-[0.22em]">
               <button
-                onClick={() => setLang("en")}
+                onClick={() => handleLangSwitch("en")}
                 aria-label="English"
                 className={`flex items-center gap-1 rounded-[8px] px-2 py-1 transition-all ${
                   lang === "en" ? "bg-sun/15 text-sand-light" : "text-sand-light/55"
@@ -146,7 +205,7 @@ export function Nav() {
                 EN
               </button>
               <button
-                onClick={() => setLang("fi")}
+                onClick={() => handleLangSwitch("fi")}
                 aria-label="Suomi"
                 className={`flex items-center gap-1 rounded-[8px] px-2 py-1 transition-all ${
                   lang === "fi" ? "bg-sun/15 text-sand-light" : "text-sand-light/55"

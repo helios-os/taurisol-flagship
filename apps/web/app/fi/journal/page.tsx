@@ -30,7 +30,7 @@ export default function FiJournalIndexPage() {
            * overlaid on the left side of the image on desktop.
            * Mobile: image first, buttons below.
            */}
-          <section className="relative">
+          <section className="relative w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/taurisol-journal-hero.webp"
@@ -40,9 +40,9 @@ export default function FiJournalIndexPage() {
               className="block w-full h-auto"
             />
 
-            {/* Desktop overlay — sits on top of the image, left side */}
+            {/* Desktop overlay — absolute inside the hero image, left side */}
             <div
-              className="hidden lg:flex flex-col gap-5 absolute top-[30%] w-[270px]"
+              className="hidden lg:flex flex-col gap-5 absolute z-10 top-[30%] w-[270px]"
               style={{ left: "clamp(24px, 5vw, 72px)" }}
             >
               <p className="text-[10px] uppercase tracking-[0.42em] text-sun/60">
