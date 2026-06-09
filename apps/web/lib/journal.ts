@@ -301,7 +301,7 @@ export async function getCategoryPageData(
     const filtered = allPosts.filter((p) => {
       if (!isTaurisolJournalPost(p, lang)) return false;
       if (match) return getParentPillarId(p) === match.id;
-      return true; // No pillar found — include all lang-matching posts
+      return false; // No pillar found — show empty state, never leak unrelated posts
     });
     if (filtered.length > 0) {
       articles = filtered.map((p) => mapWPPost(p, lang, category.slug));
