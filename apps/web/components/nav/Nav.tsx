@@ -219,10 +219,10 @@ export function Nav() {
             <button
               onClick={() => setOpen(true)}
               aria-label={t(content.nav.menu, lang)}
-              className="flex flex-col items-end gap-1.5"
+              className="flex flex-col items-end justify-center gap-[5px] p-2 -mr-2"
             >
-              <span className="block h-px w-7 bg-sand-light" />
-              <span className="block h-px w-5 bg-sand-light" />
+              <span className="block h-[1.5px] w-6 rounded-full bg-sand-light" />
+              <span className="block h-[1.5px] w-[18px] rounded-full bg-sand-light" />
             </button>
           </div>
         </div>
