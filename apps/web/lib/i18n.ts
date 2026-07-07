@@ -9,6 +9,7 @@ export const content = {
     one: { en: "Taurisol One", fi: "Taurisol One" },
     faq: { en: "FAQ", fi: "UKK" },
     journal: { en: "Journal", fi: "Journal" },
+    buildWithUs: { en: "Build With Us", fi: "Rakenna kanssamme" },
     cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
     menu: { en: "Menu", fi: "Valikko" },
     close: { en: "Close", fi: "Sulje" },
@@ -333,6 +334,409 @@ export const content = {
     ownership: {
       en: "Taurisol is a flagship concept developed and operated by Helios Digitech Oy. Powered by Helios OS.",
       fi: "Taurisol on lippulaivakonsepti, jonka on kehittänyt ja jota operoi Helios Digitech Oy. Alustana toimii Helios OS.",
+    },
+  },
+  intra: {
+    shell: {
+      badge: { en: "Approved Partner Area", fi: "Hyväksytty kumppanialue" },
+      back: { en: "Back to the Intra", fi: "Takaisin Intraan" },
+    },
+    lobby: {
+      eyebrow: { en: "Access lobby", fi: "Sisäpiiri" },
+      title: {
+        en: "Welcome to the Taurisol Living Lab.",
+        fi: "Tervetuloa Taurisol Living Labiin.",
+      },
+      intro: {
+        en: "You are inside the first collaboration circle. This space is for approved early partners who may help shape Taurisol beyond Montefrío. The full story is not published openly. Here, each person enters through the path most relevant to their contribution.",
+        fi: "Olet ensimmäisen yhteistyöpiirin sisällä. Tämä tila on tarkoitettu hyväksytyille varhaisille kumppaneille, jotka voivat auttaa muotoilemaan Taurisolia Montefríon jälkeen. Koko tarinaa ei ole julkaistu avoimesti. Täällä jokainen astuu sisään sen polun kautta, joka on hänelle olennaisin.",
+      },
+      chooseEyebrow: { en: "Choose your path", fi: "Valitse polkusi" },
+      chooseHeading: {
+        en: "Four entrances. One conversation at a time.",
+        fi: "Neljä sisäänkäyntiä. Yksi keskustelu kerrallaan.",
+      },
+      paths: [
+        {
+          to: "/intra/land",
+          label: { en: "I have land", fi: "Minulla on maa-alue" },
+          body: {
+            en: "An exceptional place in Southern Europe may become the ground for a future Taurisol chapter.",
+            fi: "Poikkeuksellinen paikka Etelä-Euroopassa voi olla tulevan Taurisol-luvun alku.",
+          },
+        },
+        {
+          to: "/intra/funding",
+          label: { en: "I fund innovation", fi: "Rahoitan innovaatioita" },
+          body: {
+            en: "Building a serious funding path across European, national and regional instruments.",
+            fi: "Rahoituspolun rakentaminen: EU, kansalliset ja alueelliset instrumentit.",
+          },
+        },
+        {
+          to: "/intra/research",
+          label: { en: "I do research", fi: "Teen tutkimusta" },
+          body: {
+            en: "Regenerative living, cognitive recovery, autonomous systems — as a real-world Living Lab.",
+            fi: "Regeneratiivinen elämä, kognitiivinen palautuminen, autonomiset järjestelmät.",
+          },
+        },
+        {
+          to: "/intra/hermes",
+          label: { en: "I build communities", fi: "Rakennan yhteisöjä" },
+          body: {
+            en: "The Hermes path for the first local operators, hosts and stewards.",
+            fi: "Hermes-polku ensimmäisille paikallisille operaattoreille ja isännille.",
+          },
+        },
+      ],
+      enter: { en: "Enter →", fi: "Astu sisään →" },
+      deeperEyebrow: { en: "Deeper level", fi: "Syvempi taso" },
+      deeperHeading: {
+        en: "Deeper strategic material is shared only with qualified partners.",
+        fi: "Syvempi strateginen aineisto jaetaan vain kvalifioiduille kumppaneille.",
+      },
+      deeperBody: {
+        en: "When a conversation is ready to move forward, the next step is the Taurisol Founding Partner File — the starting point for founding-level collaboration.",
+        fi: "Kun keskustelu etenee, seuraava askel on Taurisol Founding Partner -aineisto — perustajatason yhteistyön alkupiste.",
+      },
+      foundingPartnerFileLabel: {
+        en: "Founding Partner File",
+        fi: "Founding Partner -aineisto",
+      },
+      requestAccessCta: { en: "Request access", fi: "Pyydä pääsy" },
+    },
+    land: {
+      eyebrow: { en: "Path · Land", fi: "Polku · Maa" },
+      title: {
+        en: "Could your land become a future Taurisol chapter?",
+        fi: "Voisiko sinun maasi olla tulevan Taurisol-luvun koti?",
+      },
+      intro: {
+        en: "Taurisol is looking for exceptional places across Southern Europe where regenerative off-grid communities could be tested, hosted or replicated.",
+        fi: "Taurisol etsii poikkeuksellisia paikkoja Etelä-Euroopassa, joissa regeneratiivista off-grid-yhteisöä voidaan pilotoida, isännöidä tai toistaa.",
+      },
+      interestedHeading: {
+        en: "What we are interested in",
+        fi: "Mistä olemme kiinnostuneita",
+      },
+      interestedItems: [
+        {
+          en: "Land with strong natural identity",
+          fi: "Maa, jolla on vahva luonnollinen identiteetti",
+        },
+        {
+          en: "Sunlight, silence and landscape value",
+          fi: "Auringonvalo, hiljaisuus ja maiseman arvo",
+        },
+        { en: "Reasonable access", fi: "Kohtuullinen saavutettavuus" },
+        {
+          en: "Potential for low-impact modular living",
+          fi: "Potentiaali vähäkuormaiseen modulaariseen asumiseen",
+        },
+        {
+          en: "Openness to long-term collaboration",
+          fi: "Avoimuus pitkäaikaiselle yhteistyölle",
+        },
+        {
+          en: "Local cultural or rural development relevance",
+          fi: "Paikallinen kulttuurinen tai maaseudun kehityksen merkitys",
+        },
+      ],
+      notLookingHeading: {
+        en: "What we are not looking for",
+        fi: "Mitä emme etsi",
+      },
+      notLookingItems: [
+        { en: "Mass tourism zones", fi: "Massaturismin alueita" },
+        {
+          en: "Speculative real estate plays",
+          fi: "Spekulatiivisia kiinteistöhankkeita",
+        },
+        {
+          en: "Fragile land without a clear stewardship model",
+          fi: "Herkkää maata ilman selkeää hoitomallia",
+        },
+        {
+          en: "Locations that cannot support a calm human-scale community",
+          fi: "Paikkoja, jotka eivät kestä rauhallista inhimillisen kokoista yhteisöä",
+        },
+      ],
+      nextLabel: { en: "What happens next", fi: "Mitä seuraavaksi" },
+      nextBody: {
+        en: "If your land may fit, we begin with a light qualification conversation. No commitment is expected at this stage.",
+        fi: "Jos maasi voi sopia, aloitamme kevyellä kartoituskeskustelulla. Tässä vaiheessa ei odoteta sitoumuksia.",
+      },
+      submitCta: { en: "Submit Land Interest", fi: "Ilmoita kiinnostus" },
+    },
+    funding: {
+      eyebrow: { en: "Path · Funding", fi: "Polku · Rahoitus" },
+      title: {
+        en: "Could Taurisol become the next project you help bring to life?",
+        fi: "Voisiko Taurisol olla seuraava hanke, jonka autat toteutumaan?",
+      },
+      intro: {
+        en: "Taurisol Living Lab may connect several European themes: climate resilience, rural revitalisation, modular living, renewable energy, water autonomy, sustainable remote work and digital community governance.",
+        fi: "Taurisol Living Lab yhdistää useita eurooppalaisia teemoja: ilmastokestävyys, maaseudun elvyttäminen, modulaarinen asuminen, uusiutuva energia, veden omavaraisuus, kestävä etätyö ja digitaalinen yhteisöhallinta.",
+      },
+      anglesHeading: {
+        en: "Possible funding angles",
+        fi: "Mahdollisia rahoituskulmia",
+      },
+      anglesItems: [
+        { en: "European Living Lab", fi: "Eurooppalainen Living Lab" },
+        {
+          en: "Regenerative rural development",
+          fi: "Regeneratiivinen maaseudun kehitys",
+        },
+        { en: "Energy and water autonomy", fi: "Energia- ja vesiautonomia" },
+        { en: "Sustainable remote work", fi: "Kestävä etätyö" },
+        {
+          en: "Modular low-impact construction",
+          fi: "Modulaarinen vähäkuormainen rakentaminen",
+        },
+        {
+          en: "Research and innovation collaboration",
+          fi: "Tutkimus- ja innovaatioyhteistyö",
+        },
+        {
+          en: "Taurisol OS as scalable technology layer",
+          fi: "Taurisol OS skaalautuvana teknologiakerroksena",
+        },
+      ],
+      needHeading: { en: "What we need", fi: "Mitä tarvitsemme" },
+      needItems: [
+        { en: "Funding route analysis", fi: "Rahoituspolun analyysi" },
+        {
+          en: "Instrument matching",
+          fi: "Instrumenttien yhteensovittaminen",
+        },
+        { en: "Consortium strategy", fi: "Konsortiostrategia" },
+        {
+          en: "EU / national / regional preparation support",
+          fi: "EU / kansallinen / alueellinen valmisteluvaihe",
+        },
+        {
+          en: "Serious assessment of what is fundable and what is not",
+          fi: "Vakava arvio siitä, mikä on rahoitettavaa",
+        },
+      ],
+      nextLabel: { en: "What happens next", fi: "Mitä seuraavaksi" },
+      nextBody: {
+        en: "Funding specialists may be invited into a structured discussion around the first preparation route.",
+        fi: "Rahoitusasiantuntijat voidaan kutsua jäsenneltyyn keskusteluun ensimmäisen valmistelupolun ympärille.",
+      },
+      submitCta: { en: "Discuss Funding Path", fi: "Keskustele rahoituspolusta" },
+    },
+    research: {
+      eyebrow: { en: "Path · Research", fi: "Polku · Tutkimus" },
+      title: {
+        en: "Could Taurisol become your next real-world Living Lab?",
+        fi: "Voisiko Taurisolista tulla seuraava reaalimaailman Living Lab?",
+      },
+      intro: {
+        en: "Taurisol can become a field environment for studying regenerative living, cognitive recovery, rural innovation, energy autonomy, water systems, sustainable work-life models and community design.",
+        fi: "Taurisol voi toimia kenttäympäristönä regeneratiiviselle elämälle, kognitiiviselle palautumiselle, maaseudun innovaatiolle, energia- ja vesijärjestelmille sekä yhteisömuotoilulle.",
+      },
+      themesHeading: { en: "Research themes", fi: "Tutkimusteemat" },
+      themesItems: [
+        { en: "Regenerative off-grid living", fi: "Regeneratiivinen off-grid-elämä" },
+        {
+          en: "Cognitive load reduction and place-based recovery",
+          fi: "Kognitiivisen kuormituksen vähentäminen ja paikkasidonnainen palautuminen",
+        },
+        {
+          en: "Remote work and rural revitalisation",
+          fi: "Etätyö ja maaseudun elvyttäminen",
+        },
+        { en: "Water and energy autonomy", fi: "Vesi- ja energia-autonomia" },
+        {
+          en: "Modular low-impact construction",
+          fi: "Modulaarinen vähäkuormainen rakentaminen",
+        },
+        { en: "Community governance", fi: "Yhteisöhallinta" },
+        {
+          en: "Human-scale sustainable tourism alternatives",
+          fi: "Inhimillisen kokoiset kestävän matkailun vaihtoehdot",
+        },
+      ],
+      offerHeading: { en: "What we offer", fi: "Mitä tarjoamme" },
+      offerItems: [
+        { en: "A real-world pilot context", fi: "Reaalimaailman pilottikonteksti" },
+        { en: "A multi-disciplinary concept", fi: "Monialainen konsepti" },
+        {
+          en: "Early access to the Living Lab framework",
+          fi: "Varhainen pääsy Living Lab -kehykseen",
+        },
+        {
+          en: "Potential for university and company collaboration",
+          fi: "Potentiaali yliopisto- ja yritysyhteistyölle",
+        },
+      ],
+      nextLabel: { en: "What happens next", fi: "Mitä seuraavaksi" },
+      nextBody: {
+        en: "Researchers can propose a research angle or join early framing conversations.",
+        fi: "Tutkijat voivat ehdottaa tutkimuskulmaa tai liittyä varhaisiin määrittelykeskusteluihin.",
+      },
+      submitCta: { en: "Propose Research Angle", fi: "Ehdota tutkimuskulmaa" },
+    },
+    hermes: {
+      eyebrow: { en: "Path · Hermes", fi: "Polku · Hermes" },
+      title: {
+        en: "Could you become one of the first Hermes operators?",
+        fi: "Voisitko olla yksi ensimmäisistä Hermes-operaattoreista?",
+      },
+      intro: {
+        en: "Hermes operators are future local builders, hosts and operators who may help bring Taurisol-inspired communities to life in different European regions.",
+        fi: "Hermes-operaattorit ovat tulevia paikallisia rakentajia, isäntiä ja pyörittäjiä, jotka voivat auttaa tuomaan Taurisol-innoittuneet yhteisöt eloon eri Euroopan alueilla.",
+      },
+      suitHeading: { en: "Who this may suit", fi: "Kenelle tämä voi sopia" },
+      suitItems: [
+        { en: "Local entrepreneurs", fi: "Paikalliset yrittäjät" },
+        {
+          en: "Hospitality operators",
+          fi: "Vieraanvaraisuusalan operaattorit",
+        },
+        { en: "Rural developers", fi: "Maaseudun kehittäjät" },
+        { en: "Community builders", fi: "Yhteisörakentajat" },
+        { en: "Sustainability professionals", fi: "Kestävyysammattilaiset" },
+        {
+          en: "People with land, networks or operational ability",
+          fi: "Ihmiset, joilla on maata, verkostoja tai operatiivista kykyä",
+        },
+      ],
+      meansHeading: { en: "What Hermes means", fi: "Mitä Hermes tarkoittaa" },
+      meansBody: {
+        en: "Hermes is not a franchise yet. It is an early operator path for people who understand place, trust, hosting and long-term stewardship.",
+        fi: "Hermes ei ole vielä franchising. Se on varhainen operaattoripolku ihmisille, jotka ymmärtävät paikan, luottamuksen, isännyyden ja pitkän aikavälin huolenpidon.",
+      },
+      nextLabel: { en: "What happens next", fi: "Mitä seuraavaksi" },
+      nextBody: {
+        en: "The first Hermes conversations are exploratory. The goal is to understand who could one day operate a Taurisol-inspired site.",
+        fi: "Ensimmäiset Hermes-keskustelut ovat kartoittavia. Tavoite on ymmärtää, kuka voisi jonain päivänä pyörittää Taurisol-innoittunutta paikkaa.",
+      },
+      submitCta: { en: "Explore Hermes Path", fi: "Tutki Hermes-polkua" },
+    },
+    foundingPartnerFile: {
+      eyebrow: {
+        en: "Founding-level collaboration",
+        fi: "Perustajatason yhteistyö",
+      },
+      title: {
+        en: "Taurisol Founding Partner File",
+        fi: "Taurisol Founding Partner -aineisto",
+      },
+      intro: {
+        en: "For serious partners who want deeper context before structured collaboration.",
+        fi: "Vakaville kumppaneille, jotka haluavat syvempää kontekstia ennen jäsenneltyä yhteistyötä.",
+      },
+      body1: {
+        en: "The public page creates interest. The approved Intra explains the paths. The Founding Partner File is the next level for qualified partners who need more strategic detail.",
+        fi: "Julkinen sivu herättää kiinnostuksen. Hyväksytty Intra selittää polut. Founding Partner -aineisto on seuraava taso — niille kvalifioiduille kumppaneille, jotka tarvitsevat enemmän strategista syvyyttä.",
+      },
+      body2: {
+        en: "The contribution covers founder review time, preparation, strategic material and a structured follow-up discussion. It also helps separate serious collaboration from curiosity traffic.",
+        fi: "Osallistumismaksu kattaa perustajien tarkastusajan, valmistelun, strategisen aineiston ja jäsennellyn jatkokeskustelun. Se myös auttaa erottamaan vakavan yhteistyön uteliaisuudesta.",
+      },
+      accessLabel: { en: "Access contribution", fi: "Osallistuminen" },
+      price: "€1,000",
+      priceCaption: {
+        en: "Qualification for founding-level discussion — not a paywall, but the starting point of serious collaboration.",
+        fi: "Perustajatason keskustelun kvalifiointi — ei halpa maksumuuri, vaan vakavan yhteistyön alkupiste.",
+      },
+      includesEyebrow: { en: "What it may include", fi: "Mitä se voi sisältää" },
+      includesHeading: {
+        en: "Content is shaped to your role and possible contribution.",
+        fi: "Sisältö räätälöidään roolisi ja mahdollisen panoksesi mukaan.",
+      },
+      includesItems: [
+        { en: "Deeper project brief", fi: "Syvempi hankekuvaus" },
+        {
+          en: "Role-specific opportunity review",
+          fi: "Roolikohtainen mahdollisuuksien arvio",
+        },
+        { en: "Preliminary funding logic", fi: "Alustava rahoituslogiikka" },
+        {
+          en: "Land / operator / research fit assessment",
+          fi: "Maa- / operaattori- / tutkimussopivuuden arviointi",
+        },
+        { en: "Taurisol OS overview", fi: "Taurisol OS -yleiskuvaus" },
+        {
+          en: "Next-step collaboration roadmap",
+          fi: "Seuraavan askeleen yhteistyön tiekartta",
+        },
+        {
+          en: "Founder call or review session",
+          fi: "Perustajan puhelu tai arviointikeskustelu",
+        },
+      ],
+      requestCta: {
+        en: "Request Founding Partner File",
+        fi: "Pyydä Founding Partner -aineisto",
+      },
+    },
+    requestFoundingPartnerFile: {
+      en: "Request Founding Partner File",
+      fi: "Pyydä Founding Partner -aineisto",
+    },
+    dialog: {
+      titleAccess: { en: "Request Intra access", fi: "Pyydä pääsy Intraan" },
+      titleFounding: {
+        en: "Request Founding Partner File",
+        fi: "Pyydä Founding Partner -aineisto",
+      },
+      desc: {
+        en: "Every request is reviewed manually. We reply within a few working days.",
+        fi: "Jokainen pyyntö arvioidaan käsin. Vastaamme muutaman työpäivän kuluessa.",
+      },
+      name: { en: "Name", fi: "Nimi" },
+      org: { en: "Organisation", fi: "Organisaatio" },
+      role: { en: "Role", fi: "Rooli" },
+      country: { en: "Country", fi: "Maa" },
+      email: { en: "Email", fi: "Sähköposti" },
+      pathQuestion: {
+        en: "Which path fits you?",
+        fi: "Mikä polku sopii sinulle?",
+      },
+      paths: [
+        { id: "land", label: { en: "I have land", fi: "Minulla on maa-alue" } },
+        {
+          id: "funding",
+          label: { en: "I fund innovation", fi: "Rahoitan innovaatioita" },
+        },
+        { id: "research", label: { en: "I do research", fi: "Teen tutkimusta" } },
+        {
+          id: "communities",
+          label: { en: "I build communities", fi: "Rakennan yhteisöjä" },
+        },
+        { id: "investor", label: { en: "Investor", fi: "Sijoittaja" } },
+        {
+          id: "other",
+          label: {
+            en: "Other strategic partner",
+            fi: "Muu strateginen kumppani",
+          },
+        },
+      ],
+      msg: { en: "Short message", fi: "Lyhyt viesti" },
+      msgPlaceholder: {
+        en: "Briefly describe what you hope to explore.",
+        fi: "Kerro lyhyesti mitä toivot yhteistyöltä.",
+      },
+      nda: {
+        en: "I understand that deeper material is shared only with qualified partners.",
+        fi: "Ymmärrän, että syvempi aineisto jaetaan vain kvalifioiduille kumppaneille.",
+      },
+      submit: { en: "Submit request", fi: "Lähetä pyyntö" },
+      doneEyebrow: { en: "Received", fi: "Vastaanotettu" },
+      doneTitle: {
+        en: "Thank you. Your request has been received.",
+        fi: "Kiitos. Pyyntösi on vastaanotettu.",
+      },
+      doneBody: {
+        en: "Taurisol Living Lab access is reviewed manually. If your role, land, organisation or expertise fits the current phase, you will receive next-step instructions by email.",
+        fi: "Taurisol Living Labin pääsy arvioidaan käsin. Jos roolisi, maasi, organisaatiosi tai asiantuntemuksesi sopii nykyiseen vaiheeseen, saat jatko-ohjeet sähköpostitse.",
+      },
     },
   },
 } as const;

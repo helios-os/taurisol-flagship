@@ -87,9 +87,10 @@ const anchorLinks = [
   { key: "faq", href: "#faq" },
 ] as const;
 
-export function Nav() {
+export function Nav({ solid = false }: { solid?: boolean } = {}) {
   const { lang, setLang } = useLang();
-  const scrolled = useScrolled(40);
+  const scrolledPast = useScrolled(40);
+  const scrolled = solid || scrolledPast;
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -169,6 +170,9 @@ export function Nav() {
             ))}
             <a href={journalHref} className={linkClass}>
               {t(content.nav.journal, lang)}
+            </a>
+            <a href="/intra" className={linkClass}>
+              {t(content.nav.buildWithUs, lang)}
             </a>
             <span className="mx-3 block h-4 w-px bg-sand-light/15" aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
@@ -266,6 +270,19 @@ export function Nav() {
               className="font-serif text-3xl text-sand-light hover:text-sun"
             >
               {t(content.nav.journal, lang)}
+            </a>
+            <a
+              href="/intra"
+              onClick={() => setOpen(false)}
+              style={{
+                transitionDelay: `${open ? 80 + (anchorLinks.length + 1) * 45 : 0}ms`,
+                opacity: open ? 1 : 0,
+                transform: open ? "translateY(0)" : "translateY(10px)",
+                transition: "opacity 600ms ease, transform 600ms ease",
+              }}
+              className="font-serif text-3xl text-sand-light hover:text-sun"
+            >
+              {t(content.nav.buildWithUs, lang)}
             </a>
           </nav>
 

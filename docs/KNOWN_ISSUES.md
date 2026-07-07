@@ -147,6 +147,22 @@ Validated against source Lovable export (component structure and Tailwind classe
 
 ---
 
+## KI-008 — Intra routes are UI-only prototype pages
+
+| | |
+|---|---|
+| Severity | Info |
+| Section | `/intra`, `/intra/land`, `/intra/funding`, `/intra/research`, `/intra/hermes`, `/intra/founding-partner-file` |
+| Status | **By design — v1** |
+
+**Description:** Intra routes are publicly accessible UI prototype pages. Real access control and form handling are not implemented yet. `IntraRequestDialog` renders a client-side-only fake submission (`setSubmitted(true)`) — no network call, no database write, no email is sent, and there is no authentication gating any `/intra/*` route. Anyone with the URL can view all pages.
+
+**Source:** Ported from `taurisol-living-lab-ui` (Lovable) `src/components/intra/` and `src/routes/intra*.tsx`, adapted to Next.js App Router, the flagship's `lib/i18n.ts` content pattern, and existing `Nav`/`Footer`.
+
+**Follow-up (not scheduled):** Real auth/access-control, backend form submission, and email notification are required before this is safe to treat as production-ready partner access.
+
+---
+
 ## No Known Build Blockers
 
 All TypeScript types are correct. All imports resolve. Build passes.
