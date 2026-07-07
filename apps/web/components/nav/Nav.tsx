@@ -84,8 +84,17 @@ const anchorLinks = [
   { key: "homes", href: "#homes" },
   { key: "location", href: "#location" },
   { key: "one", href: "#one" },
-  { key: "faq", href: "#faq" },
 ] as const;
+
+/**
+ * Returns the translated Pricing path for the given target language,
+ * or null if the current pathname is not the Pricing route.
+ */
+function pricingAltPath(pathname: string, targetLang: Lang): string | null {
+  if (pathname === "/pricing" && targetLang === "fi") return "/fi/pricing";
+  if (pathname === "/fi/pricing" && targetLang === "en") return "/pricing";
+  return null;
+}
 
 export type NavVariant = "transparent" | "light" | "dark";
 
@@ -113,7 +122,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
 
   const handleLangSwitch = (newLang: Lang) => {
     setLang(newLang);
-    const altPath = journalAltPath(pathname, newLang);
+    const altPath = journalAltPath(pathname, newLang) ?? pricingAltPath(pathname, newLang);
     if (altPath) router.push(altPath);
   };
 
@@ -121,6 +130,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
     href.startsWith("#") && !isHome ? `/${href}` : href;
 
   const journalHref = lang === "fi" ? "/fi/journal" : "/journal";
+  const pricingHref = lang === "fi" ? "/fi/pricing" : "/pricing";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -203,6 +213,9 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
             ))}
             <a href={journalHref} className={linkClass}>
               {t(content.nav.journal, lang)}
+            </a>
+            <a href={pricingHref} className={linkClass}>
+              {t(content.nav.pricing, lang)}
             </a>
             <a href="/intra" className={linkClass}>
               {t(content.nav.buildWithUs, lang)}
@@ -305,10 +318,23 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               {t(content.nav.journal, lang)}
             </a>
             <a
-              href="/intra"
+              href={pricingHref}
               onClick={() => setOpen(false)}
               style={{
                 transitionDelay: `${open ? 80 + (anchorLinks.length + 1) * 45 : 0}ms`,
+                opacity: open ? 1 : 0,
+                transform: open ? "translateY(0)" : "translateY(10px)",
+                transition: "opacity 600ms ease, transform 600ms ease",
+              }}
+              className="font-serif text-3xl text-sand-light hover:text-sun"
+            >
+              {t(content.nav.pricing, lang)}
+            </a>
+            <a
+              href="/intra"
+              onClick={() => setOpen(false)}
+              style={{
+                transitionDelay: `${open ? 80 + (anchorLinks.length + 2) * 45 : 0}ms`,
                 opacity: open ? 1 : 0,
                 transform: open ? "translateY(0)" : "translateY(10px)",
                 transition: "opacity 600ms ease, transform 600ms ease",

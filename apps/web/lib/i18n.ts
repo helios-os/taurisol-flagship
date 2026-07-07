@@ -9,6 +9,7 @@ export const content = {
     one: { en: "Taurisol One", fi: "Taurisol One" },
     faq: { en: "FAQ", fi: "UKK" },
     journal: { en: "Journal", fi: "Journal" },
+    pricing: { en: "Pricing", fi: "Hinnoittelu" },
     buildWithUs: { en: "Build With Us", fi: "Rakenna kanssamme" },
     cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
     menu: { en: "Menu", fi: "Valikko" },
