@@ -41,7 +41,7 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <LangProvider initialLang="en">
       <div className="min-h-screen scroll-smooth bg-background text-foreground">
-        <Nav />
+        <Nav variant="light" />
         <main>
           {/* Article hero */}
           <section className="bg-shadow pb-20 pt-40 md:pb-28 md:pt-52 text-sand-light">

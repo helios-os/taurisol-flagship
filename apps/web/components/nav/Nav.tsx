@@ -87,14 +87,29 @@ const anchorLinks = [
   { key: "faq", href: "#faq" },
 ] as const;
 
-export function Nav({ solid = false }: { solid?: boolean } = {}) {
+export type NavVariant = "transparent" | "light" | "dark";
+
+// Desktop-only (lg:) background per variant. "transparent" is scroll-aware —
+// it starts see-through over a hero image and gains the dark scrolled
+// treatment past the threshold. "light" and "dark" are static: they're used
+// on pages with no hero to reveal, so the readable background is always on.
+const NAV_VARIANT_BG: Record<Exclude<NavVariant, "transparent">, string> = {
+  light:
+    "lg:bg-sand-light/95 lg:backdrop-blur-2xl lg:border-b lg:border-shadow/10 lg:shadow-[0_1px_20px_-14px_rgba(0,0,0,0.12)]",
+  dark: "lg:bg-shadow/90 lg:backdrop-blur-2xl lg:border-b lg:border-sand-light/10 lg:shadow-[0_1px_30px_-12px_rgba(0,0,0,0.25)]",
+};
+const NAV_VARIANT_SCROLLED_BG =
+  "lg:bg-shadow/25 lg:backdrop-blur-2xl lg:border-b lg:border-sand-light/10 lg:shadow-[0_1px_30px_-12px_rgba(0,0,0,0.25)]";
+const NAV_VARIANT_TRANSPARENT_BG = "lg:bg-transparent lg:border-b lg:border-transparent";
+
+export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) {
   const { lang, setLang } = useLang();
   const scrolledPast = useScrolled(40);
-  const scrolled = solid || scrolledPast;
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isHome = pathname === "/";
+  const isLight = variant === "light";
 
   const handleLangSwitch = (newLang: Lang) => {
     setLang(newLang);
@@ -114,21 +129,42 @@ export function Nav({ solid = false }: { solid?: boolean } = {}) {
     };
   }, [open]);
 
-  // Desktop nav background — scroll-aware, lg+ only
-  const desktopNavBg = scrolled
-    ? "lg:bg-shadow/25 lg:backdrop-blur-2xl lg:border-b lg:border-sand-light/10 lg:shadow-[0_1px_30px_-12px_rgba(0,0,0,0.25)]"
-    : "lg:bg-transparent lg:border-b lg:border-transparent";
+  // Desktop nav background — "transparent" is scroll-aware, light/dark are static.
+  const desktopNavBg =
+    variant === "transparent"
+      ? scrolledPast
+        ? NAV_VARIANT_SCROLLED_BG
+        : NAV_VARIANT_TRANSPARENT_BG
+      : NAV_VARIANT_BG[variant];
+
+  // Padding shrink is a scroll-driven polish over a tall hero; light/dark
+  // pages have no hero to shrink from, so they render compact from the start.
+  const compact = variant === "transparent" ? scrolledPast : true;
 
   const linkLabel = (key: string) =>
     t((content.nav as Record<string, { en: string; fi: string }>)[key], lang);
 
   const langPillBase =
     "flex items-center gap-1.5 rounded-[8px] px-2.5 py-1 transition-all duration-300";
-  const langPillActive = "bg-sun/15 text-sand-light";
-  const langPillIdle = "text-sand-light/55 hover:text-sand-light";
+  const langPillActive = isLight ? "bg-sun/15 text-foreground" : "bg-sun/15 text-sand-light";
+  const langPillIdle = isLight
+    ? "text-foreground/55 hover:text-foreground"
+    : "text-sand-light/55 hover:text-sand-light";
 
-  const linkClass =
-    "rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] text-sand-light/85 transition-all duration-300 hover:border-sun/45 hover:bg-sun/[0.06] hover:text-sand-light hover:shadow-[0_0_22px_-10px_var(--sun)]";
+  const linkClass = `rounded-[10px] border border-transparent px-4 py-2 text-[11px] uppercase tracking-[0.22em] ${
+    isLight ? "text-foreground/70" : "text-sand-light/85"
+  } transition-all duration-300 hover:border-sun/45 hover:bg-sun/[0.06] ${
+    isLight ? "hover:text-foreground" : "hover:text-sand-light"
+  } hover:shadow-[0_0_22px_-10px_var(--sun)]`;
+
+  const dividerClass = `mx-3 block h-4 w-px ${isLight ? "bg-foreground/15" : "bg-sand-light/15"}`;
+
+  // Logo is shared across mobile and desktop. Mobile always sits on its own
+  // permanent dark tint strip (unchanged), so it stays light there; only the
+  // desktop tone follows the variant.
+  const logoClass = `font-serif text-base tracking-[0.32em] ${
+    isLight ? "text-sand-light lg:text-foreground" : "text-sand-light"
+  }`;
 
   return (
     <>
@@ -147,13 +183,10 @@ export function Nav({ solid = false }: { solid?: boolean } = {}) {
 
         <div
           className={`relative mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-12 transition-[padding] duration-500 ${
-            scrolled ? "py-4 md:py-5" : "py-5 md:py-8"
+            compact ? "py-4 md:py-5" : "py-5 md:py-8"
           }`}
         >
-          <a
-            href={isHome ? "#top" : "/"}
-            className="font-serif text-base tracking-[0.32em] text-sand-light"
-          >
+          <a href={isHome ? "#top" : "/"} className={logoClass}>
             TAURISOL
           </a>
 
@@ -174,7 +207,7 @@ export function Nav({ solid = false }: { solid?: boolean } = {}) {
             <a href="/intra" className={linkClass}>
               {t(content.nav.buildWithUs, lang)}
             </a>
-            <span className="mx-3 block h-4 w-px bg-sand-light/15" aria-hidden="true" />
+            <span className={dividerClass} aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
               <button
                 onClick={() => handleLangSwitch("en")}

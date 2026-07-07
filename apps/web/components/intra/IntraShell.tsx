@@ -25,7 +25,7 @@ export function IntraShell({
   const badge = t(content.intra.shell.badge, lang);
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Nav solid />
+      <Nav variant="light" />
       <div className="border-b border-border/60 bg-secondary/40 pt-24 md:pt-32">
         <div className="container-page flex flex-wrap items-center justify-between gap-3 py-3 text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
           <span className="inline-flex items-center gap-2">

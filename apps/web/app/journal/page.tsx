@@ -23,7 +23,7 @@ export default function JournalIndexPage() {
   return (
     <LangProvider initialLang="en">
       <div className="min-h-screen bg-shadow text-sand-light">
-        <Nav />
+        <Nav variant="light" />
         <main>
           {/*
            * Desktop: full-width hero image with button group overlaid on the

@@ -23,7 +23,7 @@ export default function FiJournalIndexPage() {
   return (
     <LangProvider initialLang="fi">
       <div className="min-h-screen bg-shadow text-sand-light">
-        <Nav />
+        <Nav variant="light" />
         <main>
           {/*
            * Same layout as /journal — hero image full-width, button group

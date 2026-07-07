@@ -49,7 +49,7 @@ export default async function FiCategoryPage({ params }: Props) {
   return (
     <LangProvider initialLang="fi">
       <div className="min-h-screen scroll-smooth bg-background text-foreground">
-        <Nav />
+        <Nav variant="light" />
         <main>
           {/*
            * Compact category header — not a hero, just orientation.
