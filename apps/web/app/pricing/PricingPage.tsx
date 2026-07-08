@@ -13,9 +13,9 @@ const bodyClass = "text-base font-light leading-relaxed text-shadow/75 md:text-l
 const panelClass =
   "rounded-[28px] border-2 border-olive-deep/15 bg-sand p-8 shadow-[0_30px_70px_-40px_rgba(40,30,10,0.35)] md:p-14";
 const primaryCta =
-  "group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)] hover:-translate-y-0.5";
+  "group inline-flex w-full sm:w-auto max-w-full items-center justify-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-shadow text-center transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)] hover:-translate-y-0.5 sm:tracking-[0.25em]";
 const secondaryCta =
-  "group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:border-sun hover:bg-sun/[0.08] hover:shadow-[0_0_28px_-10px_var(--sun)] hover:-translate-y-0.5";
+  "group inline-flex w-full sm:w-auto max-w-full items-center justify-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs font-medium uppercase tracking-[0.15em] text-shadow text-center transition-all duration-300 hover:border-sun hover:bg-sun/[0.08] hover:shadow-[0_0_28px_-10px_var(--sun)] hover:-translate-y-0.5 sm:tracking-[0.25em]";
 
 const heroLineClass = {
   lead: "font-serif text-xl italic leading-relaxed text-olive-deep md:text-2xl",
@@ -127,7 +127,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                 {c.tiers.map((tier, i) => (
                   <Reveal key={tier.name} delay={i * 100} className="h-full min-w-0">
                     <div
-                      className={`relative flex h-full min-w-0 flex-col rounded-[28px] p-10 md:p-11 ${
+                      className={`relative flex h-full min-w-0 flex-col rounded-[28px] p-6 sm:p-10 md:p-11 ${
                         tier.featured
                           ? "border-2 border-sun bg-sand shadow-[0_40px_90px_-35px_var(--sun)] md:-translate-y-6 md:scale-[1.03]"
                           : "border-2 border-olive-deep/20 bg-sand shadow-[0_25px_60px_-40px_rgba(40,30,10,0.3)]"
@@ -147,7 +147,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                       <p className="mt-2 font-serif text-base italic text-olive-deep">
                         {tier.tagline}
                       </p>
-                      <p className="mt-6 font-serif text-5xl leading-none text-shadow md:text-6xl">
+                      <p className="mt-6 font-serif text-4xl leading-none whitespace-nowrap text-shadow sm:text-5xl md:text-6xl">
                         {tier.price}
                       </p>
                       <p className="mt-4 inline-flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-olive-deep">
@@ -190,10 +190,10 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
 
                       <a
                         href="#priority-list"
-                        className="group mt-9 inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-sun px-6 py-4 text-[11px] font-medium uppercase tracking-[0.22em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_32px_-10px_var(--sun)] hover:-translate-y-0.5"
+                        className="group mt-9 inline-flex w-full max-w-full items-center justify-center gap-2 rounded-[10px] bg-sun px-6 py-4 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_32px_-10px_var(--sun)] hover:-translate-y-0.5 sm:tracking-[0.22em]"
                       >
-                        {tier.cta}
-                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                        <span className="min-w-0 wrap-break-word">{tier.cta}</span>
+                        <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
                       </a>
                     </div>
                   </Reveal>
@@ -351,12 +351,12 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
 
                   <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
                     <a href="/intra" className={primaryCta}>
-                      {c.priorityList.primaryCta}
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                      <span className="min-w-0 wrap-break-word">{c.priorityList.primaryCta}</span>
+                      <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
                     </a>
                     <a
                       href="/intra"
-                      className="text-xs font-medium uppercase tracking-[0.22em] text-shadow/70 underline underline-offset-4 transition-colors hover:text-shadow"
+                      className="max-w-full text-center text-xs font-medium uppercase tracking-[0.14em] text-shadow/70 underline underline-offset-4 transition-colors hover:text-shadow sm:tracking-[0.22em]"
                     >
                       {c.priorityList.secondaryCta}
                     </a>
@@ -457,11 +457,11 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                   <p className={`mx-auto mt-8 max-w-xl ${bodyClass}`}>{c.finalCta.body}</p>
                   <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <a href="/intra" className={primaryCta}>
-                      {c.finalCta.primaryCta}
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
+                      <span className="min-w-0 wrap-break-word">{c.finalCta.primaryCta}</span>
+                      <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
                     </a>
                     <a href="/intra" className={secondaryCta}>
-                      {c.finalCta.secondaryCta}
+                      <span className="min-w-0 wrap-break-word">{c.finalCta.secondaryCta}</span>
                     </a>
                   </div>
                 </div>
