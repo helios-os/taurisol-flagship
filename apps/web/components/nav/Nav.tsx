@@ -131,6 +131,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
 
   const journalHref = lang === "fi" ? "/fi/journal" : "/journal";
   const pricingHref = lang === "fi" ? "/fi/pricing" : "/pricing";
+  const livingLabHref = lang === "fi" ? "/fi/living-lab" : "/living-lab";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -240,7 +241,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               </button>
             </div>
             <a
-              href="#philosophy"
+              href={livingLabHref}
               className="ml-3 inline-flex items-center gap-2 rounded-[10px] bg-sun px-5 py-2.5 text-[11px] font-medium uppercase tracking-[0.22em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_10px_28px_-10px_var(--sun)]"
             >
               {t(content.nav.cta, lang)}
@@ -376,7 +377,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
 
           {/* CTA */}
           <a
-            href={resolveHref("#philosophy")}
+            href={livingLabHref}
             onClick={() => setOpen(false)}
             className="mt-3 inline-flex items-center justify-center gap-2 rounded-[10px] border border-sun bg-sun px-6 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-colors hover:bg-sun-soft"
           >

@@ -11,7 +11,7 @@ export const content = {
     journal: { en: "Journal", fi: "Journal" },
     pricing: { en: "Pricing", fi: "Hinnoittelu" },
     buildWithUs: { en: "Build With Us", fi: "Rakenna kanssamme" },
-    cta: { en: "Discover Taurisol", fi: "Tutustu Taurisoliin" },
+    cta: { en: "Build With Us", fi: "Rakenna Kanssamme" },
     menu: { en: "Menu", fi: "Valikko" },
     close: { en: "Close", fi: "Sulje" },
   },
