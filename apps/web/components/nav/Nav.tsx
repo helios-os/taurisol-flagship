@@ -132,6 +132,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
   const journalHref = lang === "fi" ? "/fi/journal" : "/journal";
   const pricingHref = lang === "fi" ? "/fi/pricing" : "/pricing";
   const livingLabHref = lang === "fi" ? "/fi/living-lab" : "/living-lab";
+  const discoverHref = isHome ? "#top" : "/";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -152,8 +153,11 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
   // pages have no hero to shrink from, so they render compact from the start.
   const compact = variant === "transparent" ? scrolledPast : true;
 
-  const linkLabel = (key: string) =>
-    t((content.nav as Record<string, { en: string; fi: string }>)[key], lang);
+  const linkLabel = (key: string) => {
+    if (key === "how") return t(content.nav.howShort, lang);
+    if (key === "one") return t(content.nav.quiz, lang);
+    return t((content.nav as Record<string, { en: string; fi: string }>)[key], lang);
+  };
 
   const langPillBase =
     "flex items-center gap-1.5 rounded-[8px] px-2.5 py-1 transition-all duration-300";
@@ -218,8 +222,8 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
             <a href={pricingHref} className={linkClass}>
               {t(content.nav.pricing, lang)}
             </a>
-            <a href="/intra" className={linkClass}>
-              {t(content.nav.buildWithUs, lang)}
+            <a href={discoverHref} className={linkClass}>
+              {t(content.nav.discover, lang)}
             </a>
             <span className={dividerClass} aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
@@ -332,7 +336,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               {t(content.nav.pricing, lang)}
             </a>
             <a
-              href="/intra"
+              href={discoverHref}
               onClick={() => setOpen(false)}
               style={{
                 transitionDelay: `${open ? 80 + (anchorLinks.length + 2) * 45 : 0}ms`,
@@ -342,7 +346,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               }}
               className="font-serif text-3xl text-sand-light hover:text-sun"
             >
-              {t(content.nav.buildWithUs, lang)}
+              {t(content.nav.discover, lang)}
             </a>
           </nav>
 
