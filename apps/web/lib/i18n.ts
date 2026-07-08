@@ -740,6 +740,66 @@ export const content = {
       },
     },
   },
+  pricingDialog: {
+    titlePriority: {
+      en: "Join the Taurisol Priority List",
+      fi: "Liity Taurisol-prioriteettilistalle",
+    },
+    titleDetails: {
+      en: "Request Taurisol Membership Details",
+      fi: "Pyydä lisätietoja Taurisol-jäsenyydestä",
+    },
+    intro: {
+      en: "Priority applications are reviewed manually. We will contact you before any payment or membership agreement.",
+      fi: "Prioriteettihakemukset käsitellään käsin. Olemme sinuun yhteydessä ennen maksua tai jäsenyyssopimusta.",
+    },
+    name: { en: "Name", fi: "Nimi" },
+    email: { en: "Email", fi: "Sähköposti" },
+    organisation: { en: "Organisation", fi: "Yritys tai organisaatio" },
+    country: { en: "Country", fi: "Maa" },
+    packageLabel: { en: "Interested package", fi: "Kiinnostava jäsenyystaso" },
+    packageOptions: {
+      returnOne: { en: "Return One", fi: "Return One" },
+      legacyOne: { en: "Legacy One", fi: "Legacy One" },
+      hostOne: { en: "Host One", fi: "Host One" },
+      notSure: { en: "Not sure yet", fi: "En ole vielä varma" },
+    },
+    message: { en: "Message", fi: "Viesti" },
+    submit: { en: "Send membership request", fi: "Lähetä jäsenyyspyyntö" },
+    requiredError: {
+      en: "Name and email are required.",
+      fi: "Nimi ja sähköposti ovat pakollisia.",
+    },
+    legalNote: {
+      en: "This request does not purchase Taurisol Membership, ownership, investment rights or guaranteed stay dates. Final membership rights are defined only in the Taurisol Membership Agreement.",
+      fi: "Tämä pyyntö ei osta Taurisol-jäsenyyttä, omistusoikeutta, sijoitusoikeuksia tai taattuja oleskeluajankohtia. Lopulliset jäsenyysoikeudet määritellään vain Taurisol Membership Agreement -sopimuksessa.",
+    },
+    successNote: {
+      en: "Your email client should now open with your request. Please send the email to complete the request.",
+      fi: "Sähköpostiohjelmasi pitäisi nyt avautua valmiiksi täytetyllä viestillä. Lähetä viesti viimeistelläksesi pyynnön.",
+    },
+    linkedinInvite: {
+      en: "You may also apply to join the private Taurisol Founding Members Circle on LinkedIn. The group is for early applicants, future members and selected partners who want to follow the Taurisol journey before public launch.",
+      fi: "Voit halutessasi hakea mukaan yksityiseen Taurisol Founding Members Circle -LinkedIn-ryhmään. Ryhmä on tarkoitettu varhaisille hakijoille, tuleville jäsenille ja valituille kumppaneille, jotka haluavat seurata Taurisolin rakentumista ennen julkista lanseerausta.",
+    },
+    linkedinCta: { en: "Apply to LinkedIn Group", fi: "Hae LinkedIn-ryhmään" },
+    emailSubject: { en: "Taurisol Membership Request", fi: "Taurisol-jäsenyyspyyntö" },
+    intentPriority: { en: "Priority List", fi: "Prioriteettilista" },
+    intentDetails: { en: "Membership Details", fi: "Lisätietoja jäsenyydestä" },
+    emailBodyHeading: { en: "Taurisol Membership Request", fi: "Taurisol-jäsenyyspyyntö" },
+    emailIntentLabel: { en: "Intent", fi: "Tarkoitus" },
+    emailNameLabel: { en: "Name", fi: "Nimi" },
+    emailEmailLabel: { en: "Email", fi: "Sähköposti" },
+    emailOrgLabel: { en: "Organisation", fi: "Yritys tai organisaatio" },
+    emailCountryLabel: { en: "Country", fi: "Maa" },
+    emailPackageLabel: { en: "Interested package", fi: "Kiinnostava jäsenyystaso" },
+    emailMessageLabel: { en: "Message", fi: "Viesti" },
+    emailLegalHeading: { en: "Legal acknowledgement", fi: "Vahvistus" },
+    emailLegalText: {
+      en: "This request does not purchase Taurisol Membership, ownership, investment rights or guaranteed stay dates.",
+      fi: "Tämä pyyntö ei osta Taurisol-jäsenyyttä, omistusoikeutta, sijoitusoikeuksia tai taattuja oleskeluajankohtia.",
+    },
+  },
 } as const;
 
 export const t = (node: { en: string; fi: string }, lang: Lang) => node[lang];

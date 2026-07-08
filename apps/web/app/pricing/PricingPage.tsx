@@ -5,6 +5,7 @@ import { LangProvider } from "@/components/lang-context";
 import { Nav } from "@/components/nav/Nav";
 import { Footer } from "@/components/footer/Footer";
 import { Reveal } from "@/components/ui/Reveal";
+import { PricingRequestDialog } from "@/components/pricing/PricingRequestDialog";
 import { pricingContent, type PricingLang } from "./content";
 
 const eyebrowClass = "text-xs uppercase tracking-[0.35em] text-olive";
@@ -350,16 +351,20 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                   </div>
 
                   <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                    <a href="/intra" className={primaryCta}>
-                      <span className="min-w-0 wrap-break-word">{c.priorityList.primaryCta}</span>
-                      <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
-                    </a>
-                    <a
-                      href="/intra"
-                      className="max-w-full text-center text-xs font-medium uppercase tracking-[0.14em] text-shadow/70 underline underline-offset-4 transition-colors hover:text-shadow sm:tracking-[0.22em]"
-                    >
-                      {c.priorityList.secondaryCta}
-                    </a>
+                    <PricingRequestDialog variant="priority" lang={lang}>
+                      <button type="button" className={primaryCta}>
+                        <span className="min-w-0 wrap-break-word">{c.priorityList.primaryCta}</span>
+                        <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
+                      </button>
+                    </PricingRequestDialog>
+                    <PricingRequestDialog variant="details" lang={lang}>
+                      <button
+                        type="button"
+                        className="max-w-full text-center text-xs font-medium uppercase tracking-[0.14em] text-shadow/70 underline underline-offset-4 transition-colors hover:text-shadow sm:tracking-[0.22em]"
+                      >
+                        {c.priorityList.secondaryCta}
+                      </button>
+                    </PricingRequestDialog>
                   </div>
                 </div>
               </Reveal>
@@ -456,13 +461,17 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                   </h2>
                   <p className={`mx-auto mt-8 max-w-xl ${bodyClass}`}>{c.finalCta.body}</p>
                   <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                    <a href="/intra" className={primaryCta}>
-                      <span className="min-w-0 wrap-break-word">{c.finalCta.primaryCta}</span>
-                      <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
-                    </a>
-                    <a href="/intra" className={secondaryCta}>
-                      <span className="min-w-0 wrap-break-word">{c.finalCta.secondaryCta}</span>
-                    </a>
+                    <PricingRequestDialog variant="priority" lang={lang}>
+                      <button type="button" className={primaryCta}>
+                        <span className="min-w-0 wrap-break-word">{c.finalCta.primaryCta}</span>
+                        <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
+                      </button>
+                    </PricingRequestDialog>
+                    <PricingRequestDialog variant="details" lang={lang}>
+                      <button type="button" className={secondaryCta}>
+                        <span className="min-w-0 wrap-break-word">{c.finalCta.secondaryCta}</span>
+                      </button>
+                    </PricingRequestDialog>
                   </div>
                 </div>
               </Reveal>
