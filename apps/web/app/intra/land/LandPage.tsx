@@ -30,7 +30,7 @@ export default function LandPage() {
           <IntraNext label={t(c.nextLabel, lang)} body={t(c.nextBody, lang)} />
           <div className="flex flex-col gap-4 sm:flex-row lg:flex-col lg:items-end">
             <IntraRequestDialog defaultPath="land">
-              <PrimaryCTA>{t(c.submitCta, lang)}</PrimaryCTA>
+              <PrimaryCTA>{t(content.intra.requestAccessLabel, lang)}</PrimaryCTA>
             </IntraRequestDialog>
             <IntraRequestDialog defaultPath="land" variant="founding">
               <SecondaryCTA>{t(content.intra.requestFoundingPartnerFile, lang)}</SecondaryCTA>

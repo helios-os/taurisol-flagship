@@ -680,6 +680,10 @@ export const content = {
       en: "Request Founding Partner File",
       fi: "Pyydä Founding Partner -aineisto",
     },
+    requestAccessLabel: {
+      en: "Request access",
+      fi: "Pyydä pääsyä",
+    },
     dialog: {
       titleAccess: { en: "Request Intra access", fi: "Pyydä pääsy Intraan" },
       titleFounding: {

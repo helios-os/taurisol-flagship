@@ -20,9 +20,12 @@ export function LivingLabNav({ lang }: { lang: Lang }) {
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-md">
       <div className="container-page flex h-20 items-center justify-between gap-4 lg:gap-6">
-        <a href={homeHref} className="group inline-flex items-center min-w-0">
-          <span className="font-serif text-base md:text-lg uppercase tracking-[0.32em] text-foreground">
+        <a href={homeHref} className="group inline-flex items-center gap-2 md:gap-3 min-w-0">
+          <span className="font-serif text-base md:text-lg uppercase tracking-[0.32em] text-foreground shrink-0">
             TAURISOL
+          </span>
+          <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-muted-foreground shrink-0">
+            LIVING LAB
           </span>
         </a>
 
