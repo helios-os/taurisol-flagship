@@ -8,14 +8,14 @@ import { Reveal } from "@/components/ui/Reveal";
 import { pricingContent, type PricingLang } from "./content";
 
 const eyebrowClass = "text-xs uppercase tracking-[0.35em] text-olive";
-const headingClass = "font-serif text-3xl leading-[1.15] text-shadow text-balance md:text-5xl";
+const headingClass = "font-serif text-2xl leading-[1.15] text-shadow text-balance md:text-5xl";
 const bodyClass = "text-base font-light leading-relaxed text-shadow/75 md:text-lg";
 const panelClass =
   "rounded-[28px] border-2 border-olive-deep/15 bg-sand p-8 shadow-[0_30px_70px_-40px_rgba(40,30,10,0.35)] md:p-14";
 const primaryCta =
-  "group inline-flex items-center justify-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)] hover:-translate-y-0.5";
+  "group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)] hover:-translate-y-0.5";
 const secondaryCta =
-  "group inline-flex items-center justify-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:border-sun hover:bg-sun/[0.08] hover:shadow-[0_0_28px_-10px_var(--sun)] hover:-translate-y-0.5";
+  "group inline-flex w-full sm:w-auto items-center justify-center gap-3 rounded-[10px] border border-sun/70 px-8 py-4 text-xs font-medium uppercase tracking-[0.25em] text-shadow transition-all duration-300 hover:border-sun hover:bg-sun/[0.08] hover:shadow-[0_0_28px_-10px_var(--sun)] hover:-translate-y-0.5";
 
 const heroLineClass = {
   lead: "font-serif text-xl italic leading-relaxed text-olive-deep md:text-2xl",
@@ -32,14 +32,14 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
       <div className="min-h-screen bg-sand-light text-shadow">
         <Nav variant="light" />
 
-        <main>
+        <main className="wrap-break-word">
           {/* Hero — split editorial layout: text + image side by side on desktop */}
           <section className="pt-36 pb-20 md:pt-48 md:pb-28">
             <div className="container-page">
               <Reveal>
                 <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-16">
                   {/* Text column */}
-                  <div className="text-center md:text-left">
+                  <div className="min-w-0 text-center md:text-left">
                     <p className={`${eyebrowClass} mb-6`}>{c.hero.eyebrow}</p>
                     <h1 className="font-serif text-4xl leading-[1.08] text-balance text-shadow md:text-6xl lg:text-7xl">
                       {c.hero.heading}
@@ -68,7 +68,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                       </p>
                     ))}
 
-                    <div className="mx-auto mt-8 inline-flex max-w-md items-center gap-3 rounded-full border border-olive-deep/20 bg-sand px-6 py-3 text-left text-sm font-light leading-relaxed text-shadow/70 md:mx-0">
+                    <div className="mx-auto mt-8 inline-flex max-w-full min-w-0 items-center gap-3 rounded-full border border-olive-deep/20 bg-sand px-6 py-3 text-left text-sm font-light leading-relaxed text-shadow/70 md:mx-0 md:max-w-md">
                       <span
                         className="h-1.5 w-1.5 shrink-0 rounded-full bg-sun-deep"
                         aria-hidden="true"
@@ -125,9 +125,9 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
               </Reveal>
               <div className="grid gap-10 md:grid-cols-3 md:items-start md:gap-8 lg:gap-10">
                 {c.tiers.map((tier, i) => (
-                  <Reveal key={tier.name} delay={i * 100} className="h-full">
+                  <Reveal key={tier.name} delay={i * 100} className="h-full min-w-0">
                     <div
-                      className={`relative flex h-full flex-col rounded-[28px] p-10 md:p-11 ${
+                      className={`relative flex h-full min-w-0 flex-col rounded-[28px] p-10 md:p-11 ${
                         tier.featured
                           ? "border-2 border-sun bg-sand shadow-[0_40px_90px_-35px_var(--sun)] md:-translate-y-6 md:scale-[1.03]"
                           : "border-2 border-olive-deep/20 bg-sand shadow-[0_25px_60px_-40px_rgba(40,30,10,0.3)]"
@@ -250,7 +250,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                 {c.whoFor.uses.map((u) => (
                   <span
                     key={u}
-                    className="rounded-full border border-olive-deep/20 bg-sand px-5 py-2.5 text-sm font-light text-shadow/80"
+                    className="max-w-full rounded-full border border-olive-deep/20 bg-sand px-5 py-2.5 text-sm font-light text-shadow/80"
                   >
                     {u}
                   </span>
@@ -268,7 +268,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
               <Reveal>
                 <div className={panelClass}>
                   <p className={eyebrowClass}>— {c.hostPrivileges.eyebrow}</p>
-                  <h2 className="mt-6 font-serif text-3xl leading-[1.15] text-shadow text-balance md:text-5xl">
+                  <h2 className="mt-6 font-serif text-2xl leading-[1.15] text-shadow text-balance md:text-5xl">
                     {c.hostPrivileges.heading}
                   </h2>
                   <div className="mt-8 max-w-2xl space-y-5 text-sm font-light leading-relaxed text-shadow/80 md:text-base">
@@ -325,9 +325,9 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
           <section id="priority-list" className="py-10 scroll-mt-28 md:py-14">
             <div className="container-page">
               <Reveal>
-                <div className="mx-auto max-w-2xl rounded-[28px] border-2 border-sun bg-sand p-10 shadow-[0_40px_90px_-35px_var(--sun)] md:p-14">
+                <div className="mx-auto max-w-2xl min-w-0 rounded-[28px] border-2 border-sun bg-sand p-6 shadow-[0_40px_90px_-35px_var(--sun)] sm:p-10 md:p-14">
                   <p className={eyebrowClass}>— {c.priorityList.eyebrow}</p>
-                  <h2 className="mt-6 font-serif text-3xl leading-[1.15] text-shadow text-balance md:text-4xl">
+                  <h2 className="mt-6 font-serif text-xl leading-[1.2] text-shadow text-balance md:text-4xl">
                     {c.priorityList.heading}
                   </h2>
 
@@ -419,7 +419,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
                 <div className={panelClass}>
                   <div className="mx-auto max-w-2xl text-center">
                     <p className={eyebrowClass}>— {c.faq.eyebrow}</p>
-                    <h2 className="mt-6 font-serif text-3xl leading-[1.15] text-shadow text-balance md:text-5xl">
+                    <h2 className="mt-6 font-serif text-2xl leading-[1.15] text-shadow text-balance md:text-5xl">
                       {c.faq.heading}
                     </h2>
                   </div>
@@ -451,7 +451,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
             <div className="container-page">
               <Reveal>
                 <div className="mx-auto max-w-2xl text-center">
-                  <h2 className="font-serif text-3xl leading-[1.15] text-shadow text-balance md:text-5xl">
+                  <h2 className="font-serif text-2xl leading-[1.15] text-shadow text-balance md:text-5xl">
                     {c.finalCta.heading}
                   </h2>
                   <p className={`mx-auto mt-8 max-w-xl ${bodyClass}`}>{c.finalCta.body}</p>
