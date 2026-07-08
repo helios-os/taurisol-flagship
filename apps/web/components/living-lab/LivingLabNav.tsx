@@ -1,3 +1,4 @@
+import { IntraRequestDialog } from "@/components/intra/IntraRequestDialog";
 import { content, t, type Lang } from "@/lib/i18n";
 
 export function LivingLabNav({ lang }: { lang: Lang }) {
@@ -71,6 +72,14 @@ export function LivingLabNav({ lang }: { lang: Lang }) {
           >
             {t(n.back, lang)}
           </a>
+          <IntraRequestDialog>
+            <button
+              type="button"
+              className="hidden sm:inline-flex items-center rounded-[10px] border border-sun bg-sun px-4 py-2.5 text-[10px] lg:text-[11px] font-medium uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-sun-soft"
+            >
+              {t(n.requestAccess, lang)}
+            </button>
+          </IntraRequestDialog>
         </div>
       </div>
     </header>

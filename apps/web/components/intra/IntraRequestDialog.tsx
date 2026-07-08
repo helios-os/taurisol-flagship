@@ -30,13 +30,57 @@ export function IntraRequestDialog({
   const [submitted, setSubmitted] = useState(false);
   const [open, setOpen] = useState(false);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [organisation, setOrganisation] = useState("");
+  const [role, setRole] = useState("");
+  const [country, setCountry] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(false);
+
   const d = content.intra.dialog;
   const paths = d.paths.map((p) => ({ id: p.id, label: t(p.label, lang) }));
 
   const title = variant === "founding" ? t(d.titleFounding, lang) : t(d.titleAccess, lang);
 
+  function reset() {
+    setSelected(defaultPath ?? null);
+    setName("");
+    setEmail("");
+    setOrganisation("");
+    setRole("");
+    setCountry("");
+    setMessage("");
+    setError(false);
+    setSubmitted(false);
+  }
+
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (!name.trim() || !email.trim()) {
+      setError(true);
+      return;
+    }
+    setError(false);
+
+    const pathLabel = paths.find((p) => p.id === selected)?.label ?? "";
+
+    const body = [
+      `${t(d.name, lang)}: ${name}`,
+      `${t(d.email, lang)}: ${email}`,
+      `${t(d.org, lang)}: ${organisation}`,
+      `${t(d.country, lang)}: ${country}`,
+      `${t(d.role, lang)}: ${role}`,
+      `${t(d.emailPathLabel, lang)}: ${pathLabel}`,
+      `${t(d.msg, lang)}: ${message}`,
+      "",
+      t(d.nda, lang),
+    ].join("\n");
+
+    const subject = t(d.emailSubject, lang);
+    const mailto = `mailto:info@heliosdigitech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
     setSubmitted(true);
   }
 
@@ -45,7 +89,7 @@ export function IntraRequestDialog({
       open={open}
       onOpenChange={(v) => {
         setOpen(v);
-        if (!v) setTimeout(() => setSubmitted(false), 200);
+        if (!v) setTimeout(reset, 200);
       }}
     >
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -69,19 +113,57 @@ export function IntraRequestDialog({
           <form onSubmit={onSubmit} className="grid gap-5 pt-2" noValidate>
             <div className="grid gap-5 sm:grid-cols-2">
               <Field id={`${uid}-name`} label={t(d.name, lang)} required>
-                <input id={`${uid}-name`} name="name" required autoComplete="name" className={inputCls} />
+                <input
+                  id={`${uid}-name`}
+                  name="name"
+                  required
+                  autoComplete="name"
+                  className={inputCls}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </Field>
               <Field id={`${uid}-email`} label={t(d.email, lang)} required>
-                <input id={`${uid}-email`} name="email" type="email" required autoComplete="email" className={inputCls} />
+                <input
+                  id={`${uid}-email`}
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  className={inputCls}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </Field>
               <Field id={`${uid}-org`} label={t(d.org, lang)}>
-                <input id={`${uid}-org`} name="organisation" autoComplete="organization" className={inputCls} />
+                <input
+                  id={`${uid}-org`}
+                  name="organisation"
+                  autoComplete="organization"
+                  className={inputCls}
+                  value={organisation}
+                  onChange={(e) => setOrganisation(e.target.value)}
+                />
               </Field>
               <Field id={`${uid}-role`} label={t(d.role, lang)}>
-                <input id={`${uid}-role`} name="role" className={inputCls} />
+                <input
+                  id={`${uid}-role`}
+                  name="role"
+                  className={inputCls}
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                />
               </Field>
               <Field id={`${uid}-country`} label={t(d.country, lang)} required>
-                <input id={`${uid}-country`} name="country" required autoComplete="country-name" className={inputCls} />
+                <input
+                  id={`${uid}-country`}
+                  name="country"
+                  required
+                  autoComplete="country-name"
+                  className={inputCls}
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                />
               </Field>
             </div>
 
@@ -119,8 +201,12 @@ export function IntraRequestDialog({
                 rows={4}
                 placeholder={t(d.msgPlaceholder, lang)}
                 className={`${inputCls} resize-y`}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </Field>
+
+            {error && <p className="text-xs text-destructive">{t(d.requiredError, lang)}</p>}
 
             <div className="flex items-start gap-3 rounded-sm border border-border bg-secondary p-3">
               <input

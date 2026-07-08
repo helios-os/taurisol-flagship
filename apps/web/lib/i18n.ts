@@ -735,15 +735,24 @@ export const content = {
         fi: "Ymmärrän, että syvempi aineisto jaetaan vain kvalifioiduille kumppaneille.",
       },
       submit: { en: "Submit request", fi: "Lähetä pyyntö" },
-      doneEyebrow: { en: "Received", fi: "Vastaanotettu" },
+      doneEyebrow: { en: "Next step", fi: "Seuraava askel" },
       doneTitle: {
-        en: "Thank you. Your request has been received.",
-        fi: "Kiitos. Pyyntösi on vastaanotettu.",
+        en: "Your email client should now open.",
+        fi: "Sähköpostiohjelmasi pitäisi nyt avautua.",
       },
       doneBody: {
-        en: "Taurisol Living Lab access is reviewed manually. If your role, land, organisation or expertise fits the current phase, you will receive next-step instructions by email.",
-        fi: "Taurisol Living Labin pääsy arvioidaan käsin. Jos roolisi, maasi, organisaatiosi tai asiantuntemuksesi sopii nykyiseen vaiheeseen, saat jatko-ohjeet sähköpostitse.",
+        en: "Please send the prepared email to complete your access request. If nothing opened, check your default mail app settings.",
+        fi: "Lähetä valmiiksi täytetty sähköposti viimeistelläksesi pääsypyyntösi. Jos mikään ei avautunut, tarkista oletussähköpostiohjelmasi asetukset.",
       },
+      requiredError: {
+        en: "Name and email are required.",
+        fi: "Nimi ja sähköposti ovat pakollisia.",
+      },
+      emailSubject: {
+        en: "Taurisol Living Lab Access Request",
+        fi: "Taurisol Living Lab -pääsypyyntö",
+      },
+      emailPathLabel: { en: "Selected role/path", fi: "Valittu rooli/polku" },
     },
   },
   pricingDialog: {
@@ -814,6 +823,7 @@ export const content = {
       build: { en: "Build", fi: "Rakenna" },
       start: { en: "Start", fi: "Aloita" },
       back: { en: "Back to Taurisol", fi: "Takaisin Taurisoliin" },
+      requestAccess: { en: "Request Access", fi: "Pyydä pääsyä" },
     },
     hero: {
       eyebrow: {
@@ -930,6 +940,8 @@ export const content = {
         en: "The Living Lab continues beyond this page. Approved partners enter role-specific collaboration spaces where ideas, research, funding paths and future locations are explored together. Not everyone needs to see everything. Everyone sees what is relevant to their contribution.",
         fi: "Living Lab jatkuu tämän sivun takana. Hyväksytyt kumppanit astuvat roolikohtaisiin yhteistyötiloihin, joissa ideoita, tutkimusta, rahoituspolkuja ja tulevia sijainteja tutkitaan yhdessä. Kaiken ei tarvitse näkyä kaikille. Jokainen näkee sen, mikä liittyy hänen omaan panokseensa.",
       },
+      requestCta: { en: "Request access", fi: "Pyydä pääsyä" },
+      privateIntraLabel: { en: "Private Intra", fi: "Yksityinen Intra" },
       c1: {
         title: { en: "Funding Circle", fi: "Rahoituspiiri" },
         desc: {
@@ -998,6 +1010,21 @@ export const content = {
       },
       sub: { en: "Do you?", fi: "Tunnistatko sinä?" },
       button: { en: "Accept the invitation", fi: "Ota kutsu vastaan" },
+    },
+    foot: {
+      tag: { en: "A Place to Return", fi: "Paikka, johon palata" },
+      body: {
+        en: "A calm long-stay living model for Southern Europe. Built for people who want a place to return to — and for the partners who help build it.",
+        fi: "Rauhallinen pitkän oleskelun asumismalli Etelä-Eurooppaan. Rakennettu ihmisille, jotka etsivät paikkaa johon palata — ja kumppaneille, jotka rakentavat sen kanssamme.",
+      },
+      contactLabel: { en: "Contact", fi: "Yhteystiedot" },
+      locationLabel: { en: "Southern Europe", fi: "Etelä-Eurooppa" },
+      noticeLabel: { en: "Notice", fi: "Huomio" },
+      noticeBody: {
+        en: "Founder-led. Access is reviewed before more information is shared. All Intra materials are confidential.",
+        fi: "Perustajavetoinen. Pääsy arvioidaan ennen tiedon jakamista. Kaikki Intra-materiaalit ovat luottamuksellisia.",
+      },
+      rightsLine: { en: "A place to return", fi: "Paikka, johon palata" },
     },
   },
 } as const;

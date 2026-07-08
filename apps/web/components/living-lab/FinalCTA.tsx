@@ -1,3 +1,4 @@
+import { IntraRequestDialog } from "@/components/intra/IntraRequestDialog";
 import { content, t, type Lang } from "@/lib/i18n";
 
 export function FinalCTA({ lang }: { lang: Lang }) {
@@ -16,12 +17,14 @@ export function FinalCTA({ lang }: { lang: Lang }) {
             {t(c.sub, lang)}
           </p>
           <div className="mt-14 md:mt-16 flex justify-center">
-            <a
-              href="/intra"
-              className="inline-flex w-full max-w-full items-center justify-center rounded-[10px] border border-sun bg-sun px-8 py-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-foreground shadow-sm transition-colors hover:bg-sun-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2 focus-visible:ring-offset-primary sm:w-auto sm:tracking-[0.25em]"
-            >
-              {t(c.button, lang)}
-            </a>
+            <IntraRequestDialog>
+              <button
+                type="button"
+                className="inline-flex w-full max-w-full items-center justify-center rounded-[10px] border border-sun bg-sun px-8 py-4 text-center text-[11px] font-medium uppercase tracking-[0.18em] text-foreground shadow-sm transition-colors hover:bg-sun-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun focus-visible:ring-offset-2 focus-visible:ring-offset-primary sm:w-auto sm:tracking-[0.25em]"
+              >
+                {t(c.button, lang)}
+              </button>
+            </IntraRequestDialog>
           </div>
         </div>
       </div>

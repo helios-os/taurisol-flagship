@@ -1,6 +1,6 @@
-import { Footer } from "@/components/footer/Footer";
 import { LangProvider } from "@/components/lang-context";
 import { LivingLabNav } from "@/components/living-lab/LivingLabNav";
+import { LivingLabFooter } from "@/components/living-lab/LivingLabFooter";
 import { Hero } from "@/components/living-lab/Hero";
 import { WhyBuild } from "@/components/living-lab/WhyBuild";
 import { LocationFlow } from "@/components/living-lab/LocationFlow";
@@ -24,7 +24,7 @@ export default function LivingLabPage({ lang }: { lang: Lang }) {
           <WhyNow lang={lang} />
           <FinalCTA lang={lang} />
         </main>
-        <Footer />
+        <LivingLabFooter lang={lang} />
       </div>
     </LangProvider>
   );

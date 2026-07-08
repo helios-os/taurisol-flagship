@@ -1,3 +1,4 @@
+import { IntraRequestDialog } from "@/components/intra/IntraRequestDialog";
 import { content, t, type Lang } from "@/lib/i18n";
 
 export function IntraLocked({ lang }: { lang: Lang }) {
@@ -22,6 +23,22 @@ export function IntraLocked({ lang }: { lang: Lang }) {
           <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
             {t(i.body, lang)}
           </p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <IntraRequestDialog>
+              <button
+                type="button"
+                className="inline-flex w-full max-w-full items-center justify-center rounded-[10px] border border-sun bg-sun px-6 py-3 text-center text-[11px] font-medium uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-sun-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sun sm:w-auto"
+              >
+                {t(i.requestCta, lang)}
+              </button>
+            </IntraRequestDialog>
+            <a
+              href="/intra"
+              className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/60 underline underline-offset-4 transition-colors hover:text-foreground"
+            >
+              {t(i.privateIntraLabel, lang)}
+            </a>
+          </div>
         </div>
 
         <div className="grid gap-x-12 lg:gap-x-16 gap-y-10 md:gap-y-12 lg:grid-cols-2">
