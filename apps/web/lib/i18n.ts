@@ -800,6 +800,200 @@ export const content = {
       fi: "Tämä pyyntö ei osta Taurisol-jäsenyyttä, omistusoikeutta, sijoitusoikeuksia tai taattuja oleskeluajankohtia.",
     },
   },
+  livingLab: {
+    nav: {
+      montefrio: { en: "Montefrío", fi: "Montefrío" },
+      why: { en: "Why", fi: "Miksi" },
+      who: { en: "Who", fi: "Kenelle" },
+      build: { en: "Build", fi: "Rakenna" },
+      start: { en: "Start", fi: "Aloita" },
+      back: { en: "Back to Taurisol", fi: "Takaisin Taurisoliin" },
+    },
+    hero: {
+      eyebrow: {
+        en: "Taurisol Living Lab — Montefrío, Andalusia",
+        fi: "Taurisol Living Lab — Montefrío, Andalusia",
+      },
+      heading: {
+        en: "A place to return to. A European model to build with.",
+        fi: "Paikka, johon palata. Eurooppalainen malli, jota rakentaa yhdessä.",
+      },
+      lede: {
+        en: "What if Europe's next regenerative communities weren't built by one company — but by people like you?",
+        fi: "Entä jos Euroopan seuraavia regeneratiivisia yhteisöjä ei rakentaisi yksi yritys — vaan sinunlaisesi ihmiset?",
+      },
+    },
+    why: {
+      eyebrow: { en: "The beginning", fi: "Alku" },
+      title: {
+        en: "Montefrío is where we begin.",
+        fi: "Montefríosta kaikki alkaa.",
+      },
+      tag: {
+        en: "One place. A repeatable model. A European network.",
+        fi: "Yksi paikka. Toistettava malli. Eurooppalainen verkosto.",
+      },
+      body: {
+        en: "Taurisol is not a single site in Andalusia. It is the first chapter of a way of living that Europe has been quietly waiting for — human-scale, regenerative, made to return to, and made to spread.",
+        fi: "Taurisol ei ole vain yksi paikka Andalusiassa. Se on ensimmäinen luku elämäntavasta, jota Eurooppa on hiljaa odottanut — inhimillisen kokoinen, regeneratiivinen, paikka johon palata ja malli, joka voi levitä.",
+      },
+      caption: {
+        en: "Montefrío, Granada — the first hillside.",
+        fi: "Montefrío, Granada — ensimmäinen rinne.",
+      },
+    },
+    loc: {
+      eyebrow: { en: "From Montefrío to Europe", fi: "Montefríosta Eurooppaan" },
+      titleA: { en: "One place first.", fi: "Ensin yksi paikka." },
+      titleB: { en: "Then a network.", fi: "Sitten verkosto." },
+      body: {
+        en: "Montefrío, in the province of Granada, is the first chapter. The goal is to prove one regenerative off-grid community model here — and then make it repeatable across Europe through partners, operators, research and Taurisol OS.",
+        fi: "Montefrío Granadan maakunnassa on ensimmäinen luku. Tavoite on todistaa yksi regeneratiivinen off-grid-yhteisömalli täällä — ja tehdä siitä toistettava Euroopassa kumppaneiden, operaattoreiden, tutkimuksen ja Taurisol OS:n avulla.",
+      },
+      tag: {
+        en: "One place. A repeatable model. A European network.",
+        fi: "Yksi paikka. Toistettava malli. Eurooppalainen verkosto.",
+      },
+      continent: { en: "Continent", fi: "Manner" },
+      country: { en: "Country", fi: "Maa" },
+      region: { en: "Region", fi: "Alue" },
+      province: { en: "Province", fi: "Maakunta" },
+      chapter: { en: "Chapter I", fi: "Luku I" },
+      europe: { en: "Europe", fi: "Eurooppa" },
+      spain: { en: "Spain", fi: "Espanja" },
+      andalusia: { en: "Andalusia", fi: "Andalusia" },
+      granada: { en: "Granada", fi: "Granada" },
+      montefrio: { en: "Montefrío", fi: "Montefrío" },
+    },
+    col: {
+      eyebrow: { en: "The first circle", fi: "Ensimmäinen piiri" },
+      title: {
+        en: "A few people will recognise themselves in this early.",
+        fi: "Muutamat ihmiset tunnistavat itsensä tässä ajoissa.",
+      },
+      sub: { en: "One of them might be you.", fi: "Yksi heistä voit olla sinä." },
+      step: { en: "Step in", fi: "Astu mukaan" },
+      land: {
+        q: {
+          en: "Could your land become the first chapter of something much bigger?",
+          fi: "Voisiko sinun maasi olla ensimmäinen luku jostakin paljon suuremmasta?",
+        },
+        b: {
+          en: "Exceptional places across Southern Europe become the ground where future Taurisol communities take root.",
+          fi: "Poikkeuksellisista paikoista Etelä-Euroopassa kasvaa tulevien Taurisol-yhteisöjen kotimaa.",
+        },
+      },
+      research: {
+        q: {
+          en: "Could your research shape how future communities are designed?",
+          fi: "Voisiko sinun tutkimuksesi muokata sitä, miten tulevaisuuden yhteisöt suunnitellaan?",
+        },
+        b: {
+          en: "Universities and researchers help write the framework for regenerative, human-scale living in rural Europe.",
+          fi: "Yliopistot ja tutkijat kirjoittavat kehyksen regeneratiiviselle, inhimillisen kokoiselle elämälle maaseudun Euroopassa.",
+        },
+      },
+      funding: {
+        q: {
+          en: "Could you help Europe fund a new model of regenerative living?",
+          fi: "Voisitko auttaa Eurooppaa rahoittamaan uuden regeneratiivisen elämisen mallin?",
+        },
+        b: {
+          en: "Funding architects, innovation agencies and impact investors turn the model into something Europe can build at scale.",
+          fi: "Rahoitusarkkitehdit, innovaatioyksiköt ja vaikuttavuussijoittajat muuttavat mallin joksikin, jota Eurooppa voi rakentaa laajassa mittakaavassa.",
+        },
+      },
+      operator: {
+        q: {
+          en: "Could you become one of the first Hermes operators?",
+          fi: "Voisitko olla yksi ensimmäisistä Hermes-operaattoreista?",
+        },
+        b: {
+          en: "A small circle of operators will design, open and run the first Taurisol communities across Europe.",
+          fi: "Pieni operaattoreiden piiri suunnittelee, avaa ja pyörittää ensimmäisiä Taurisol-yhteisöjä Euroopassa.",
+        },
+      },
+    },
+    intraTeaser: {
+      eyebrow: { en: "Beyond this page", fi: "Tämän sivun takana" },
+      title: {
+        en: "The next chapter is written together.",
+        fi: "Seuraava luku kirjoitetaan yhdessä.",
+      },
+      body: {
+        en: "The Living Lab continues beyond this page. Approved partners enter role-specific collaboration spaces where ideas, research, funding paths and future locations are explored together. Not everyone needs to see everything. Everyone sees what is relevant to their contribution.",
+        fi: "Living Lab jatkuu tämän sivun takana. Hyväksytyt kumppanit astuvat roolikohtaisiin yhteistyötiloihin, joissa ideoita, tutkimusta, rahoituspolkuja ja tulevia sijainteja tutkitaan yhdessä. Kaiken ei tarvitse näkyä kaikille. Jokainen näkee sen, mikä liittyy hänen omaan panokseensa.",
+      },
+      c1: {
+        title: { en: "Funding Circle", fi: "Rahoituspiiri" },
+        desc: {
+          en: "Building the funding roadmap together.",
+          fi: "Rakennamme rahoituskarttaa yhdessä.",
+        },
+      },
+      c2: {
+        title: { en: "Taurisol OS Lab", fi: "Taurisol OS -labra" },
+        desc: {
+          en: "Designing the operating system for future regenerative communities.",
+          fi: "Suunnittelemme tulevien regeneratiivisten yhteisöjen käyttöjärjestelmää.",
+        },
+      },
+      c3: {
+        title: { en: "Pilot Sites", fi: "Pilottikohteet" },
+        desc: {
+          en: "Evaluating future locations across Southern Europe.",
+          fi: "Arvioimme tulevia sijainteja Etelä-Euroopassa.",
+        },
+      },
+      c4: {
+        title: { en: "Research Network", fi: "Tutkimusverkosto" },
+        desc: {
+          en: "Connecting universities and Living Lab research.",
+          fi: "Yhdistämme yliopistot ja Living Lab -tutkimuksen.",
+        },
+      },
+      c5: {
+        title: { en: "Partnership Studio", fi: "Kumppanuusstudio" },
+        desc: {
+          en: "Developing operator and municipality collaboration.",
+          fi: "Kehitämme operaattoreiden ja kuntien yhteistyötä.",
+        },
+      },
+      c6: {
+        title: { en: "European Network", fi: "Eurooppalainen verkosto" },
+        desc: {
+          en: "Preparing future replication beyond Montefrío.",
+          fi: "Valmistelemme tulevaa toistettavuutta Montefríon ulkopuolella.",
+        },
+      },
+    },
+    whyNow: {
+      eyebrow: { en: "Why now?", fi: "Miksi nyt?" },
+      title: {
+        en: "The ground, the moment, the people — already in place.",
+        fi: "Maa, hetki ja ihmiset — jo paikoillaan.",
+      },
+      items: [
+        { en: "Finnish founders", fi: "Suomalaiset perustajat" },
+        { en: "Spanish location", fi: "Espanjalainen sijainti" },
+        { en: "Montefrío, Granada", fi: "Montefrío, Granada" },
+        { en: "Renewable energy", fi: "Uusiutuva energia" },
+        { en: "Water autonomy", fi: "Vesi-omavaraisuus" },
+        { en: "Modular living", fi: "Modulaarinen asuminen" },
+        { en: "Taurisol OS", fi: "Taurisol OS" },
+        { en: "Founding partners wanted", fi: "Perustajakumppaneita etsitään" },
+      ],
+    },
+    finalCta: {
+      eyebrow: { en: "The invitation", fi: "Kutsu" },
+      title: {
+        en: "Every European movement begins with a few people who recognise the future early.",
+        fi: "Jokainen eurooppalainen liike alkaa muutamasta ihmisestä, jotka tunnistavat tulevaisuuden ajoissa.",
+      },
+      sub: { en: "Do you?", fi: "Tunnistatko sinä?" },
+      button: { en: "Accept the invitation", fi: "Ota kutsu vastaan" },
+    },
+  },
 } as const;
 
 export const t = (node: { en: string; fi: string }, lang: Lang) => node[lang];
