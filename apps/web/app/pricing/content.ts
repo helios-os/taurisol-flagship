@@ -100,9 +100,12 @@ export type PricingContent = {
 const en: PricingContent = {
   hero: {
     eyebrow: "Taurisol Membership",
-    heading: "Your anchor place in Andalusia.",
+    heading: "A place you want to return to.",
     lines: [
-      { text: "Buy the membership once. Return year after year.", variant: "lead" },
+      {
+        text: "You buy the membership once. You return to the same light year after year.",
+        variant: "lead",
+      },
       {
         text: "Stay your reserved period — and longer when Taurisol has free capacity.",
         variant: "body",

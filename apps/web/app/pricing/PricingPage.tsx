@@ -34,60 +34,48 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
         <Nav variant="light" />
 
         <main className="wrap-break-word">
-          {/* Hero — split editorial layout: text + image side by side on desktop */}
+          {/* Hero — editorial single-column layout: headline/intro, then a large cinematic image, then body copy */}
           <section className="pt-36 pb-20 md:pt-48 md:pb-28">
             <div className="container-page">
               <Reveal>
-                <div className="grid gap-10 md:grid-cols-[1fr_1.2fr] md:items-center md:gap-16">
-                  {/* Text column */}
-                  <div className="min-w-0 text-center md:text-left">
-                    <p className={`${eyebrowClass} mb-6`}>{c.hero.eyebrow}</p>
-                    <h1 className="font-serif text-4xl leading-[1.08] text-balance text-shadow md:text-6xl lg:text-7xl">
-                      {c.hero.heading}
-                    </h1>
+                <div className="mx-auto max-w-2xl min-w-0 text-center">
+                  <p className={`${eyebrowClass} mb-6`}>{c.hero.eyebrow}</p>
+                  <h1 className="font-serif text-4xl leading-[1.08] text-balance text-shadow md:text-6xl lg:text-7xl">
+                    {c.hero.heading}
+                  </h1>
+                  <p className={`mx-auto mt-6 max-w-xl md:mt-8 ${heroLineClass[c.hero.lines[0].variant]}`}>
+                    {c.hero.lines[0].text}
+                  </p>
+                </div>
+              </Reveal>
 
-                    {/* Image — mobile only, directly below the heading */}
-                    <div className="relative my-8 aspect-4/3 w-full overflow-hidden rounded-[28px] shadow-[0_30px_70px_-40px_rgba(40,30,10,0.35)] md:hidden">
-                      <Image
-                        src="/images/taurisol-olive-tree.webp"
-                        alt={c.hero.imageAlt}
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
-                        priority
-                      />
-                    </div>
+              <Reveal delay={80}>
+                <div className="relative mx-auto mt-10 aspect-video w-full max-w-5xl overflow-hidden rounded-[28px] shadow-[0_30px_70px_-40px_rgba(40,30,10,0.35)] md:mt-14">
+                  <Image
+                    src="/images/taurisol-olive-tree.webp"
+                    alt={c.hero.imageAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    priority
+                  />
+                </div>
+              </Reveal>
 
-                    {c.hero.lines.map((line, i) => (
-                      <p
-                        key={i}
-                        className={`mx-auto max-w-md md:mx-0 ${
-                          i === 0 ? "mt-2 md:mt-8" : "mt-6"
-                        } ${heroLineClass[line.variant]}`}
-                      >
-                        {line.text}
-                      </p>
-                    ))}
+              <Reveal delay={120}>
+                <div className="mx-auto mt-10 max-w-2xl min-w-0 text-center md:mt-14">
+                  {c.hero.lines.slice(1).map((line, i) => (
+                    <p key={i} className={`mt-6 ${heroLineClass[line.variant]}`}>
+                      {line.text}
+                    </p>
+                  ))}
 
-                    <div className="mx-auto mt-8 inline-flex max-w-full min-w-0 items-center gap-3 rounded-full border border-olive-deep/20 bg-sand px-6 py-3 text-left text-sm font-light leading-relaxed text-shadow/70 md:mx-0 md:max-w-md">
-                      <span
-                        className="h-1.5 w-1.5 shrink-0 rounded-full bg-sun-deep"
-                        aria-hidden="true"
-                      />
-                      {c.hero.trustPill}
-                    </div>
-                  </div>
-
-                  {/* Image column — desktop only */}
-                  <div className="relative hidden aspect-4/3 w-full overflow-hidden rounded-[28px] shadow-[0_30px_70px_-40px_rgba(40,30,10,0.35)] md:block">
-                    <Image
-                      src="/images/taurisol-olive-tree.webp"
-                      alt={c.hero.imageAlt}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1216px) 55vw, 660px"
-                      priority
+                  <div className="mx-auto mt-8 inline-flex max-w-full min-w-0 items-center gap-3 rounded-full border border-olive-deep/20 bg-sand px-6 py-3 text-left text-sm font-light leading-relaxed text-shadow/70">
+                    <span
+                      className="h-1.5 w-1.5 shrink-0 rounded-full bg-sun-deep"
+                      aria-hidden="true"
                     />
+                    {c.hero.trustPill}
                   </div>
                 </div>
               </Reveal>
