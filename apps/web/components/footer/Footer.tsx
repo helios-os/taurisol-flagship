@@ -64,7 +64,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://one.taurisol.com"
+                  href="https://heliosdigitech.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-light text-sand-light/60 transition-colors duration-300 hover:text-sun"
@@ -74,7 +74,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://one.taurisol.com"
+                  href="https://os.heliosdigitech.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm font-light text-sand-light/60 transition-colors duration-300 hover:text-sun"
