@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -57,6 +58,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cormorantGaramond.variable} ${inter.variable}`}>
+        <Script
+          id="cookieyes"
+          src="https://cdn-cookieyes.com/client_data/0210dcc0e6427ed854f70dbc218efbbc/script.js"
+          strategy="beforeInteractive"
+        />
         {children}
       </body>
     </html>
