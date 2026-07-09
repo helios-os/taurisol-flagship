@@ -38,7 +38,7 @@ export default function PricingPage({ lang }: { lang: PricingLang }) {
           <section className="pt-36 pb-20 md:pt-48 md:pb-28">
             <div className="container-page">
               <Reveal>
-                <div className="mx-auto max-w-2xl min-w-0 text-center">
+                <div className="mx-auto max-w-2xl min-w-0 text-center lg:max-w-4xl">
                   <p className={`${eyebrowClass} mb-6`}>{c.hero.eyebrow}</p>
                   <h1 className="font-serif text-4xl leading-[1.08] text-balance text-shadow md:text-6xl lg:text-7xl">
                     {c.hero.heading}

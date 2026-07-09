@@ -107,7 +107,11 @@ const en: PricingContent = {
         variant: "lead",
       },
       {
-        text: "Stay your reserved period — and longer when Taurisol has free capacity.",
+        text: "Taurisol Membership gives you a defined annual return period every year. Your annual stay period is included in the membership.",
+        variant: "body",
+      },
+      {
+        text: "In addition, when free capacity is available, you may request extra weeks or a longer multi-month stay for a separate additional fee.",
         variant: "body",
       },
       {
@@ -394,7 +398,11 @@ const fi: PricingContent = {
         variant: "body",
       },
       {
-        text: "Taurisol-jäsenyys antaa sinulle määritellyn vuosittaisen paluujakson. Kun vapaata kapasiteettia on, voit pyytää lisäviikkoja tai pidempää oleskelua.",
+        text: "Taurisol-jäsenyys antaa sinulle määritellyn vuosittaisen paluujakson joka vuosi. Oma vuosijaksosi sisältyy jäsenyyteen.",
+        variant: "body",
+      },
+      {
+        text: "Lisäksi, kun vapaata kapasiteettia on, voit pyytää lisäviikkoja tai pidempää, useamman kuukauden oleskelujaksoa erillisellä lisämaksulla.",
         variant: "body",
       },
       { text: "Viikko. Kuukausi. Tai pidempi kausi.", variant: "medium" },
