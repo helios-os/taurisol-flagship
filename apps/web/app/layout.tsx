@@ -59,9 +59,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${cormorantGaramond.variable} ${inter.variable}`}>
         <Script
-          id="cookieyes"
-          src="https://cdn-cookieyes.com/client_data/0210dcc0e6427ed854f70dbc218efbbc/script.js"
-          strategy="beforeInteractive"
+          id="klaro"
+          src="https://api.kiprotect.com/v1/privacy-managers/c217eb43f19ad5dcdb3c6d35aa404efb/klaro.js"
+          strategy="afterInteractive"
         />
         {children}
       </body>
