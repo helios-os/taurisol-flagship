@@ -50,7 +50,12 @@ export function Hero() {
           <p className="mt-8 font-serif text-2xl italic text-sand/95 md:text-3xl">
             {t(content.hero.sub, lang)}
           </p>
-          <p className="mt-10 max-w-xl text-base font-light leading-relaxed text-sand-light/85 md:text-lg">
+          <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-sand-light/75 md:text-base">
+            {t(content.hero.taglineA, lang)}
+            <br />
+            {t(content.hero.taglineB, lang)}
+          </p>
+          <p className="mt-6 max-w-xl text-base font-light leading-relaxed text-sand-light/85 md:text-lg">
             {t(content.hero.body, lang)}
           </p>
           <div className="mt-12 flex flex-wrap items-center gap-4">

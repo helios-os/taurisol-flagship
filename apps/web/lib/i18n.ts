@@ -24,6 +24,8 @@ export const content = {
       en: "Freedom, certainty and a place to return.",
       fi: "Vapautta, varmuutta ja paikka, johon palata.",
     },
+    taglineA: { en: "Some places you visit.", fi: "Joissakin paikoissa vierailee." },
+    taglineB: { en: "Some places you return to.", fi: "Joihinkin paikkoihin palaa." },
     body: {
       en: "A new way to spend part of your life in Andalusia — without the burden of ownership, rental uncertainty or maintenance worries.",
       fi: "Uusi tapa viettää osa elämästäsi Andalusiassa — ilman omistamisen taakkaa, vuokraamisen epävarmuutta tai ylläpidon huolia.",

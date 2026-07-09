@@ -22,13 +22,13 @@ const DESCRIPTION =
   "Taurisol is a small regenerative living concept in Andalusia — a place designed for energy independence, quiet rhythm and returning to yourself.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://taurisol.com"),
+  metadataBase: new URL("https://www.taurisol.com"),
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "https://taurisol.com",
+    url: "https://www.taurisol.com",
     siteName: "Taurisol",
     type: "website",
     locale: "en_US",

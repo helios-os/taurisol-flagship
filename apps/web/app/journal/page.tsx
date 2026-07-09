@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   description:
     "Reflections on philosophy, place, design, energy, rituals and the making of Taurisol. Field notes from Andalusia.",
   alternates: {
-    canonical: "https://taurisol.com/journal",
-    languages: { fi: "https://taurisol.com/fi/journal" },
+    canonical: "https://www.taurisol.com/journal",
+    languages: { fi: "https://www.taurisol.com/fi/journal" },
   },
 };
 

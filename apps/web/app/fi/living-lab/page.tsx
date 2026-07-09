@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   description:
     "Paikka, johon palata. Eurooppalainen malli, jota rakentaa yhdessä. Taurisol Living Lab alkaa Montefríosta, Andalusiasta — toistettava, regeneratiivinen malli Euroopalle.",
   alternates: {
-    canonical: "https://taurisol.com/fi/living-lab",
-    languages: { en: "https://taurisol.com/living-lab" },
+    canonical: "https://www.taurisol.com/fi/living-lab",
+    languages: { en: "https://www.taurisol.com/living-lab" },
   },
 };
 

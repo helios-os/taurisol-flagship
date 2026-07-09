@@ -31,9 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${category.title.en} — Taurisol Journal`,
     description: category.tagline.en,
     alternates: {
-      canonical: `https://taurisol.com/journal/${category.slug}`,
+      canonical: `https://www.taurisol.com/journal/${category.slug}`,
       languages: {
-        fi: `https://taurisol.com/fi/journal/${category.fiSlug}`,
+        fi: `https://www.taurisol.com/fi/journal/${category.fiSlug}`,
       },
     },
   };

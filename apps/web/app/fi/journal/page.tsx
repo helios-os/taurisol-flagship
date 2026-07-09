@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   description:
     "Pohdintoja filosofiasta, paikasta, designista, energiasta, rituaaleista ja Taurisoliin rakentamisesta. Kenttämuistiinpanoja Andalusiasta.",
   alternates: {
-    canonical: "https://taurisol.com/fi/journal",
-    languages: { en: "https://taurisol.com/journal" },
+    canonical: "https://www.taurisol.com/fi/journal",
+    languages: { en: "https://www.taurisol.com/journal" },
   },
 };
 

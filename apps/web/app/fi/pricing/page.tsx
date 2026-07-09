@@ -6,8 +6,8 @@ export const metadata: Metadata = {
   description:
     "Taurisol-jäsenyyden hinnoittelu — pitkäaikainen, hyväksynnänvarainen jäsenmalli yrityksille, yrittäjille ja ammattimaisille toimijoille, jotka palaavat Andalusiaan vuodesta toiseen.",
   alternates: {
-    canonical: "https://taurisol.com/fi/pricing",
-    languages: { en: "https://taurisol.com/pricing" },
+    canonical: "https://www.taurisol.com/fi/pricing",
+    languages: { en: "https://www.taurisol.com/pricing" },
   },
 };
 

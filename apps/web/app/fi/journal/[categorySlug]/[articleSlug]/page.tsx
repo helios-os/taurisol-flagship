@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${article.title} — Taurisol Journal`,
     description: article.ingress,
     alternates: {
-      canonical: `https://taurisol.com/fi/journal/${categorySlug}/${articleSlug}`,
+      canonical: `https://www.taurisol.com/fi/journal/${categorySlug}/${articleSlug}`,
     },
     openGraph: {
       title: article.title,
