@@ -1,0 +1,21 @@
+{
+  "extends": "./apps/web/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./apps/web/*"
+      ]
+    }
+  },
+  "include": [
+    "apps/web/next-env.d.ts",
+    "apps/web/**/*.ts",
+    "apps/web/**/*.tsx",
+    "packages/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "migration-source"
+  ]
+}
