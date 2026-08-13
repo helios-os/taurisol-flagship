@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
+import { CookieConsentScript } from "@/components/compliance/CookieConsentScript";
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -57,15 +57,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <Script
-          id="cookieyes"
-          src="https://cdn-cookieyes.com/client_data/2658e455fcdd83fb7a3cf109d8cefb0e/script.js"
-          strategy="beforeInteractive"
-        />
-      </head>
       <body className={`${cormorantGaramond.variable} ${inter.variable}`}>
         {children}
+        <CookieConsentScript />
       </body>
     </html>
   );
