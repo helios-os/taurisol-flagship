@@ -357,7 +357,7 @@ export default function MontefrioPage({ lang }: { lang: ProjectsLang }) {
                   </p>
 
                   <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                    <ProjectAccessDialog variant="access" lang={lang}>
+                    <ProjectAccessDialog lang={lang}>
                       <button
                         type="button"
                         className="group inline-flex w-full max-w-full items-center justify-center gap-3 rounded-[10px] bg-sun px-8 py-4 text-center text-xs font-medium uppercase tracking-[0.15em] text-shadow transition-all duration-300 hover:-translate-y-0.5 hover:bg-sun-soft hover:shadow-[0_14px_40px_-12px_var(--sun)] sm:w-auto sm:tracking-[0.25em]"
@@ -366,7 +366,7 @@ export default function MontefrioPage({ lang }: { lang: ProjectsLang }) {
                         <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
                       </button>
                     </ProjectAccessDialog>
-                    <ProjectAccessDialog variant="question" lang={lang}>
+                    <ProjectAccessDialog lang={lang}>
                       <button
                         type="button"
                         className="max-w-full text-center text-xs font-medium uppercase tracking-[0.14em] text-shadow/70 underline underline-offset-4 transition-colors hover:text-shadow sm:tracking-[0.22em]"
