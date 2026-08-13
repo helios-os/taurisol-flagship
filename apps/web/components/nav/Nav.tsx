@@ -6,6 +6,7 @@ import { useLang } from "@/components/lang-context";
 import { content, t } from "@/lib/i18n";
 import { useScrolled } from "@/components/ui/Reveal";
 import type { Lang } from "@/lib/i18n";
+import { projectNavItems, projectsOverviewLabel } from "@/components/nav/projects-menu";
 
 // Slug pairs for all 7 Taurisol Journal categories (EN ↔ FI)
 const JOURNAL_EN_TO_FI: Record<string, string> = {
@@ -125,6 +126,8 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
   const { lang, setLang } = useLang();
   const scrolledPast = useScrolled(40);
   const [open, setOpen] = useState(false);
+  const [projectsOpen, setProjectsOpen] = useState(false);
+  const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isHome = pathname === "/";
@@ -235,9 +238,68 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
             <a href={pricingHref} className={linkClass}>
               {t(content.nav.pricing, lang)}
             </a>
-            <a href={projectsHref} className={linkClass}>
-              {t(content.nav.projects, lang)}
-            </a>
+            {/* Projects — dropdown (hover + click), overview kept as a link inside */}
+            <div
+              className="relative"
+              onMouseEnter={() => setProjectsOpen(true)}
+              onMouseLeave={() => setProjectsOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setProjectsOpen((v) => !v)}
+                aria-expanded={projectsOpen}
+                aria-haspopup="true"
+                className={`${linkClass} inline-flex items-center gap-2`}
+              >
+                {t(content.nav.projects, lang)}
+                <svg
+                  width="8"
+                  height="5"
+                  viewBox="0 0 8 5"
+                  fill="none"
+                  aria-hidden="true"
+                  className={`transition-transform duration-300 ${projectsOpen ? "rotate-180" : ""}`}
+                >
+                  <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              <div
+                className={`absolute right-0 top-full pt-3 transition-all duration-300 ${
+                  projectsOpen
+                    ? "pointer-events-auto translate-y-0 opacity-100"
+                    : "pointer-events-none -translate-y-1 opacity-0"
+                }`}
+              >
+                <div className="w-[300px] overflow-hidden rounded-[14px] border border-olive-deep/15 bg-sand-light shadow-[0_28px_60px_-30px_rgba(40,30,10,0.45)]">
+                  <ul className="p-2">
+                    {projectNavItems.map((p) => (
+                      <li key={p.key}>
+                        <a
+                          href={p.href(lang)}
+                          onClick={() => setProjectsOpen(false)}
+                          className="block rounded-[10px] px-4 py-3 transition-colors duration-200 hover:bg-sun/[0.1]"
+                        >
+                          <span className="block font-serif text-[17px] leading-snug text-shadow">
+                            {p.name}
+                          </span>
+                          <span className="mt-1 block text-[11px] font-light tracking-[0.04em] text-shadow/55">
+                            {t(p.meta, lang)}
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={projectsHref}
+                    onClick={() => setProjectsOpen(false)}
+                    className="block border-t border-olive-deep/10 px-4 py-3 text-[10px] uppercase tracking-[0.25em] text-shadow/55 transition-colors duration-200 hover:bg-sun/[0.08] hover:text-shadow"
+                  >
+                    {t(projectsOverviewLabel, lang)}
+                  </a>
+                </div>
+              </div>
+            </div>
             <span className={dividerClass} aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
               <button
@@ -348,19 +410,59 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
             >
               {t(content.nav.pricing, lang)}
             </a>
-            <a
-              href={projectsHref}
-              onClick={() => setOpen(false)}
+            {/* Projects — accordion section */}
+            <div
               style={{
                 transitionDelay: `${open ? 80 + (anchorLinks.length + 2) * 45 : 0}ms`,
                 opacity: open ? 1 : 0,
                 transform: open ? "translateY(0)" : "translateY(10px)",
                 transition: "opacity 600ms ease, transform 600ms ease",
               }}
-              className="font-serif text-3xl text-sand-light hover:text-sun"
             >
-              {t(content.nav.projects, lang)}
-            </a>
+              <button
+                type="button"
+                onClick={() => setMobileProjectsOpen((v) => !v)}
+                aria-expanded={mobileProjectsOpen}
+                className="flex w-full items-center justify-between font-serif text-3xl text-sand-light hover:text-sun"
+              >
+                {t(content.nav.projects, lang)}
+                <svg
+                  width="12"
+                  height="8"
+                  viewBox="0 0 8 5"
+                  fill="none"
+                  aria-hidden="true"
+                  className={`transition-transform duration-300 ${mobileProjectsOpen ? "rotate-180" : ""}`}
+                >
+                  <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                </svg>
+              </button>
+
+              {mobileProjectsOpen && (
+                <div className="mt-3 space-y-3 border-l border-sun/30 pl-4">
+                  {projectNavItems.map((p) => (
+                    <a
+                      key={p.key}
+                      href={p.href(lang)}
+                      onClick={() => setOpen(false)}
+                      className="block"
+                    >
+                      <span className="block font-serif text-xl text-sand-light">{p.name}</span>
+                      <span className="mt-0.5 block text-[11px] font-light text-sand-light/50">
+                        {t(p.meta, lang)}
+                      </span>
+                    </a>
+                  ))}
+                  <a
+                    href={projectsHref}
+                    onClick={() => setOpen(false)}
+                    className="block text-[10px] uppercase tracking-[0.25em] text-sand-light/45"
+                  >
+                    {t(projectsOverviewLabel, lang)}
+                  </a>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Language switcher — inside overlay, below nav links */}
