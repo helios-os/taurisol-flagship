@@ -1,4 +1,4 @@
 [run]
 install = "npm install --prefix apps/web"
-dev = "npm --prefix apps/web exec -- next dev -H 0.0.0.0"
+dev = "sh -c 'cd apps/web && exec npx next dev -H 0.0.0.0 -p 8080' ignored"
 build = "npm --prefix apps/web run build"
