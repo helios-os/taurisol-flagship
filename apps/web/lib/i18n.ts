@@ -13,6 +13,7 @@ export const content = {
     journal: { en: "Journal", fi: "Uutiset" },
     pricing: { en: "Pricing", fi: "Hinnoittelu" },
     discover: { en: "Discover", fi: "Tutustu" },
+    projects: { en: "Projects", fi: "Hankkeet" },
     cta: { en: "Build With Us", fi: "Rakenna Kanssamme" },
     menu: { en: "Menu", fi: "Valikko" },
     close: { en: "Close", fi: "Sulje" },
