@@ -96,6 +96,16 @@ function pricingAltPath(pathname: string, targetLang: Lang): string | null {
   return null;
 }
 
+/**
+ * Returns the translated Projects path for the given target language,
+ * or null if the current pathname is not a Projects route.
+ */
+function projectsAltPath(pathname: string, targetLang: Lang): string | null {
+  if (pathname.startsWith("/fi/projects") && targetLang === "en") return pathname.slice(3);
+  if (pathname.startsWith("/projects") && targetLang === "fi") return `/fi${pathname}`;
+  return null;
+}
+
 export type NavVariant = "transparent" | "light" | "dark";
 
 // Desktop-only (lg:) background per variant. "transparent" is scroll-aware —
@@ -122,7 +132,10 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
 
   const handleLangSwitch = (newLang: Lang) => {
     setLang(newLang);
-    const altPath = journalAltPath(pathname, newLang) ?? pricingAltPath(pathname, newLang);
+    const altPath =
+      journalAltPath(pathname, newLang) ??
+      pricingAltPath(pathname, newLang) ??
+      projectsAltPath(pathname, newLang);
     if (altPath) router.push(altPath);
   };
 
@@ -132,7 +145,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
   const journalHref = lang === "fi" ? "/fi/journal" : "/journal";
   const pricingHref = lang === "fi" ? "/fi/pricing" : "/pricing";
   const livingLabHref = lang === "fi" ? "/fi/living-lab" : "/living-lab";
-  const discoverHref = isHome ? "#top" : "/";
+  const projectsHref = lang === "fi" ? "/fi/projects" : "/projects";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -222,8 +235,8 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
             <a href={pricingHref} className={linkClass}>
               {t(content.nav.pricing, lang)}
             </a>
-            <a href={discoverHref} className={linkClass}>
-              {t(content.nav.discover, lang)}
+            <a href={projectsHref} className={linkClass}>
+              {t(content.nav.projects, lang)}
             </a>
             <span className={dividerClass} aria-hidden="true" />
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
@@ -336,7 +349,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               {t(content.nav.pricing, lang)}
             </a>
             <a
-              href={discoverHref}
+              href={projectsHref}
               onClick={() => setOpen(false)}
               style={{
                 transitionDelay: `${open ? 80 + (anchorLinks.length + 2) * 45 : 0}ms`,
@@ -346,7 +359,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               }}
               className="font-serif text-3xl text-sand-light hover:text-sun"
             >
-              {t(content.nav.discover, lang)}
+              {t(content.nav.projects, lang)}
             </a>
           </nav>
 
