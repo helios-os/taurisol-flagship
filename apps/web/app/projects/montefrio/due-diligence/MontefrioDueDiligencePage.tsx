@@ -4,7 +4,7 @@ import { Nav } from "@/components/nav/Nav";
 import { Footer } from "@/components/footer/Footer";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProjectAccessDialog } from "@/components/projects/ProjectAccessDialog";
-import { montefrio, type ProjectsLang } from "../content";
+import { montefrio, type ProjectsLang } from "../../content";
 
 const heading = "font-serif text-2xl leading-[1.15] text-balance text-shadow md:text-4xl";
 const body = "text-base font-light leading-relaxed text-shadow/75";

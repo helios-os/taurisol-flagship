@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useState, type ReactNode, type FormEvent } from "react";
 import {
   Dialog,
@@ -14,18 +15,14 @@ import type { ProjectsLang } from "@/app/projects/content";
 const inputCls =
   "w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-ring/40";
 
-type Variant = "access" | "question";
-
 const copy = {
   en: {
     titleAccess: "Request access — Montefrío Pre-Due Diligence",
-    titleQuestion: "Ask a question about the Montefrío project",
     intro:
       "Access to the full file is granted case by case. Tell us who you are and in what capacity you are reviewing the project.",
     name: "Name",
     email: "Email",
     organisation: "Organisation",
-    country: "Country",
     roleLabel: "Your interest",
     roles: {
       founderInvestor: "Founder Investor interest",
@@ -34,37 +31,30 @@ const copy = {
       customer: "Future Taurisol user / member",
       other: "Other",
     },
-    message: "Message",
-    submit: "Send request",
+    submit: "Continue to document",
     required: "Please add your name and email.",
     legal:
       "By sending this request you agree that we may contact you about the Montefrío project. The Pre-Due Diligence file is preliminary, contains working assumptions and is not an offer, a solicitation or investment advice.",
-    success:
-      "Your email client should now be open with the request prepared. Send it and we will reply personally. If nothing opened, write to info@heliosdigitech.com.",
+    success: "Access details",
+    successIntro: "The full 30-section Pre-Due Diligence is available in the formats below.",
+    readOnline: "Read online",
+    downloadPdf: "Download PDF",
     subject: "Taurisol — Montefrío Pre-Due Diligence access request",
-    subjectQuestion: "Taurisol — Montefrío project question",
     bodyHeading: "Montefrío Pre-Due Diligence — request",
     labels: {
-      intent: "Request type",
       name: "Name",
       email: "Email",
       org: "Organisation",
-      country: "Country",
       role: "Interest",
-      message: "Message",
     },
-    intentAccess: "Full Pre-Due Diligence file access",
-    intentQuestion: "Question about the project",
   },
   fi: {
     titleAccess: "Pyydä pääsyä — Montefrío Pre-Due Diligence",
-    titleQuestion: "Kysy Montefrío-hankkeesta",
     intro:
       "Pääsy koko aineistoon myönnetään tapauskohtaisesti. Kerro kuka olet ja missä roolissa tarkastelet hanketta.",
     name: "Nimi",
     email: "Sähköposti",
     organisation: "Organisaatio",
-    country: "Maa",
     roleLabel: "Kiinnostuksesi",
     roles: {
       founderInvestor: "Founder Investor -kiinnostus",
@@ -73,37 +63,30 @@ const copy = {
       customer: "Tuleva Taurisol-käyttäjä / jäsen",
       other: "Muu",
     },
-    message: "Viesti",
-    submit: "Lähetä pyyntö",
+    submit: "Jatka aineistoon",
     required: "Lisää nimesi ja sähköpostisi.",
     legal:
       "Lähettämällä pyynnön hyväksyt, että voimme olla sinuun yhteydessä Montefrío-hankkeesta. Pre-Due Diligence -aineisto on alustava, sisältää työoletuksia eikä ole tarjous, kehotus tai sijoitusneuvo.",
-    success:
-      "Sähköpostiohjelmasi pitäisi nyt avautua valmiiksi kirjoitetulla pyynnöllä. Lähetä se, niin vastaamme henkilökohtaisesti. Jos mikään ei avautunut, kirjoita osoitteeseen info@heliosdigitech.com.",
+    success: "Pääsy aineistoon",
+    successIntro: "Täysi 30-osainen Pre-Due Diligence on saatavilla alla olevissa muodoissa.",
+    readOnline: "Lue verkossa",
+    downloadPdf: "Lataa PDF",
     subject: "Taurisol — Montefrío Pre-Due Diligence -pääsypyyntö",
-    subjectQuestion: "Taurisol — kysymys Montefrío-hankkeesta",
     bodyHeading: "Montefrío Pre-Due Diligence — pyyntö",
     labels: {
-      intent: "Pyynnön tyyppi",
       name: "Nimi",
       email: "Sähköposti",
       org: "Organisaatio",
-      country: "Maa",
       role: "Kiinnostus",
-      message: "Viesti",
     },
-    intentAccess: "Pääsy koko Pre-Due Diligence -aineistoon",
-    intentQuestion: "Kysymys hankkeesta",
   },
 } as const;
 
 export function ProjectAccessDialog({
   children,
-  variant,
   lang,
 }: {
   children: ReactNode;
-  variant: Variant;
   lang: ProjectsLang;
 }) {
   const uid = useId();
@@ -114,9 +97,7 @@ export function ProjectAccessDialog({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [organisation, setOrganisation] = useState("");
-  const [country, setCountry] = useState("");
   const [role, setRole] = useState<keyof typeof c.roles>("founderInvestor");
-  const [message, setMessage] = useState("");
   const [error, setError] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -124,9 +105,7 @@ export function ProjectAccessDialog({
     setName("");
     setEmail("");
     setOrganisation("");
-    setCountry("");
     setRole("founderInvestor");
-    setMessage("");
     setError(false);
     setSent(false);
   }
@@ -142,16 +121,13 @@ export function ProjectAccessDialog({
     const body = [
       c.bodyHeading,
       "",
-      `${c.labels.intent}: ${variant === "access" ? c.intentAccess : c.intentQuestion}`,
       `${c.labels.name}: ${name}`,
       `${c.labels.email}: ${email}`,
       `${c.labels.org}: ${organisation}`,
-      `${c.labels.country}: ${country}`,
       `${c.labels.role}: ${c.roles[role]}`,
-      `${c.labels.message}: ${message}`,
     ].join("\n");
 
-    const subject = variant === "access" ? c.subject : c.subjectQuestion;
+    const subject = c.subject;
     window.location.href = `mailto:info@heliosdigitech.com?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
@@ -170,13 +146,30 @@ export function ProjectAccessDialog({
       <DialogContent className="max-h-[90vh] max-w-xl overflow-y-auto bg-card">
         <DialogHeader>
           <DialogTitle className="font-serif text-2xl leading-snug">
-            {variant === "access" ? c.titleAccess : c.titleQuestion}
+            {sent ? c.success : c.titleAccess}
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">{c.intro}</DialogDescription>
         </DialogHeader>
 
         {sent ? (
-          <p className="py-6 text-sm leading-relaxed text-foreground">{c.success}</p>
+          <div className="grid gap-5 py-5">
+            <p className="text-sm leading-relaxed text-foreground">{c.successIntro}</p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link
+                href={lang === "fi" ? "/fi/projects/montefrio/due-diligence" : "/projects/montefrio/due-diligence"}
+                className="inline-flex min-h-12 items-center justify-center rounded-[10px] bg-sun px-5 py-3 text-center text-[11px] font-medium uppercase tracking-[0.16em] text-foreground transition-colors hover:bg-sun-soft"
+              >
+                {c.readOnline}
+              </Link>
+              <a
+                href="/documents/taurisol-montefrio-pre-due-diligence.pdf"
+                download
+                className="inline-flex min-h-12 items-center justify-center rounded-[10px] border border-sun px-5 py-3 text-center text-[11px] font-medium uppercase tracking-[0.16em] text-foreground transition-colors hover:bg-sun/[0.12]"
+              >
+                {c.downloadPdf}
+              </a>
+            </div>
+          </div>
         ) : (
           <form onSubmit={onSubmit} className="grid gap-5 pt-2" noValidate>
             <div className="grid gap-5 sm:grid-cols-2">
@@ -208,15 +201,6 @@ export function ProjectAccessDialog({
                   onChange={(e) => setOrganisation(e.target.value)}
                 />
               </Field>
-              <Field id={`${uid}-country`} label={c.country}>
-                <input
-                  id={`${uid}-country`}
-                  autoComplete="country-name"
-                  className={inputCls}
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                />
-              </Field>
             </div>
 
             <Field id={`${uid}-role`} label={c.roleLabel}>
@@ -232,16 +216,6 @@ export function ProjectAccessDialog({
                   </option>
                 ))}
               </select>
-            </Field>
-
-            <Field id={`${uid}-msg`} label={c.message}>
-              <textarea
-                id={`${uid}-msg`}
-                rows={4}
-                className={`${inputCls} resize-y`}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
             </Field>
 
             {error && <p className="text-xs text-destructive">{c.required}</p>}

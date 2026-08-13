@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { useLang } from "@/components/lang-context";
 import { content, t } from "@/lib/i18n";
 import { useScrolled } from "@/components/ui/Reveal";
@@ -275,7 +276,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
                   <ul className="p-2">
                     {projectNavItems.map((p) => (
                       <li key={p.key}>
-                        <a
+                        <Link
                           href={p.href(lang)}
                           onClick={() => setProjectsOpen(false)}
                           className="block rounded-[10px] px-4 py-3 transition-colors duration-200 hover:bg-sun/[0.1]"
@@ -286,17 +287,17 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
                           <span className="mt-1 block text-[11px] font-light tracking-[0.04em] text-shadow/55">
                             {t(p.meta, lang)}
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
-                  <a
+                  <Link
                     href={projectsHref}
                     onClick={() => setProjectsOpen(false)}
                     className="block border-t border-olive-deep/10 px-4 py-3 text-[10px] uppercase tracking-[0.25em] text-shadow/55 transition-colors duration-200 hover:bg-sun/[0.08] hover:text-shadow"
                   >
                     {t(projectsOverviewLabel, lang)}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -441,7 +442,7 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
               {mobileProjectsOpen && (
                 <div className="mt-3 space-y-3 border-l border-sun/30 pl-4">
                   {projectNavItems.map((p) => (
-                    <a
+                    <Link
                       key={p.key}
                       href={p.href(lang)}
                       onClick={() => setOpen(false)}
@@ -451,15 +452,15 @@ export function Nav({ variant = "transparent" }: { variant?: NavVariant } = {}) 
                       <span className="mt-0.5 block text-[11px] font-light text-sand-light/50">
                         {t(p.meta, lang)}
                       </span>
-                    </a>
+                    </Link>
                   ))}
-                  <a
+                  <Link
                     href={projectsHref}
                     onClick={() => setOpen(false)}
                     className="block text-[10px] uppercase tracking-[0.25em] text-sand-light/45"
                   >
                     {t(projectsOverviewLabel, lang)}
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
