@@ -1,0 +1,4 @@
+[run]
+install = "npm install --prefix apps/web"
+dev = "npm --prefix apps/web run dev -- -p 8080 -H 0.0.0.0"
+build = "npm --prefix apps/web run build"
